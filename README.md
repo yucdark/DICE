@@ -21,8 +21,7 @@ python play.py --seed 42
 想继续上次存档：
 
 ```bash
-python 幕外之骰试玩版.py --load
-```
+python play.py --load```
 
 默认存档是同目录的 `save.json`。固定 `--seed` 会得到可复现的地图和骰子序列。
 
