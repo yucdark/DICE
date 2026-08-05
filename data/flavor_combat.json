@@ -1,0 +1,285 @@
+{
+  "meta": {
+    "pack_id": "veil_dice_flavor_pack_i2",
+    "name": "幕外之骰战斗风味文本包",
+    "version": "0.2.0",
+    "language": "zh-CN",
+    "theme": "gothic_dark_fairy_tale",
+    "author": "prototype"
+  },
+  "equipment_bases": [],
+  "materials": [],
+  "affixes": [],
+  "skills": [],
+  "enemies": [],
+  "events": [],
+  "locations": [],
+  "observer_actions": [],
+  "flavor_text": [
+    {
+      "id": "flavor_i2_combat_start_01",
+      "category": "combat_start",
+      "text": "阴影中的构装体齿轮剧烈咬合，带着刺耳的蒸汽撕裂声直冲而来。",
+      "tags": [
+        "clockwork",
+        "physical"
+      ]
+    },
+    {
+      "id": "flavor_i2_combat_start_02",
+      "category": "combat_start",
+      "text": "破碎的圣像后伸出缠满绷带的手臂，冰冷的杀意撕破了死寂。",
+      "tags": [
+        "religious",
+        "danger"
+      ]
+    },
+    {
+      "id": "flavor_i2_combat_start_03",
+      "category": "combat_start",
+      "text": "泥水猛烈泼溅，潜伏在水底的异形怪物掀开铁栅跃出水面。",
+      "tags": [
+        "water",
+        "danger"
+      ]
+    },
+    {
+      "id": "flavor_i2_combat_start_04",
+      "category": "combat_start",
+      "text": "拱顶上的绞丝吊笼轰然坠落，守卫者拔出锈蚀长刃封死退路。",
+      "tags": [
+        "high_place",
+        "physical"
+      ]
+    },
+    {
+      "id": "flavor_i2_combat_start_05",
+      "category": "combat_start",
+      "text": "狂乱的孢子云雾中，干枯的身影挥舞着重型铁钳踏碎石板。",
+      "tags": [
+        "plant",
+        "physical"
+      ]
+    },
+    {
+      "id": "flavor_i2_combat_start_06",
+      "category": "combat_start",
+      "text": "墙壁上的蜡烛同时熄灭，黑暗中点亮数双散发猩红微光的眼睛。",
+      "tags": [
+        "dark",
+        "occult"
+      ]
+    },
+    {
+      "id": "flavor_i2_combat_start_07",
+      "category": "combat_start",
+      "text": "机械哨兵的玻璃眼球迸发出高压电火花，武器连轴转动撕裂空气。",
+      "tags": [
+        "clockwork",
+        "danger"
+      ]
+    },
+    {
+      "id": "flavor_i2_combat_start_08",
+      "category": "combat_start",
+      "text": "祷告台下的阴影如活物般蠕动蔓延，狂热的教徒高举铁槌扑上前。",
+      "tags": [
+        "religious",
+        "physical"
+      ]
+    },
+    {
+      "id": "flavor_i2_hit_01",
+      "category": "hit",
+      "text": "武器狠狠凿入护甲缝隙，崩碎的飞屑与黑血一同迸溅而出。",
+      "tags": [
+        "physical",
+        "danger"
+      ]
+    },
+    {
+      "id": "flavor_i2_hit_02",
+      "category": "hit",
+      "text": "攻击准确命中接合轴承，金属断裂声伴随着浓烈烟雾弥漫开来。",
+      "tags": [
+        "clockwork",
+        "physical"
+      ]
+    },
+    {
+      "id": "flavor_i2_hit_03",
+      "category": "hit",
+      "text": "钝器重重击打在胸肋部位，强烈的震荡逼得对方踉跄后退数步。",
+      "tags": [
+        "physical"
+      ]
+    },
+    {
+      "id": "flavor_i2_hit_04",
+      "category": "hit",
+      "text": "刃尖顺着甲胄划出一道深邃的创口，鲜红的液体瞬间浸透了衣襟。",
+      "tags": [
+        "physical",
+        "danger"
+      ]
+    },
+    {
+      "id": "flavor_i2_hit_05",
+      "category": "hit",
+      "text": "刺杀精准贯穿了怪物核心的防护层，电火花与油污喷涌而出。",
+      "tags": [
+        "clockwork"
+      ]
+    },
+    {
+      "id": "flavor_i2_hit_06",
+      "category": "hit",
+      "text": "猛烈的扫击掀翻了掩体，将扑来的对手重重撞倒在碎石堆中。",
+      "tags": [
+        "physical",
+        "ruin"
+      ]
+    },
+    {
+      "id": "flavor_i2_hit_07",
+      "category": "hit",
+      "text": "圣洁的破魔之力凿入躯壳，灼热的烟气从创口处滋滋升起。",
+      "tags": [
+        "holy",
+        "occult"
+      ]
+    },
+    {
+      "id": "flavor_i2_hit_08",
+      "category": "hit",
+      "text": "劲力透过防御崩碎了关节构件，对手发出沉闷而痛苦的嘶鸣。",
+      "tags": [
+        "physical"
+      ]
+    },
+    {
+      "id": "flavor_i2_miss_01",
+      "category": "miss",
+      "text": "锋刃擦着生锈的铁板划过，迸发出一串火花，却未能切入半分。",
+      "tags": [
+        "physical",
+        "clockwork"
+      ]
+    },
+    {
+      "id": "flavor_i2_miss_02",
+      "category": "miss",
+      "text": "对手敏捷地侧身避开攻击，重击落空在石柱上，炸开一片石粉。",
+      "tags": [
+        "physical",
+        "ruin"
+      ]
+    },
+    {
+      "id": "flavor_i2_miss_03",
+      "category": "miss",
+      "text": "刺杀落空，刃尖深深扎入木质长椅，拔出时耽搁了瞬间节奏。",
+      "tags": [
+        "physical",
+        "religious"
+      ]
+    },
+    {
+      "id": "flavor_i2_miss_04",
+      "category": "miss",
+      "text": "雾气与浓烟打乱了视线，这一击仅仅斩断了空中飘落的破布。",
+      "tags": [
+        "dark",
+        "physical"
+      ]
+    },
+    {
+      "id": "flavor_i2_miss_05",
+      "category": "miss",
+      "text": "机械构件突然发生不规则的收缩避让，猛烈的前刺最终滑过空气。",
+      "tags": [
+        "clockwork"
+      ]
+    },
+    {
+      "id": "flavor_i2_miss_06",
+      "category": "miss",
+      "text": "攻击被厚重的铁盾正面挡下，沉闷的弹跳力反倒震得手臂酸麻。",
+      "tags": [
+        "physical"
+      ]
+    },
+    {
+      "id": "flavor_i2_miss_07",
+      "category": "miss",
+      "text": "对手顺势倒地翻滚躲入阴影，地面只留下一道深深的划痕。",
+      "tags": [
+        "dark",
+        "physical"
+      ]
+    },
+    {
+      "id": "flavor_i2_critical_01",
+      "category": "critical",
+      "text": "致命的一击彻底劈碎了发条核心，巨型机械体在剧烈爆炸中崩解。",
+      "tags": [
+        "critical",
+        "clockwork"
+      ]
+    },
+    {
+      "id": "flavor_i2_critical_02",
+      "category": "critical",
+      "text": "武器精准穿透咽喉弱点，巨量的冲击力将对方整个人钉死在墙壁上。",
+      "tags": [
+        "critical",
+        "physical"
+      ]
+    },
+    {
+      "id": "flavor_i2_critical_03",
+      "category": "critical",
+      "text": "狂暴的砍劈将铁甲与骨骼一并斩断，撕裂性的重创让对手彻底失控。",
+      "tags": [
+        "critical",
+        "physical"
+      ]
+    },
+    {
+      "id": "flavor_i2_critical_04",
+      "category": "critical",
+      "text": "破魔的光辉在躯壳内部炸裂，异形生物在惨烈的嚎叫中化为灰烬。",
+      "tags": [
+        "critical",
+        "holy"
+      ]
+    },
+    {
+      "id": "flavor_i2_critical_05",
+      "category": "critical",
+      "text": "这一击直接挑断了主控钢丝缆绳，巨型傀儡如断线般轰然瘫倒。",
+      "tags": [
+        "critical",
+        "clockwork"
+      ]
+    },
+    {
+      "id": "flavor_i2_critical_06",
+      "category": "critical",
+      "text": "沉重的重击彻底砸塌了要害部位，残骸碎片伴随着黑血泼洒整片地面。",
+      "tags": [
+        "critical",
+        "physical"
+      ]
+    },
+    {
+      "id": "flavor_i2_critical_07",
+      "category": "critical",
+      "text": "精准的刺杀引飞了其体内的压力容器，高压气浪将四周的杂物清扫一空。",
+      "tags": [
+        "critical",
+        "fire"
+      ]
+    }
+  ]
+}

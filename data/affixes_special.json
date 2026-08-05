@@ -1,0 +1,301 @@
+{
+  "meta": {
+    "pack_id": "veil_dice_affixes_pack_c",
+    "name": "幕外之骰诅咒与奇迹词缀包",
+    "version": "0.2.0",
+    "language": "zh-CN",
+    "theme": "gothic_dark_fairy_tale",
+    "author": "prototype"
+  },
+  "equipment_bases": [],
+  "materials": [],
+  "affixes": [
+    {
+      "id": "curse_blood_offering",
+      "name": "渴血",
+      "position": "curse",
+      "rarity": "rare",
+      "description": "攻击命中时追加额外伤害，但使用者每次命中都会因伤口撕裂而陷入流血。",
+      "allowed_categories": ["light_weapon", "heavy_weapon"],
+      "effects": [
+        {"trigger": "on_hit", "operation": "bonus_die", "target": "enemy", "die": "1d6"},
+        {"trigger": "on_hit", "operation": "apply_status", "target": "self", "status": "bleed", "stacks": 1, "duration": 2}
+      ],
+      "tags": ["blood", "curse", "weapon"],
+      "power_budget": 3
+    },
+    {
+      "id": "curse_soul_drain",
+      "name": "噬魂",
+      "position": "curse",
+      "rarity": "epic",
+      "description": "使用技能时恢复专注点，但灵魂损耗会导致有几率失去命运碎片。",
+      "allowed_categories": ["focus", "accessory"],
+      "effects": [
+        {"trigger": "on_skill_use", "operation": "resource_gain", "target": "self", "resource": "focus", "value": 1},
+        {"trigger": "on_skill_use", "operation": "resource_loss", "target": "self", "resource": "fate", "value": 1, "chance": 50}
+      ],
+      "tags": ["soul", "curse", "resource"],
+      "power_budget": 4
+    },
+    {
+      "id": "curse_eye_of_the_watcher",
+      "name": "窥天",
+      "position": "curse",
+      "rarity": "rare",
+      "description": "进入新房间时揭示内部威胁，但频繁的窥探会吸引幕外观测者的注视。",
+      "allowed_categories": ["accessory"],
+      "effects": [
+        {"trigger": "on_enter_room", "operation": "reveal", "target": "current_room", "value": 1},
+        {"trigger": "on_enter_room", "operation": "resource_gain", "target": "world", "resource": "attention", "value": 1}
+      ],
+      "tags": ["vision", "curse", "observer"],
+      "power_budget": 2
+    },
+    {
+      "id": "curse_mad_whisper",
+      "name": "狂语",
+      "position": "curse",
+      "rarity": "rare",
+      "description": "极大提升洞察力，但脑海中残留的耳语有概率在每回合开始时引发恐惧。",
+      "allowed_categories": ["garment", "accessory"],
+      "effects": [
+        {"trigger": "passive", "operation": "stat_mod", "target": "self", "stat": "insight", "value": 2},
+        {"trigger": "turn_start", "operation": "apply_status", "target": "self", "status": "fear", "stacks": 1, "duration": 1, "chance": 30}
+      ],
+      "tags": ["mind", "curse", "stat"],
+      "power_budget": 3
+    },
+    {
+      "id": "curse_bell_of_summoning",
+      "name": "招魂",
+      "position": "curse",
+      "rarity": "epic",
+      "description": "战斗开始时生成坚固护盾，但沉重的祷告声会立刻吸引新的敌人赶来。",
+      "allowed_categories": ["accessory"],
+      "effects": [
+        {"trigger": "on_combat_start", "operation": "shield", "target": "self", "value": 8},
+        {"trigger": "on_combat_start", "operation": "spawn", "target": "current_room", "value": 1}
+      ],
+      "tags": ["summon", "curse", "shield"],
+      "power_budget": 5
+    },
+    {
+      "id": "curse_shackles_of_might",
+      "name": "蛮暴",
+      "position": "curse",
+      "rarity": "uncommon",
+      "description": "大幅提高力量基础，但笨重僵硬的体态会导致灵巧降低。",
+      "allowed_categories": ["heavy_armor", "heavy_weapon"],
+      "effects": [
+        {"trigger": "passive", "operation": "stat_mod", "target": "self", "stat": "might", "value": 2},
+        {"trigger": "passive", "operation": "stat_mod", "target": "self", "stat": "finesse", "value": -1}
+      ],
+      "tags": ["might", "curse", "stat"],
+      "power_budget": 1
+    },
+    {
+      "id": "curse_shattered_shield",
+      "name": "蚀骨",
+      "position": "curse",
+      "rarity": "rare",
+      "description": "提供稳定的伤害减免，但受到伤害时容易因冲击陷入失衡状态。",
+      "allowed_categories": ["heavy_armor", "light_armor"],
+      "effects": [
+        {"trigger": "passive", "operation": "damage_reduction", "target": "self", "value": 3},
+        {"trigger": "on_damaged", "operation": "apply_status", "target": "self", "status": "stagger", "stacks": 1, "duration": 1}
+      ],
+      "tags": ["defense", "curse", "armor"],
+      "power_budget": 3
+    },
+    {
+      "id": "curse_greedy_pact",
+      "name": "贪婪",
+      "position": "curse",
+      "rarity": "epic",
+      "description": "击杀敌人可获得命运碎片，但沾染的血腥味会使自身立刻被标记。",
+      "allowed_categories": ["accessory"],
+      "effects": [
+        {"trigger": "on_kill", "operation": "resource_gain", "target": "self", "resource": "fate", "value": 1},
+        {"trigger": "on_kill", "operation": "apply_status", "target": "self", "status": "mark", "stacks": 1, "duration": 2}
+      ],
+      "tags": ["greed", "curse", "fate"],
+      "power_budget": 4
+    },
+    {
+      "id": "curse_witch_flame",
+      "name": "巫火",
+      "position": "curse",
+      "rarity": "rare",
+      "description": "暴击时能对敌人施加剧烈燃烧，但余火同时也会反噬自身。",
+      "allowed_categories": ["focus"],
+      "effects": [
+        {"trigger": "on_crit", "operation": "apply_status", "target": "enemy", "status": "burn", "stacks": 2, "duration": 2},
+        {"trigger": "on_crit", "operation": "apply_status", "target": "self", "status": "burn", "stacks": 1, "duration": 2}
+      ],
+      "tags": ["fire", "curse", "elemental"],
+      "power_budget": 2
+    },
+    {
+      "id": "curse_decayed_crown",
+      "name": "朽冠",
+      "position": "curse",
+      "rarity": "relic",
+      "description": "回合开始时恢复生命值，但头戴诅咒冠冕会使所有技能检定陷入劣势。",
+      "allowed_categories": ["accessory"],
+      "effects": [
+        {"trigger": "turn_start", "operation": "heal", "target": "self", "value": 3},
+        {"trigger": "on_check", "operation": "disadvantage", "target": "current_check"}
+      ],
+      "tags": ["relic", "curse", "heal"],
+      "power_budget": 6
+    },
+    {
+      "id": "curse_bone_whistle",
+      "name": "骨笛",
+      "position": "curse",
+      "rarity": "uncommon",
+      "description": "战斗开始时获得短暂护佑，但笛声止息后会因精神透支失去专注。",
+      "allowed_categories": ["accessory", "focus"],
+      "effects": [
+        {"trigger": "on_combat_start", "operation": "apply_status", "target": "self", "status": "ward", "stacks": 1, "duration": 2},
+        {"trigger": "on_combat_end", "operation": "resource_loss", "target": "self", "resource": "focus", "value": 1}
+      ],
+      "tags": ["sound", "curse", "ward"],
+      "power_budget": 1
+    },
+    {
+      "id": "curse_poison_spike",
+      "name": "毒刺",
+      "position": "curse",
+      "rarity": "rare",
+      "description": "格挡成功后反击敌人，但带毒的刺棘同样会使自身陷入中毒状态。",
+      "allowed_categories": ["shield", "light_armor"],
+      "effects": [
+        {"trigger": "on_block", "operation": "counterattack", "target": "attacker", "value": 4},
+        {"trigger": "on_block", "operation": "apply_status", "target": "self", "status": "poison", "stacks": 1, "duration": 2}
+      ],
+      "tags": ["poison", "curse", "counter"],
+      "power_budget": 3
+    },
+    {
+      "id": "miracle_martyr_grace",
+      "name": "殉道之恩",
+      "position": "miracle",
+      "rarity": "epic",
+      "description": "在生命值极低时触发强力护盾与护佑，但强行催动力量会消耗专注点。",
+      "allowed_categories": ["garment", "accessory"],
+      "effects": [
+        {"trigger": "on_low_hp", "operation": "shield", "target": "self", "value": 12},
+        {"trigger": "on_low_hp", "operation": "apply_status", "target": "self", "status": "ward", "stacks": 2, "duration": 2},
+        {"trigger": "on_low_hp", "operation": "resource_loss", "target": "self", "resource": "focus", "value": 2}
+      ],
+      "tags": ["holy", "miracle", "crisis"],
+      "power_budget": 6
+    },
+    {
+      "id": "miracle_radiant_verdict",
+      "name": "光芒裁决",
+      "position": "miracle",
+      "rarity": "relic",
+      "description": "暴击时对敌人降下光芒裁决追加巨额伤害，但每次裁决都需要消耗专注点。",
+      "allowed_categories": ["heavy_weapon", "focus"],
+      "effects": [
+        {"trigger": "on_crit", "operation": "bonus_die", "target": "enemy", "die": "2d6"},
+        {"trigger": "on_crit", "operation": "resource_loss", "target": "self", "resource": "focus", "value": 1}
+      ],
+      "tags": ["holy", "miracle", "crit"],
+      "power_budget": 8
+    },
+    {
+      "id": "miracle_divine_barrier",
+      "name": "天降圣障",
+      "position": "miracle",
+      "rarity": "epic",
+      "description": "战斗开始时获得强力护佑保护，但圣障凝聚的瞬间会使自身陷入短暂失衡。",
+      "allowed_categories": ["shield", "heavy_armor"],
+      "effects": [
+        {"trigger": "on_combat_start", "operation": "apply_status", "target": "self", "status": "ward", "stacks": 3, "duration": 2},
+        {"trigger": "on_combat_start", "operation": "apply_status", "target": "self", "status": "stagger", "stacks": 1, "duration": 1}
+      ],
+      "tags": ["holy", "miracle", "ward"],
+      "power_budget": 5
+    },
+    {
+      "id": "miracle_second_wind",
+      "name": "绝地逆风",
+      "position": "miracle",
+      "rarity": "rare",
+      "description": "检定失败时可以获得一次重掷，但重新尝试必定消耗专注点。",
+      "allowed_categories": ["garment", "accessory"],
+      "effects": [
+        {"trigger": "on_check_fail", "operation": "reroll", "target": "current_check", "value": 1},
+        {"trigger": "on_check_fail", "operation": "resource_loss", "target": "self", "resource": "focus", "value": 1}
+      ],
+      "tags": ["reroll", "miracle", "check"],
+      "power_budget": 4
+    },
+    {
+      "id": "miracle_executioner_blessing",
+      "name": "处刑洗礼",
+      "position": "miracle",
+      "rarity": "epic",
+      "description": "击杀敌人后恢复自身生命值，并借死者余威对随机敌人施加恐惧。",
+      "allowed_categories": ["heavy_weapon", "light_weapon"],
+      "effects": [
+        {"trigger": "on_kill", "operation": "heal", "target": "self", "value": 5},
+        {"trigger": "on_kill", "operation": "apply_status", "target": "random_enemy", "status": "fear", "stacks": 1, "duration": 1}
+      ],
+      "tags": ["kill", "miracle", "heal"],
+      "power_budget": 6
+    },
+    {
+      "id": "miracle_observer_sanctuary",
+      "name": "观照圣所",
+      "position": "miracle",
+      "rarity": "relic",
+      "description": "战斗结束时能借圣所之力恢复生命，但异象会使世界注视度上升。",
+      "allowed_categories": ["accessory"],
+      "effects": [
+        {"trigger": "on_combat_end", "operation": "heal", "target": "self", "value": 4},
+        {"trigger": "on_combat_end", "operation": "resource_gain", "target": "world", "resource": "attention", "value": 1}
+      ],
+      "tags": ["relic", "miracle", "heal"],
+      "power_budget": 7
+    },
+    {
+      "id": "miracle_iron_resolve",
+      "name": "钢铁执念",
+      "position": "miracle",
+      "rarity": "rare",
+      "description": "每回合开始时获得一层短暂护佑，但维持专注姿态有概率消耗专注点。",
+      "allowed_categories": ["heavy_armor", "shield"],
+      "effects": [
+        {"trigger": "turn_start", "operation": "apply_status", "target": "self", "status": "ward", "stacks": 1, "duration": 1},
+        {"trigger": "turn_start", "operation": "resource_loss", "target": "self", "resource": "focus", "value": 1, "chance": 40}
+      ],
+      "tags": ["defense", "miracle", "ward"],
+      "power_budget": 4
+    },
+    {
+      "id": "miracle_epiphany_light",
+      "name": "顿悟之光",
+      "position": "miracle",
+      "rarity": "epic",
+      "description": "检定成功时获得额外专注点，但顿悟瞬间会暴露自身并使自身被标记。",
+      "allowed_categories": ["focus", "accessory"],
+      "effects": [
+        {"trigger": "on_check_success", "operation": "resource_gain", "target": "self", "resource": "focus", "value": 1},
+        {"trigger": "on_check_success", "operation": "apply_status", "target": "self", "status": "mark", "stacks": 1, "duration": 1}
+      ],
+      "tags": ["focus", "miracle", "check"],
+      "power_budget": 5
+    }
+  ],
+  "skills": [],
+  "enemies": [],
+  "events": [],
+  "locations": [],
+  "observer_actions": [],
+  "flavor_text": []
+}

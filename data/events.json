@@ -1,0 +1,2559 @@
+{
+  "meta": {
+    "pack_id": "veil_dice_events_pack_f",
+    "name": "幕外之骰随机事件包",
+    "version": "0.2.0",
+    "language": "zh-CN",
+    "theme": "gothic_dark_fairy_tale",
+    "author": "prototype"
+  },
+  "equipment_bases": [],
+  "materials": [],
+  "affixes": [],
+  "skills": [],
+  "enemies": [],
+  "events": [
+    {
+      "id": "event_abandoned_observatory",
+      "name": "荒废观象台",
+      "description": "高塔顶端的黄铜巨镜已被灰烬覆盖，镜筒内隐约传来金属齿轮咬合的摩擦声。",
+      "room_tags_any": [
+        "high_place",
+        "ruin"
+      ],
+      "choices": [
+        {
+          "id": "choice_repair_telescope",
+          "text": "拭去灰烬并校准透镜",
+          "check": {
+            "stat": "insight",
+            "dc": 11,
+            "mode": "normal"
+          },
+          "outcomes": [
+            {
+              "result": "success",
+              "text": "你理清了复杂的镜片结构，透过观象镜看清了前方迷雾中的暗道。",
+              "weight": 100,
+              "effects": [
+                {
+                  "trigger": "on_event_resolve",
+                  "operation": "resource_gain",
+                  "target": "self",
+                  "resource": "focus",
+                  "value": 2
+                }
+              ],
+              "set_flags": [
+                "flag_telescope_repaired"
+              ],
+              "reward_tags": [
+                "refraction_crystal"
+              ]
+            },
+            {
+              "result": "failure",
+              "text": "镜片突然折射出异样的虚空强光，你的视线一片惨白，精神备受震慑。",
+              "weight": 100,
+              "effects": [
+                {
+                  "trigger": "on_event_resolve",
+                  "operation": "apply_status",
+                  "target": "self",
+                  "status": "fear",
+                  "stacks": 1,
+                  "duration": 2
+                }
+              ],
+              "set_flags": []
+            }
+          ]
+        },
+        {
+          "id": "choice_clockwork_tune",
+          "text": "利用发条技巧快速调试",
+          "requirements_all": [
+            "clockwork"
+          ],
+          "outcomes": [
+            {
+              "result": "automatic",
+              "text": "借由对机械构造的熟稔，你轻巧地拔出了卡住的螺栓，观象台重获新生。",
+              "weight": 100,
+              "effects": [
+                {
+                  "trigger": "on_event_resolve",
+                  "operation": "resource_gain",
+                  "target": "self",
+                  "resource": "focus",
+                  "value": 1
+                }
+              ],
+              "set_flags": [
+                "flag_telescope_repaired"
+              ],
+              "reward_tags": [
+                "clockwork_gear"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "choice_leave_observatory",
+          "text": "绕过高塔避免招惹异响",
+          "cost_effects": [
+            {
+              "trigger": "on_event_resolve",
+              "operation": "resource_gain",
+              "target": "world",
+              "resource": "attention",
+              "value": 1
+            }
+          ],
+          "outcomes": [
+            {
+              "result": "automatic",
+              "text": "你选择从塔外陡峭的盘旋阶梯绕行，多花了不少时间并弄响了碎石。",
+              "weight": 100,
+              "effects": [
+                {
+                  "trigger": "on_event_resolve",
+                  "operation": "resource_loss",
+                  "target": "self",
+                  "resource": "focus",
+                  "value": 1
+                }
+              ],
+              "set_flags": []
+            }
+          ]
+        }
+      ],
+      "weight": 45,
+      "unique": false,
+      "tags": [
+        "event",
+        "high_place",
+        "ruin"
+      ]
+    },
+    {
+      "id": "event_drowned_confessional",
+      "name": "水淹忏悔室",
+      "description": "沉没在半米深积水中的木质告解室，格栅后不断冒出带有腥味的白泡。",
+      "room_tags_any": [
+        "water",
+        "religious"
+      ],
+      "choices": [
+        {
+          "id": "choice_listen_confession",
+          "text": "贴近告解格栅聆听遗言",
+          "check": {
+            "stat": "will",
+            "dc": 12,
+            "mode": "normal"
+          },
+          "outcomes": [
+            {
+              "result": "success",
+              "text": "你抵受住了绝望的心智冲击，从溺死者的呓语中听出了危险仪式的位置。",
+              "weight": 100,
+              "effects": [
+                {
+                  "trigger": "on_event_resolve",
+                  "operation": "resource_gain",
+                  "target": "self",
+                  "resource": "focus",
+                  "value": 2
+                }
+              ],
+              "set_flags": [
+                "flag_confessor_secret_known"
+              ]
+            },
+            {
+              "result": "failure",
+              "text": "格栅后猛然伸出冰冷的手抓住了你，冰水呛入肺部。",
+              "weight": 100,
+              "effects": [
+                {
+                  "trigger": "on_event_resolve",
+                  "operation": "damage",
+                  "target": "self",
+                  "value": 4
+                },
+                {
+                  "trigger": "on_event_resolve",
+                  "operation": "apply_status",
+                  "target": "self",
+                  "status": "fear",
+                  "stacks": 1,
+                  "duration": 2
+                }
+              ],
+              "set_flags": []
+            }
+          ]
+        },
+        {
+          "id": "choice_force_open_door",
+          "text": "用蛮力撞开沉重的淹水木门",
+          "check": {
+            "stat": "might",
+            "dc": 10,
+            "mode": "normal"
+          },
+          "outcomes": [
+            {
+              "result": "success",
+              "text": "木门被猛然撞碎，积水轰然涌出，露出了藏在里面的圣物遗存。",
+              "weight": 100,
+              "effects": [
+                {
+                  "trigger": "on_event_resolve",
+                  "operation": "damage",
+                  "target": "self",
+                  "value": 1
+                }
+              ],
+              "set_flags": [],
+              "reward_tags": [
+                "holy_relic"
+              ]
+            },
+            {
+              "result": "failure",
+              "text": "木门纹丝不动，反作用力震得你手臂酸麻失衡。",
+              "weight": 100,
+              "effects": [
+                {
+                  "trigger": "on_event_resolve",
+                  "operation": "apply_status",
+                  "target": "self",
+                  "status": "stagger",
+                  "stacks": 1,
+                  "duration": 1
+                }
+              ],
+              "set_flags": []
+            }
+          ]
+        },
+        {
+          "id": "choice_distant_prayer",
+          "text": "隔水向圣像默祷后离开",
+          "cost_effects": [
+            {
+              "trigger": "on_event_resolve",
+              "operation": "resource_loss",
+              "target": "self",
+              "resource": "focus",
+              "value": 1
+            }
+          ],
+          "outcomes": [
+            {
+              "result": "automatic",
+              "text": "你的虔诚得到了微弱的回应，身上凝聚起一层薄薄的庇护之光。",
+              "weight": 100,
+              "effects": [
+                {
+                  "trigger": "on_event_resolve",
+                  "operation": "apply_status",
+                  "target": "self",
+                  "status": "ward",
+                  "stacks": 1,
+                  "duration": 2
+                }
+              ],
+              "set_flags": []
+            }
+          ]
+        }
+      ],
+      "weight": 30,
+      "unique": true,
+      "tags": [
+        "event",
+        "water",
+        "religious"
+      ]
+    },
+    {
+      "id": "event_rust_merchant_wagon",
+      "name": "锈蚀货郎车",
+      "description": "一辆倾覆在泥泞废墟中的货车，戴着铁面具的行商正用骨制天平称量残渣。",
+      "room_tags_any": [
+        "outdoor",
+        "ruin"
+      ],
+      "choices": [
+        {
+          "id": "choice_trade_blood",
+          "text": "献出鲜血换取神秘药剂",
+          "cost_effects": [
+            {
+              "trigger": "on_event_resolve",
+              "operation": "damage",
+              "target": "self",
+              "value": 4
+            }
+          ],
+          "outcomes": [
+            {
+              "result": "automatic",
+              "text": "面具行商满意地收下血样，推给你一瓶散发异香的炼金试剂。",
+              "weight": 100,
+              "effects": [],
+              "set_flags": [
+                "flag_traded_with_rust_merchant"
+              ],
+              "reward_tags": [
+                "alchemy_vial"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "choice_haggle_goods",
+          "text": "试图看清货堆并讨价还价",
+          "check": {
+            "stat": "finesse",
+            "dc": 11,
+            "mode": "normal"
+          },
+          "outcomes": [
+            {
+              "result": "success",
+              "text": "你从残破货堆中顺手牵羊拿走了一件精密的机械零件。",
+              "weight": 100,
+              "effects": [
+                {
+                  "trigger": "on_event_resolve",
+                  "operation": "resource_gain",
+                  "target": "self",
+                  "resource": "focus",
+                  "value": 1
+                }
+              ],
+              "set_flags": [],
+              "reward_tags": [
+                "precision_gear"
+              ]
+            },
+            {
+              "result": "failure",
+              "text": "行商发现了你的小动作，用尖锐的铁杖将你驱赶出来。",
+              "weight": 100,
+              "effects": [
+                {
+                  "trigger": "on_event_resolve",
+                  "operation": "resource_gain",
+                  "target": "world",
+                  "resource": "attention",
+                  "value": 1
+                },
+                {
+                  "trigger": "on_event_resolve",
+                  "operation": "resource_loss",
+                  "target": "self",
+                  "resource": "focus",
+                  "value": 1
+                }
+              ],
+              "set_flags": []
+            }
+          ]
+        },
+        {
+          "id": "choice_bypass_wagon",
+          "text": "穿过两侧荆棘丛绕开货车",
+          "outcomes": [
+            {
+              "result": "automatic",
+              "text": "为了避开可疑的行商，你踏入了密布的刺藤，衣服和皮肤被多处划伤。",
+              "weight": 100,
+              "effects": [
+                {
+                  "trigger": "on_event_resolve",
+                  "operation": "damage",
+                  "target": "self",
+                  "value": 2
+                },
+                {
+                  "trigger": "on_event_resolve",
+                  "operation": "apply_status",
+                  "target": "self",
+                  "status": "bleed",
+                  "stacks": 1,
+                  "duration": 1
+                }
+              ],
+              "set_flags": []
+            }
+          ]
+        }
+      ],
+      "weight": 30,
+      "unique": true,
+      "tags": [
+        "event",
+        "outdoor",
+        "ruin"
+      ]
+    },
+    {
+      "id": "event_weeping_fountain",
+      "name": "哭泣泉眼",
+      "description": "雕刻着无脸圣女的石喷泉，清澈的水流从圣女眼眶不断流出，散发出冰冷的气息。",
+      "room_tags_any": [
+        "water",
+        "anomaly"
+      ],
+      "choices": [
+        {
+          "id": "choice_drink_fountain",
+          "text": "畅饮喷泉中冰冷的圣水",
+          "check": {
+            "stat": "will",
+            "dc": 10,
+            "mode": "normal"
+          },
+          "outcomes": [
+            {
+              "result": "success",
+              "text": "泉水洗涤了身上的伤痛，你感到了久违的宁静与充沛活力。",
+              "weight": 100,
+              "effects": [
+                {
+                  "trigger": "on_event_resolve",
+                  "operation": "heal",
+                  "target": "self",
+                  "value": 6
+                }
+              ],
+              "set_flags": [
+                "flag_drank_fountain_water"
+              ]
+            },
+            {
+              "result": "failure",
+              "text": "泉水入口如刀割般剧痛，你的内脏被剧烈毒素侵蚀。",
+              "weight": 100,
+              "effects": [
+                {
+                  "trigger": "on_event_resolve",
+                  "operation": "apply_status",
+                  "target": "self",
+                  "status": "poison",
+                  "stacks": 2,
+                  "duration": 2
+                }
+              ],
+              "set_flags": []
+            }
+          ]
+        },
+        {
+          "id": "choice_recite_secret",
+          "text": "向泉水背诵淹水告解者的秘密",
+          "requirements_all": [
+            "flag_confessor_secret_known"
+          ],
+          "outcomes": [
+            {
+              "result": "automatic",
+              "text": "听到秘密后圣女雕像停止了哭泣，泉水泛出金光，完全清除了你体内的毒素与伤痛。",
+              "weight": 100,
+              "effects": [
+                {
+                  "trigger": "on_event_resolve",
+                  "operation": "heal",
+                  "target": "self",
+                  "value": 8
+                },
+                {
+                  "trigger": "on_event_resolve",
+                  "operation": "remove_status",
+                  "target": "self",
+                  "status": "poison"
+                }
+              ],
+              "set_flags": []
+            }
+          ]
+        },
+        {
+          "id": "choice_purify_fountain",
+          "text": "投入专注力净化泉眼底部的污秽",
+          "cost_effects": [
+            {
+              "trigger": "on_event_resolve",
+              "operation": "resource_loss",
+              "target": "self",
+              "resource": "focus",
+              "value": 1
+            }
+          ],
+          "outcomes": [
+            {
+              "result": "automatic",
+              "text": "泉眼被短暂净化，凝聚出一层守护屏障将你包裹。",
+              "weight": 100,
+              "effects": [
+                {
+                  "trigger": "on_event_resolve",
+                  "operation": "apply_status",
+                  "target": "self",
+                  "status": "ward",
+                  "stacks": 1,
+                  "duration": 2
+                }
+              ],
+              "set_flags": [
+                "flag_fountain_purified"
+              ]
+            }
+          ]
+        }
+      ],
+      "weight": 30,
+      "unique": true,
+      "tags": [
+        "event",
+        "water",
+        "anomaly"
+      ]
+    },
+    {
+      "id": "event_clockwork_bird_cage",
+      "name": "鸣钟鸟笼",
+      "description": "悬挂在走廊中央的精致铁笼，里面装有一只不断报时的发条鸟，钟声正引来远处的骚动。",
+      "room_tags_any": [
+        "indoor",
+        "anomaly"
+      ],
+      "choices": [
+        {
+          "id": "choice_pick_cage_lock",
+          "text": "精细拆卸鸟笼底部的发条锁",
+          "check": {
+            "stat": "finesse",
+            "dc": 12,
+            "mode": "normal"
+          },
+          "outcomes": [
+            {
+              "result": "success",
+              "text": "你成功卸下了发条鸟的核心齿轮，钟声戛然而止，获得珍贵材质。",
+              "weight": 100,
+              "effects": [
+                {
+                  "trigger": "on_event_resolve",
+                  "operation": "resource_gain",
+                  "target": "self",
+                  "resource": "focus",
+                  "value": 1
+                }
+              ],
+              "set_flags": [],
+              "reward_tags": [
+                "brass_feather"
+              ]
+            },
+            {
+              "result": "failure",
+              "text": "弹簧机制突然弹开，尖锐的金属片割伤了你的手掌。",
+              "weight": 100,
+              "effects": [
+                {
+                  "trigger": "on_event_resolve",
+                  "operation": "damage",
+                  "target": "self",
+                  "value": 3
+                },
+                {
+                  "trigger": "on_event_resolve",
+                  "operation": "apply_status",
+                  "target": "self",
+                  "status": "bleed",
+                  "stacks": 1,
+                  "duration": 2
+                }
+              ],
+              "set_flags": []
+            }
+          ]
+        },
+        {
+          "id": "choice_smash_cage",
+          "text": "使用重型武器砸碎铁籠",
+          "requirements_all": [
+            "heavy"
+          ],
+          "check": {
+            "stat": "might",
+            "dc": 10,
+            "mode": "normal"
+          },
+          "outcomes": [
+            {
+              "result": "success",
+              "text": "铁笼被一击粉碎，机械鸟变为一堆有用的金属碎片。",
+              "weight": 100,
+              "effects": [],
+              "set_flags": [],
+              "reward_tags": [
+                "scrap_metal"
+              ]
+            },
+            {
+              "result": "failure",
+              "text": "金属反弹力震退了你，巨大的撞击声在走廊中轰鸣回响。",
+              "weight": 100,
+              "effects": [
+                {
+                  "trigger": "on_event_resolve",
+                  "operation": "apply_status",
+                  "target": "self",
+                  "status": "stagger",
+                  "stacks": 1,
+                  "duration": 1
+                },
+                {
+                  "trigger": "on_event_resolve",
+                  "operation": "resource_gain",
+                  "target": "world",
+                  "resource": "attention",
+                  "value": 2
+                }
+              ],
+              "set_flags": []
+            }
+          ]
+        },
+        {
+          "id": "choice_ignore_ticking",
+          "text": "硬着头皮从鸟笼下方快步疾奔",
+          "cost_effects": [
+            {
+              "trigger": "on_event_resolve",
+              "operation": "resource_gain",
+              "target": "world",
+              "resource": "attention",
+              "value": 1
+            }
+          ],
+          "outcomes": [
+            {
+              "result": "automatic",
+              "text": "你强忍着刺耳的钟鸣冲过走廊，心神受到了极大的干扰。",
+              "weight": 100,
+              "effects": [
+                {
+                  "trigger": "on_event_resolve",
+                  "operation": "resource_loss",
+                  "target": "self",
+                  "resource": "focus",
+                  "value": 1
+                }
+              ],
+              "set_flags": []
+            }
+          ]
+        }
+      ],
+      "weight": 45,
+      "unique": false,
+      "tags": [
+        "event",
+        "indoor",
+        "anomaly"
+      ]
+    },
+    {
+      "id": "event_bleeding_fresco",
+      "name": "渗血壁画",
+      "description": "修道院墙壁上描绘着赎罪仪式的巨幅壁画，画中人的伤口正源源不断渗出新鲜血液。",
+      "room_tags_any": [
+        "religious",
+        "indoor"
+      ],
+      "choices": [
+        {
+          "id": "choice_scrape_blood",
+          "text": "刮取干涸的结痂血液研究",
+          "check": {
+            "stat": "insight",
+            "dc": 11,
+            "mode": "normal"
+          },
+          "outcomes": [
+            {
+              "result": "success",
+              "text": "你辨识出了血液中残留的神圣粉尘，小心翼翼地收集起来。",
+              "weight": 100,
+              "effects": [],
+              "set_flags": [
+                "flag_fresco_scraped"
+              ],
+              "reward_tags": [
+                "sacred_dust"
+              ]
+            },
+            {
+              "result": "failure",
+              "text": "壁画中的眼睛仿佛转动了一下，恐怖的幻象直冲你的脑海。",
+              "weight": 100,
+              "effects": [
+                {
+                  "trigger": "on_event_resolve",
+                  "operation": "apply_status",
+                  "target": "self",
+                  "status": "fear",
+                  "stacks": 1,
+                  "duration": 2
+                }
+              ],
+              "set_flags": []
+            }
+          ]
+        },
+        {
+          "id": "choice_burn_fresco",
+          "text": "用火把焚烧异端壁画",
+          "cost_effects": [
+            {
+              "trigger": "on_event_resolve",
+              "operation": "resource_loss",
+              "target": "self",
+              "resource": "focus",
+              "value": 1
+            }
+          ],
+          "outcomes": [
+            {
+              "result": "automatic",
+              "text": "火焰将壁画化为灰烬，浓烟滚滚升起，引起了远处敌人的注意。",
+              "weight": 100,
+              "effects": [
+                {
+                  "trigger": "on_event_resolve",
+                  "operation": "resource_gain",
+                  "target": "world",
+                  "resource": "attention",
+                  "value": 2
+                }
+              ],
+              "set_flags": [
+                "flag_fresco_burned"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "choice_cover_eyes_pass",
+          "text": "闭上眼睛靠着墙壁缓缓挪过去",
+          "outcomes": [
+            {
+              "result": "automatic",
+              "text": "在黑暗中摸索让你精神高度紧张，甚至不小心磕伤了膝盖。",
+              "weight": 100,
+              "effects": [
+                {
+                  "trigger": "on_event_resolve",
+                  "operation": "damage",
+                  "target": "self",
+                  "value": 1
+                },
+                {
+                  "trigger": "on_event_resolve",
+                  "operation": "resource_loss",
+                  "target": "self",
+                  "resource": "focus",
+                  "value": 1
+                }
+              ],
+              "set_flags": []
+            }
+          ]
+        }
+      ],
+      "weight": 30,
+      "unique": true,
+      "tags": [
+        "event",
+        "religious",
+        "indoor"
+      ]
+    },
+    {
+      "id": "event_submerged_crypt",
+      "name": "淹没地穴",
+      "description": "半塌陷的地下墓室已经被浑浊的地下水淹没，水面下隐约闪烁着石刻的光芒。",
+      "room_tags_any": [
+        "underground",
+        "water"
+      ],
+      "choices": [
+        {
+          "id": "choice_dive_cold_water",
+          "text": "潜入冰冷刺骨的水中搜寻",
+          "check": {
+            "stat": "might",
+            "dc": 12,
+            "mode": "normal"
+          },
+          "outcomes": [
+            {
+              "result": "success",
+              "text": "你强忍着寒冷潜入水底，捞出了被水流冲刷光滑的雕刻石块。",
+              "weight": 100,
+              "effects": [],
+              "set_flags": [],
+              "reward_tags": [
+                "carved_stone"
+              ]
+            },
+            {
+              "result": "failure",
+              "text": "水下抽筋迫使你仓皇逃回岸上，浑身冻得发抖失衡。",
+              "weight": 100,
+              "effects": [
+                {
+                  "trigger": "on_event_resolve",
+                  "operation": "damage",
+                  "target": "self",
+                  "value": 4
+                },
+                {
+                  "trigger": "on_event_resolve",
+                  "operation": "apply_status",
+                  "target": "self",
+                  "status": "stagger",
+                  "stacks": 1,
+                  "duration": 1
+                }
+              ],
+              "set_flags": []
+            }
+          ]
+        },
+        {
+          "id": "choice_probe_with_tool",
+          "text": "用长杆工具在岸边小心打捞",
+          "check": {
+            "stat": "insight",
+            "dc": 10,
+            "mode": "normal"
+          },
+          "outcomes": [
+            {
+              "result": "success",
+              "text": "你精明地钩住了一包沉在淤泥里的物资。",
+              "weight": 100,
+              "effects": [
+                {
+                  "trigger": "on_event_resolve",
+                  "operation": "resource_gain",
+                  "target": "self",
+                  "resource": "focus",
+                  "value": 1
+                }
+              ],
+              "set_flags": []
+            },
+            {
+              "result": "failure",
+              "text": "打捞工具滑落水中，剧烈的涟漪暴露了你的位置。",
+              "weight": 100,
+              "effects": [
+                {
+                  "trigger": "on_event_resolve",
+                  "operation": "resource_gain",
+                  "target": "world",
+                  "resource": "attention",
+                  "value": 1
+                }
+              ],
+              "set_flags": []
+            }
+          ]
+        },
+        {
+          "id": "choice_drain_canal_lever",
+          "text": "强行拉动生锈的排水阀门",
+          "cost_effects": [
+            {
+              "trigger": "on_event_resolve",
+              "operation": "damage",
+              "target": "self",
+              "value": 2
+            }
+          ],
+          "outcomes": [
+            {
+              "result": "automatic",
+              "text": "随着生锈齿轮的轰鸣，地穴的水位开始缓缓下降，露出了下层的通路。",
+              "weight": 100,
+              "effects": [],
+              "set_flags": [
+                "flag_crypt_drained"
+              ]
+            }
+          ]
+        }
+      ],
+      "weight": 30,
+      "unique": true,
+      "tags": [
+        "event",
+        "underground",
+        "water"
+      ]
+    },
+    {
+      "id": "event_gallows_tree",
+      "name": "绞刑架古木",
+      "description": "荒野中央生长着一棵巨大的枯木，树干上挂着数具被丝线吊起的发条木偶。",
+      "room_tags_any": [
+        "outdoor",
+        "anomaly"
+      ],
+      "choices": [
+        {
+          "id": "choice_cut_marionette",
+          "text": "爬上树干割断缠绕木偶的丝线",
+          "check": {
+            "stat": "finesse",
+            "dc": 11,
+            "mode": "normal"
+          },
+          "outcomes": [
+            {
+              "result": "success",
+              "text": "你敏捷地剪断了傀儡线，收集到了极其韧性优质的傀儡丝。",
+              "weight": 100,
+              "effects": [],
+              "set_flags": [],
+              "reward_tags": [
+                "puppet_thread"
+              ]
+            },
+            {
+              "result": "failure",
+              "text": "树枝折断让你重重摔落在地，尖锐的木刺划破了手臂。",
+              "weight": 100,
+              "effects": [
+                {
+                  "trigger": "on_event_resolve",
+                  "operation": "damage",
+                  "target": "self",
+                  "value": 3
+                },
+                {
+                  "trigger": "on_event_resolve",
+                  "operation": "apply_status",
+                  "target": "self",
+                  "status": "bleed",
+                  "stacks": 1,
+                  "duration": 1
+                }
+              ],
+              "set_flags": []
+            }
+          ]
+        },
+        {
+          "id": "choice_holy_rite",
+          "text": "为受诅木偶诵读安息祷文",
+          "requirements_all": [
+            "holy"
+          ],
+          "outcomes": [
+            {
+              "result": "automatic",
+              "text": "木偶身上的邪异气息渐渐消散，你的灵魂得到了净化与安抚。",
+              "weight": 100,
+              "effects": [
+                {
+                  "trigger": "on_event_resolve",
+                  "operation": "heal",
+                  "target": "self",
+                  "value": 4
+                }
+              ],
+              "set_flags": [
+                "flag_marionette_rested"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "choice_burn_gallows",
+          "text": "点燃绞刑木将其付之一炬",
+          "cost_effects": [
+            {
+              "trigger": "on_event_resolve",
+              "operation": "resource_loss",
+              "target": "self",
+              "resource": "focus",
+              "value": 1
+            }
+          ],
+          "outcomes": [
+            {
+              "result": "automatic",
+              "text": "冲天大火将枯木烧成灰烬，火光在黑夜中极其瞩目。",
+              "weight": 100,
+              "effects": [
+                {
+                  "trigger": "on_event_resolve",
+                  "operation": "resource_gain",
+                  "target": "world",
+                  "resource": "attention",
+                  "value": 2
+                }
+              ],
+              "set_flags": [
+                "flag_gallows_burned"
+              ]
+            }
+          ]
+        }
+      ],
+      "weight": 30,
+      "unique": true,
+      "tags": [
+        "event",
+        "outdoor",
+        "anomaly"
+      ]
+    },
+    {
+      "id": "event_overgrown_greenhouse",
+      "name": "疯狂温室",
+      "description": "破碎玻璃温室内长满了变异的绞杀藤蔓与巨大孢子花，散发着诱人而危险的甜香。",
+      "room_tags_any": [
+        "ruin",
+        "indoor"
+      ],
+      "choices": [
+        {
+          "id": "choice_harvest_spores",
+          "text": "小心翼翼地采摘成熟的毒性孢子",
+          "check": {
+            "stat": "insight",
+            "dc": 11,
+            "mode": "normal"
+          },
+          "outcomes": [
+            {
+              "result": "success",
+              "text": "你精准地避开了触须防护，成功采集到了高浓度的有毒真菌。",
+              "weight": 100,
+              "effects": [],
+              "set_flags": [],
+              "reward_tags": [
+                "toxic_fungus"
+              ]
+            },
+            {
+              "result": "failure",
+              "text": "孢子囊在你面前突然炸开，剧毒粉尘扑面而来。",
+              "weight": 100,
+              "effects": [
+                {
+                  "trigger": "on_event_resolve",
+                  "operation": "apply_status",
+                  "target": "self",
+                  "status": "poison",
+                  "stacks": 2,
+                  "duration": 2
+                }
+              ],
+              "set_flags": []
+            }
+          ]
+        },
+        {
+          "id": "choice_hack_vines",
+          "text": "挥舞利刃强行劈开一条通路",
+          "check": {
+            "stat": "might",
+            "dc": 10,
+            "mode": "normal"
+          },
+          "outcomes": [
+            {
+              "result": "success",
+              "text": "藤蔓被斩断，你发现了藏在植物根部的新鲜果实并服下。",
+              "weight": 100,
+              "effects": [
+                {
+                  "trigger": "on_event_resolve",
+                  "operation": "heal",
+                  "target": "self",
+                  "value": 4
+                }
+              ],
+              "set_flags": []
+            },
+            {
+              "result": "failure",
+              "text": "断裂的刺藤如鞭子般反弹抽打在你的身上。",
+              "weight": 100,
+              "effects": [
+                {
+                  "trigger": "on_event_resolve",
+                  "operation": "apply_status",
+                  "target": "self",
+                  "status": "bleed",
+                  "stacks": 1,
+                  "duration": 2
+                }
+              ],
+              "set_flags": []
+            }
+          ]
+        },
+        {
+          "id": "choice_tread_carefully",
+          "text": "蹑手蹑脚地从花丛缝隙穿过",
+          "cost_effects": [
+            {
+              "trigger": "on_event_resolve",
+              "operation": "resource_gain",
+              "target": "world",
+              "resource": "attention",
+              "value": 1
+            }
+          ],
+          "outcomes": [
+            {
+              "result": "automatic",
+              "text": "为了不触动孢子，你极度缓慢地挪动身体，消耗了大量精力。",
+              "weight": 100,
+              "effects": [
+                {
+                  "trigger": "on_event_resolve",
+                  "operation": "resource_loss",
+                  "target": "self",
+                  "resource": "focus",
+                  "value": 1
+                }
+              ],
+              "set_flags": []
+            }
+          ]
+        }
+      ],
+      "weight": 45,
+      "unique": false,
+      "tags": [
+        "event",
+        "ruin",
+        "indoor"
+      ]
+    },
+    {
+      "id": "event_wax_sculptor_workshop",
+      "name": "蜡塑师工坊",
+      "description": "工坊内摆满了半完成的人形蜡像，熔蜡沿着工作台不断滴落，发出凝固的嗒嗒声。",
+      "room_tags_any": [
+        "indoor",
+        "ruin"
+      ],
+      "choices": [
+        {
+          "id": "choice_mold_wax",
+          "text": "尝试利用残余熔蜡制作护身符",
+          "check": {
+            "stat": "finesse",
+            "dc": 11,
+            "mode": "normal"
+          },
+          "outcomes": [
+            {
+              "result": "success",
+              "text": "你用巧手将熔蜡塑造成型，获得了上等的封印蜡块。",
+              "weight": 100,
+              "effects": [],
+              "set_flags": [],
+              "reward_tags": [
+                "candle_wax"
+              ]
+            },
+            {
+              "result": "failure",
+              "text": "滚烫的熔蜡泼在了你的手上，灼烧感极其剧烈。",
+              "weight": 100,
+              "effects": [
+                {
+                  "trigger": "on_event_resolve",
+                  "operation": "apply_status",
+                  "target": "self",
+                  "status": "burn",
+                  "stacks": 1,
+                  "duration": 2
+                }
+              ],
+              "set_flags": []
+            }
+          ]
+        },
+        {
+          "id": "choice_use_merchant_solvent",
+          "text": "使用从行商处获得的溶剂溶解蜡像",
+          "requirements_all": [
+            "flag_traded_with_rust_merchant"
+          ],
+          "outcomes": [
+            {
+              "result": "automatic",
+              "text": "特制溶剂迅速化解了坚硬的蜡层，露出了藏在里面的精纯蜡芯。",
+              "weight": 100,
+              "effects": [
+                {
+                  "trigger": "on_event_resolve",
+                  "operation": "resource_gain",
+                  "target": "self",
+                  "resource": "focus",
+                  "value": 1
+                }
+              ],
+              "set_flags": [],
+              "reward_tags": [
+                "pure_wax"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "choice_smash_effigies",
+          "text": "推倒所有诡异的人形蜡像",
+          "cost_effects": [
+            {
+              "trigger": "on_event_resolve",
+              "operation": "damage",
+              "target": "self",
+              "value": 1
+            }
+          ],
+          "outcomes": [
+            {
+              "result": "automatic",
+              "text": "蜡像碎裂一地，粉碎的噪音响彻了整间房间。",
+              "weight": 100,
+              "effects": [
+                {
+                  "trigger": "on_event_resolve",
+                  "operation": "resource_gain",
+                  "target": "world",
+                  "resource": "attention",
+                  "value": 1
+                }
+              ],
+              "set_flags": [
+                "flag_wax_effigies_destroyed"
+              ]
+            }
+          ]
+        }
+      ],
+      "weight": 45,
+      "unique": false,
+      "tags": [
+        "event",
+        "indoor",
+        "ruin"
+      ]
+    },
+    {
+      "id": "event_shattered_mirror_hall",
+      "name": "碎镜长廊",
+      "description": "两侧墙壁镶嵌着数以百计的破碎镜子，每个镜面都在反射出你不同形态的扭曲倒影。",
+      "room_tags_any": [
+        "indoor",
+        "anomaly"
+      ],
+      "choices": [
+        {
+          "id": "choice_face_reflection",
+          "text": "直视镜像寻求灵魂深处的真谛",
+          "check": {
+            "stat": "will",
+            "dc": 13,
+            "mode": "normal"
+          },
+          "outcomes": [
+            {
+              "result": "success",
+              "text": "你击碎了镜中的恐惧幻象，获得了澄澈的心智洞察。",
+              "weight": 100,
+              "effects": [
+                {
+                  "trigger": "on_event_resolve",
+                  "operation": "resource_gain",
+                  "target": "self",
+                  "resource": "focus",
+                  "value": 2
+                }
+              ],
+              "set_flags": [
+                "flag_mirror_insight"
+              ]
+            },
+            {
+              "result": "failure",
+              "text": "倒影向你发出刺耳的嘲笑，你的意志防线彻底崩溃。",
+              "weight": 100,
+              "effects": [
+                {
+                  "trigger": "on_event_resolve",
+                  "operation": "apply_status",
+                  "target": "self",
+                  "status": "fear",
+                  "stacks": 2,
+                  "duration": 2
+                }
+              ],
+              "set_flags": []
+            }
+          ]
+        },
+        {
+          "id": "choice_tread_glass",
+          "text": "小心翼翼地踏过满地的镜面碎片",
+          "check": {
+            "stat": "finesse",
+            "dc": 10,
+            "mode": "normal"
+          },
+          "outcomes": [
+            {
+              "result": "success",
+              "text": "你如猫般轻盈地踏过碎玻璃，没有发出一点声音，反而悟出了闪避技巧。",
+              "weight": 100,
+              "effects": [
+                {
+                  "trigger": "on_event_resolve",
+                  "operation": "apply_status",
+                  "target": "self",
+                  "status": "ward",
+                  "stacks": 1,
+                  "duration": 2
+                }
+              ],
+              "set_flags": []
+            },
+            {
+              "result": "failure",
+              "text": "踩碎玻璃的尖锐飞屑划破了你的脚踝。",
+              "weight": 100,
+              "effects": [
+                {
+                  "trigger": "on_event_resolve",
+                  "operation": "damage",
+                  "target": "self",
+                  "value": 2
+                },
+                {
+                  "trigger": "on_event_resolve",
+                  "operation": "apply_status",
+                  "target": "self",
+                  "status": "bleed",
+                  "stacks": 2,
+                  "duration": 1
+                }
+              ],
+              "set_flags": []
+            }
+          ]
+        },
+        {
+          "id": "choice_cover_eyes_grope",
+          "text": "遮住双眼从长廊中央快速盲走",
+          "cost_effects": [
+            {
+              "trigger": "on_event_resolve",
+              "operation": "resource_loss",
+              "target": "self",
+              "resource": "focus",
+              "value": 1
+            }
+          ],
+          "outcomes": [
+            {
+              "result": "automatic",
+              "text": "在黑暗中盲走让你多次撞倒镜框，发出了巨大的轰鸣声。",
+              "weight": 100,
+              "effects": [
+                {
+                  "trigger": "on_event_resolve",
+                  "operation": "resource_gain",
+                  "target": "world",
+                  "resource": "attention",
+                  "value": 1
+                }
+              ],
+              "set_flags": []
+            }
+          ]
+        }
+      ],
+      "weight": 45,
+      "unique": false,
+      "tags": [
+        "event",
+        "indoor",
+        "anomaly"
+      ]
+    },
+    {
+      "id": "event_hollow_forge",
+      "name": "虚空锻炉",
+      "description": "地下锻造厂的炉火早已熄灭，但巨大的铁砧上仍残存着温热的火星与金属气息。",
+      "room_tags_any": [
+        "underground",
+        "ruin"
+      ],
+      "choices": [
+        {
+          "id": "choice_relight_embers",
+          "text": "尝试吹开灰烬重新引燃炉火",
+          "check": {
+            "stat": "insight",
+            "dc": 11,
+            "mode": "normal"
+          },
+          "outcomes": [
+            {
+              "result": "success",
+              "text": "余烬被重新点燃，温热的铁炉中吐出了一块未锻造的精铁锭。",
+              "weight": 100,
+              "effects": [],
+              "set_flags": [],
+              "reward_tags": [
+                "iron_ingot"
+              ]
+            },
+            {
+              "result": "failure",
+              "text": "回火爆裂喷出的火花灼伤了你的面部。",
+              "weight": 100,
+              "effects": [
+                {
+                  "trigger": "on_event_resolve",
+                  "operation": "apply_status",
+                  "target": "self",
+                  "status": "burn",
+                  "stacks": 2,
+                  "duration": 1
+                }
+              ],
+              "set_flags": []
+            }
+          ]
+        },
+        {
+          "id": "choice_hammer_anvil",
+          "text": "用重物重击铁砧去除自身护具余锈",
+          "check": {
+            "stat": "might",
+            "dc": 10,
+            "mode": "normal"
+          },
+          "outcomes": [
+            {
+              "result": "success",
+              "text": "铁砧的震响重新校准了你的护甲架构，坚固度大幅提升。",
+              "weight": 100,
+              "effects": [
+                {
+                  "trigger": "on_event_resolve",
+                  "operation": "apply_status",
+                  "target": "self",
+                  "status": "ward",
+                  "stacks": 1,
+                  "duration": 2
+                }
+              ],
+              "set_flags": []
+            },
+            {
+              "result": "failure",
+              "text": "剧烈的反震力让你失手震飞了武器，身体陷于失衡。",
+              "weight": 100,
+              "effects": [
+                {
+                  "trigger": "on_event_resolve",
+                  "operation": "apply_status",
+                  "target": "self",
+                  "status": "stagger",
+                  "stacks": 1,
+                  "duration": 1
+                }
+              ],
+              "set_flags": []
+            }
+          ]
+        },
+        {
+          "id": "choice_scavenge_coal",
+          "text": "在炉渣堆里翻找可用的焦炭残留",
+          "cost_effects": [
+            {
+              "trigger": "on_event_resolve",
+              "operation": "resource_loss",
+              "target": "self",
+              "resource": "focus",
+              "value": 1
+            }
+          ],
+          "outcomes": [
+            {
+              "result": "automatic",
+              "text": "你弄脏了双手，但在黑灰深处找出了几块上好的煤块。",
+              "weight": 100,
+              "effects": [],
+              "set_flags": [],
+              "reward_tags": [
+                "coal"
+              ]
+            }
+          ]
+        }
+      ],
+      "weight": 45,
+      "unique": false,
+      "tags": [
+        "event",
+        "underground",
+        "ruin"
+      ]
+    },
+    {
+      "id": "event_hanging_cage_prisoner",
+      "name": "悬笼囚徒",
+      "description": "一只铁笼悬挂在断崖上方，笼内装有一具尚未完全腐烂的干尸，手中紧握着银色物件。",
+      "room_tags_any": [
+        "high_place",
+        "ruin"
+      ],
+      "choices": [
+        {
+          "id": "choice_pry_cage_open",
+          "text": "徒手撬开悬空铁笼的栅栏",
+          "check": {
+            "stat": "might",
+            "dc": 12,
+            "mode": "normal"
+          },
+          "outcomes": [
+            {
+              "result": "success",
+              "text": "你硬生生撬弯了铁棒，救出了干尸并取走其手中的银指挥棒。",
+              "weight": 100,
+              "effects": [],
+              "set_flags": [
+                "flag_saved_cage_prisoner"
+              ],
+              "reward_tags": [
+                "silver_baton"
+              ]
+            },
+            {
+              "result": "failure",
+              "text": "生锈的铁棒崩断刺伤了你的手臂，铁笼剧烈晃动响彻山谷。",
+              "weight": 100,
+              "effects": [
+                {
+                  "trigger": "on_event_resolve",
+                  "operation": "damage",
+                  "target": "self",
+                  "value": 3
+                },
+                {
+                  "trigger": "on_event_resolve",
+                  "operation": "resource_gain",
+                  "target": "world",
+                  "resource": "attention",
+                  "value": 1
+                }
+              ],
+              "set_flags": []
+            }
+          ]
+        },
+        {
+          "id": "choice_question_spirit",
+          "text": "向干尸残留的精神意志发问",
+          "check": {
+            "stat": "will",
+            "dc": 11,
+            "mode": "normal"
+          },
+          "outcomes": [
+            {
+              "result": "success",
+              "text": "残存的灵魂解答了你的疑惑，指明了前方的隐秘路线。",
+              "weight": 100,
+              "effects": [
+                {
+                  "trigger": "on_event_resolve",
+                  "operation": "resource_gain",
+                  "target": "self",
+                  "resource": "focus",
+                  "value": 2
+                }
+              ],
+              "set_flags": [
+                "flag_interrogated_prisoner"
+              ]
+            },
+            {
+              "result": "failure",
+              "text": "亡灵的怨念沿着意志反噬，令你心惊胆战。",
+              "weight": 100,
+              "effects": [
+                {
+                  "trigger": "on_event_resolve",
+                  "operation": "apply_status",
+                  "target": "self",
+                  "status": "fear",
+                  "stacks": 1,
+                  "duration": 1
+                }
+              ],
+              "set_flags": []
+            }
+          ]
+        },
+        {
+          "id": "choice_cut_cage_rope",
+          "text": "割断悬挂铁笼的麻绳让其坠落",
+          "cost_effects": [
+            {
+              "trigger": "on_event_resolve",
+              "operation": "resource_gain",
+              "target": "world",
+              "resource": "attention",
+              "value": 1
+            }
+          ],
+          "outcomes": [
+            {
+              "result": "automatic",
+              "text": "铁笼砸落在悬崖底部摔得粉碎，永远清除了这个隐患。",
+              "weight": 100,
+              "effects": [],
+              "set_flags": [
+                "flag_prisoner_dropped"
+              ]
+            }
+          ]
+        }
+      ],
+      "weight": 30,
+      "unique": true,
+      "tags": [
+        "event",
+        "high_place",
+        "ruin"
+      ]
+    },
+    {
+      "id": "event_bell_tower_mechanism",
+      "name": "钟楼机械枢纽",
+      "description": "庞大的巨钟齿轮组在头顶轰鸣运转，巨大的摆锤在极窄的通路间来回穿梭。",
+      "room_tags_any": [
+        "high_place",
+        "indoor"
+      ],
+      "choices": [
+        {
+          "id": "choice_recalibrate_pendulum",
+          "text": "掐准时机调整摆锤的发条连杆",
+          "check": {
+            "stat": "finesse",
+            "dc": 12,
+            "mode": "normal"
+          },
+          "outcomes": [
+            {
+              "result": "success",
+              "text": "你完美地穿过了机械枢纽，并顺手调整了钟楼的运行节奏，心境大定。",
+              "weight": 100,
+              "effects": [
+                {
+                  "trigger": "on_event_resolve",
+                  "operation": "resource_gain",
+                  "target": "self",
+                  "resource": "focus",
+                  "value": 2
+                }
+              ],
+              "set_flags": []
+            },
+            {
+              "result": "failure",
+              "text": "摆锤边缘重重击中了你的肩膀，将你撞飞失衡。",
+              "weight": 100,
+              "effects": [
+                {
+                  "trigger": "on_event_resolve",
+                  "operation": "apply_status",
+                  "target": "self",
+                  "status": "stagger",
+                  "stacks": 1,
+                  "duration": 1
+                }
+              ],
+              "set_flags": []
+            }
+          ]
+        },
+        {
+          "id": "choice_ring_heavy_bell",
+          "text": "强行敲响巨钟震慑整座建筑",
+          "cost_effects": [
+            {
+              "trigger": "on_event_resolve",
+              "operation": "resource_loss",
+              "target": "self",
+              "resource": "focus",
+              "value": 1
+            }
+          ],
+          "outcomes": [
+            {
+              "result": "automatic",
+              "text": "浩大的钟声轰鸣传播，强烈的震波震晕了附近的生物，但暴露了你的位置。",
+              "weight": 100,
+              "effects": [
+                {
+                  "trigger": "on_event_resolve",
+                  "operation": "resource_gain",
+                  "target": "world",
+                  "resource": "attention",
+                  "value": 3
+                }
+              ],
+              "set_flags": [
+                "flag_bell_rung"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "choice_jam_gears",
+          "text": "塞入石块卡死旋转的齿轮",
+          "cost_effects": [
+            {
+              "trigger": "on_event_resolve",
+              "operation": "damage",
+              "target": "self",
+              "value": 2
+            }
+          ],
+          "outcomes": [
+            {
+              "result": "automatic",
+              "text": "齿轮发生剧烈崩裂并停止运转，通路变得安全但你被飞溅的崩石砸伤。",
+              "weight": 100,
+              "effects": [],
+              "set_flags": [
+                "flag_bell_jammed"
+              ]
+            }
+          ]
+        }
+      ],
+      "weight": 30,
+      "unique": true,
+      "tags": [
+        "event",
+        "high_place",
+        "indoor"
+      ]
+    },
+    {
+      "id": "event_poisoned_apothecary_shelf",
+      "name": "毒药师货架",
+      "description": "废弃药剂室的木架上摆满了没有标签的彩色玻璃瓶，腐蚀性液体正缓缓滴落在地板上。",
+      "room_tags_any": [
+        "indoor",
+        "ruin"
+      ],
+      "choices": [
+        {
+          "id": "choice_identify_elixir",
+          "text": "通过气味与沉淀辨识安全药剂",
+          "check": {
+            "stat": "insight",
+            "dc": 11,
+            "mode": "normal"
+          },
+          "outcomes": [
+            {
+              "result": "success",
+              "text": "你准确挑选出了一瓶完美的治疗膏剂并当场服下。",
+              "weight": 100,
+              "effects": [
+                {
+                  "trigger": "on_event_resolve",
+                  "operation": "heal",
+                  "target": "self",
+                  "value": 8
+                }
+              ],
+              "set_flags": []
+            },
+            {
+              "result": "failure",
+              "text": "你误服了具有剧烈毒性的未完成药剂。",
+              "weight": 100,
+              "effects": [
+                {
+                  "trigger": "on_event_resolve",
+                  "operation": "apply_status",
+                  "target": "self",
+                  "status": "poison",
+                  "stacks": 2,
+                  "duration": 2
+                }
+              ],
+              "set_flags": []
+            }
+          ]
+        },
+        {
+          "id": "choice_neutralize_spores",
+          "text": "使用已知孢子知识中和瓶中毒素",
+          "requirements_all": [
+            "spore"
+          ],
+          "outcomes": [
+            {
+              "result": "automatic",
+              "text": "你轻巧地调配出了中和剂，制成了一瓶无害的炼金试剂。",
+              "weight": 100,
+              "effects": [
+                {
+                  "trigger": "on_event_resolve",
+                  "operation": "heal",
+                  "target": "self",
+                  "value": 6
+                }
+              ],
+              "set_flags": [],
+              "reward_tags": [
+                "alchemy_vial"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "choice_sweep_shelves",
+          "text": "用长棍将货架上的毒药瓶全数扫碎",
+          "cost_effects": [
+            {
+              "trigger": "on_event_resolve",
+              "operation": "resource_loss",
+              "target": "self",
+              "resource": "focus",
+              "value": 1
+            }
+          ],
+          "outcomes": [
+            {
+              "result": "automatic",
+              "text": "玻璃瓶碎裂一地，药液混合发出了刺鼻的浓烟，你捡起一块未受污染的玻璃碎片。",
+              "weight": 100,
+              "effects": [],
+              "set_flags": [],
+              "reward_tags": [
+                "mirror_shard"
+              ]
+            }
+          ]
+        }
+      ],
+      "weight": 45,
+      "unique": false,
+      "tags": [
+        "event",
+        "indoor",
+        "ruin"
+      ]
+    },
+    {
+      "id": "event_desecrated_altar",
+      "name": "被亵渎的祭坛",
+      "description": "祭坛被黑色的油污与残缺骨骼覆盖，中央的圣杯空空如也，散发出不安的压迫感。",
+      "room_tags_any": [
+        "religious",
+        "anomaly"
+      ],
+      "choices": [
+        {
+          "id": "choice_purify_with_blood",
+          "text": "以自身鲜血洗涤圣杯进行仪式",
+          "check": {
+            "stat": "will",
+            "dc": 12,
+            "mode": "normal"
+          },
+          "outcomes": [
+            {
+              "result": "success",
+              "text": "圣杯吸收了鲜血发出柔和的光芒，神圣的力量抚平了你的伤口。",
+              "weight": 100,
+              "effects": [
+                {
+                  "trigger": "on_event_resolve",
+                  "operation": "heal",
+                  "target": "self",
+                  "value": 5
+                }
+              ],
+              "set_flags": [
+                "flag_altar_purified"
+              ]
+            },
+            {
+              "result": "failure",
+              "text": "祭坛上的邪异力量反向吞噬了你的精神，令你陷于惊恐。",
+              "weight": 100,
+              "effects": [
+                {
+                  "trigger": "on_event_resolve",
+                  "operation": "damage",
+                  "target": "self",
+                  "value": 4
+                },
+                {
+                  "trigger": "on_event_resolve",
+                  "operation": "apply_status",
+                  "target": "self",
+                  "status": "fear",
+                  "stacks": 1,
+                  "duration": 2
+                }
+              ],
+              "set_flags": []
+            }
+          ]
+        },
+        {
+          "id": "choice_offer_ashes",
+          "text": "将之前焚烧壁画的灰烬撒在祭坛上",
+          "requirements_all": [
+            "flag_fresco_burned"
+          ],
+          "outcomes": [
+            {
+              "result": "automatic",
+              "text": "灰烬中和了亵渎的油污，祭坛泛起微光，赋予你坚固的守护效果。",
+              "weight": 100,
+              "effects": [
+                {
+                  "trigger": "on_event_resolve",
+                  "operation": "resource_gain",
+                  "target": "self",
+                  "resource": "focus",
+                  "value": 1
+                },
+                {
+                  "trigger": "on_event_resolve",
+                  "operation": "apply_status",
+                  "target": "self",
+                  "status": "ward",
+                  "stacks": 2,
+                  "duration": 2
+                }
+              ],
+              "set_flags": []
+            }
+          ]
+        },
+        {
+          "id": "choice_despoil_altar",
+          "text": "强行拆下祭坛上的镀银圣徽",
+          "cost_effects": [
+            {
+              "trigger": "on_event_resolve",
+              "operation": "resource_loss",
+              "target": "self",
+              "resource": "focus",
+              "value": 1
+            }
+          ],
+          "outcomes": [
+            {
+              "result": "automatic",
+              "text": "你粗暴地抠下了圣徽，亵渎行为引发了虚空的警觉。",
+              "weight": 100,
+              "effects": [
+                {
+                  "trigger": "on_event_resolve",
+                  "operation": "resource_gain",
+                  "target": "world",
+                  "resource": "attention",
+                  "value": 2
+                }
+              ],
+              "set_flags": [],
+              "reward_tags": [
+                "holy_symbol"
+              ]
+            }
+          ]
+        }
+      ],
+      "weight": 30,
+      "unique": true,
+      "tags": [
+        "event",
+        "religious",
+        "anomaly"
+      ]
+    },
+    {
+      "id": "event_sunken_ferryman",
+      "name": "沉没摆渡人",
+      "description": "水道旁坐着一具手握木桨的湿漉尸骨，身旁放着一只破旧的收钱木盒。",
+      "room_tags_any": [
+        "water",
+        "underground"
+      ],
+      "choices": [
+        {
+          "id": "choice_pay_ferryman",
+          "text": "向木盒投入专注力作为过河船资",
+          "cost_effects": [
+            {
+              "trigger": "on_event_resolve",
+              "operation": "resource_loss",
+              "target": "self",
+              "resource": "focus",
+              "value": 2
+            }
+          ],
+          "outcomes": [
+            {
+              "result": "automatic",
+              "text": "摆渡人尸骨缓缓划动船桨，将你平稳送过深水区并治愈了你。",
+              "weight": 100,
+              "effects": [
+                {
+                  "trigger": "on_event_resolve",
+                  "operation": "heal",
+                  "target": "self",
+                  "value": 4
+                }
+              ],
+              "set_flags": [
+                "flag_ferryman_paid"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "choice_steal_oar",
+          "text": "尝试从尸骨手中抽走坚硬的木桨",
+          "check": {
+            "stat": "finesse",
+            "dc": 11,
+            "mode": "normal"
+          },
+          "outcomes": [
+            {
+              "result": "success",
+              "text": "你精明地拔出了木桨，上面缠绕着古老健康的植物藤蔓。",
+              "weight": 100,
+              "effects": [],
+              "set_flags": [],
+              "reward_tags": [
+                "ancient_vine"
+              ]
+            },
+            {
+              "result": "failure",
+              "text": "尸骨手指突然收紧捏碎了你的手腕，鲜血流入水中。",
+              "weight": 100,
+              "effects": [
+                {
+                  "trigger": "on_event_resolve",
+                  "operation": "damage",
+                  "target": "self",
+                  "value": 3
+                },
+                {
+                  "trigger": "on_event_resolve",
+                  "operation": "apply_status",
+                  "target": "self",
+                  "status": "bleed",
+                  "stacks": 1,
+                  "duration": 1
+                }
+              ],
+              "set_flags": []
+            }
+          ]
+        },
+        {
+          "id": "choice_wade_canal",
+          "text": "脱下重靴强行淌过冰冷的黑暗水道",
+          "check": {
+            "stat": "might",
+            "dc": 10,
+            "mode": "normal"
+          },
+          "outcomes": [
+            {
+              "result": "success",
+              "text": "你咬牙挺过了冰冷的水流，成功抵达对岸。",
+              "weight": 100,
+              "effects": [
+                {
+                  "trigger": "on_event_resolve",
+                  "operation": "resource_gain",
+                  "target": "self",
+                  "resource": "focus",
+                  "value": 1
+                }
+              ],
+              "set_flags": []
+            },
+            {
+              "result": "failure",
+              "text": "水下的水蛭死死吸附在你的腿上，带走了体力。",
+              "weight": 100,
+              "effects": [
+                {
+                  "trigger": "on_event_resolve",
+                  "operation": "damage",
+                  "target": "self",
+                  "value": 2
+                },
+                {
+                  "trigger": "on_event_resolve",
+                  "operation": "apply_status",
+                  "target": "self",
+                  "status": "poison",
+                  "stacks": 1,
+                  "duration": 1
+                }
+              ],
+              "set_flags": []
+            }
+          ]
+        }
+      ],
+      "weight": 30,
+      "unique": true,
+      "tags": [
+        "event",
+        "water",
+        "underground"
+      ]
+    },
+    {
+      "id": "event_creaking_marionette_stage",
+      "name": "吱嘎作响的傀儡戏台",
+      "description": "无人操控的剧院舞台上，几具破旧人偶正机械地重复着斩首剧目的表演。",
+      "room_tags_any": [
+        "indoor",
+        "anomaly"
+      ],
+      "choices": [
+        {
+          "id": "choice_play_accompaniment",
+          "text": "走向后台风琴弹奏伴奏乐章",
+          "check": {
+            "stat": "insight",
+            "dc": 11,
+            "mode": "normal"
+          },
+          "outcomes": [
+            {
+              "result": "success",
+              "text": "你完美的弹奏让傀儡剧目圆满落幕，台下响起了虚无的掌声，心智大增。",
+              "weight": 100,
+              "effects": [
+                {
+                  "trigger": "on_event_resolve",
+                  "operation": "resource_gain",
+                  "target": "self",
+                  "resource": "focus",
+                  "value": 2
+                }
+              ],
+              "set_flags": [
+                "flag_stage_performed"
+              ]
+            },
+            {
+              "result": "failure",
+              "text": "错乱的琴音激怒了傀儡，尖锐的刺耳声音直冲耳膜。",
+              "weight": 100,
+              "effects": [
+                {
+                  "trigger": "on_event_resolve",
+                  "operation": "apply_status",
+                  "target": "self",
+                  "status": "fear",
+                  "stacks": 1,
+                  "duration": 2
+                }
+              ],
+              "set_flags": []
+            }
+          ]
+        },
+        {
+          "id": "choice_cut_stage_wires",
+          "text": "登上舞台剪断悬挂傀儡的丝线",
+          "check": {
+            "stat": "finesse",
+            "dc": 10,
+            "mode": "normal"
+          },
+          "outcomes": [
+            {
+              "result": "success",
+              "text": "你干净利落地剪断了悬线，拆下了精细的傀儡材料。",
+              "weight": 100,
+              "effects": [],
+              "set_flags": [],
+              "reward_tags": [
+                "puppet_thread"
+              ]
+            },
+            {
+              "result": "failure",
+              "text": "掉落的重型傀儡砸中了你，导致肢体失衡。",
+              "weight": 100,
+              "effects": [
+                {
+                  "trigger": "on_event_resolve",
+                  "operation": "apply_status",
+                  "target": "self",
+                  "status": "stagger",
+                  "stacks": 1,
+                  "duration": 1
+                }
+              ],
+              "set_flags": []
+            }
+          ]
+        },
+        {
+          "id": "choice_watch_from_back",
+          "text": "站在后排安静地看完这场诡异演出",
+          "cost_effects": [
+            {
+              "trigger": "on_event_resolve",
+              "operation": "resource_gain",
+              "target": "world",
+              "resource": "attention",
+              "value": 1
+            }
+          ],
+          "outcomes": [
+            {
+              "result": "automatic",
+              "text": "长久地沉浸在荒诞剧目中耗费了你的精力与时间。",
+              "weight": 100,
+              "effects": [
+                {
+                  "trigger": "on_event_resolve",
+                  "operation": "resource_loss",
+                  "target": "self",
+                  "resource": "focus",
+                  "value": 1
+                }
+              ],
+              "set_flags": []
+            }
+          ]
+        }
+      ],
+      "weight": 45,
+      "unique": false,
+      "tags": [
+        "event",
+        "indoor",
+        "anomaly"
+      ]
+    },
+    {
+      "id": "event_collapsed_aqueduct",
+      "name": "塌陷渡槽",
+      "description": "高悬在半空的石质渡槽中间断裂，下方是万丈深渊，呼啸的狂风令人站立不稳。",
+      "room_tags_any": [
+        "outdoor",
+        "water"
+      ],
+      "choices": [
+        {
+          "id": "choice_leap_broken_pier",
+          "text": "助跑跳过断裂的石桥墩",
+          "check": {
+            "stat": "finesse",
+            "dc": 12,
+            "mode": "normal"
+          },
+          "outcomes": [
+            {
+              "result": "success",
+              "text": "你如燕子般轻盈跨越了深渊，战胜恐惧后精神更加强韧。",
+              "weight": 100,
+              "effects": [
+                {
+                  "trigger": "on_event_resolve",
+                  "operation": "resource_gain",
+                  "target": "self",
+                  "resource": "focus",
+                  "value": 1
+                }
+              ],
+              "set_flags": []
+            },
+            {
+              "result": "failure",
+              "text": "你没能踩稳边缘重重磕在对岸石壁上，差点坠落。",
+              "weight": 100,
+              "effects": [
+                {
+                  "trigger": "on_event_resolve",
+                  "operation": "damage",
+                  "target": "self",
+                  "value": 4
+                },
+                {
+                  "trigger": "on_event_resolve",
+                  "operation": "apply_status",
+                  "target": "self",
+                  "status": "stagger",
+                  "stacks": 1,
+                  "duration": 1
+                }
+              ],
+              "set_flags": []
+            }
+          ]
+        },
+        {
+          "id": "choice_clear_stone_rubble",
+          "text": "搬运沉重石块搭设简易支撑",
+          "check": {
+            "stat": "might",
+            "dc": 11,
+            "mode": "normal"
+          },
+          "outcomes": [
+            {
+              "result": "success",
+              "text": "你凭借一身蛮力堆好了踏脚石，并顺手捡到了雕刻精致的石块。",
+              "weight": 100,
+              "effects": [],
+              "set_flags": [],
+              "reward_tags": [
+                "stone_fragment"
+              ]
+            },
+            {
+              "result": "failure",
+              "text": "巨石滑落砸伤了你的脚趾，剧痛难忍。",
+              "weight": 100,
+              "effects": [
+                {
+                  "trigger": "on_event_resolve",
+                  "operation": "damage",
+                  "target": "self",
+                  "value": 2
+                },
+                {
+                  "trigger": "on_event_resolve",
+                  "operation": "apply_status",
+                  "target": "self",
+                  "status": "stagger",
+                  "stacks": 1,
+                  "duration": 1
+                }
+              ],
+              "set_flags": []
+            }
+          ]
+        },
+        {
+          "id": "choice_detour_muddy_bank",
+          "text": "沿着泥泞的河岸绕行漫长的山路",
+          "cost_effects": [
+            {
+              "trigger": "on_event_resolve",
+              "operation": "resource_gain",
+              "target": "world",
+              "resource": "attention",
+              "value": 2
+            }
+          ],
+          "outcomes": [
+            {
+              "result": "automatic",
+              "text": "漫长的绕行消耗了你大量精力，但胜在安全无虞。",
+              "weight": 100,
+              "effects": [
+                {
+                  "trigger": "on_event_resolve",
+                  "operation": "resource_loss",
+                  "target": "self",
+                  "resource": "focus",
+                  "value": 1
+                }
+              ],
+              "set_flags": []
+            }
+          ]
+        }
+      ],
+      "weight": 45,
+      "unique": false,
+      "tags": [
+        "event",
+        "outdoor",
+        "water"
+      ]
+    },
+    {
+      "id": "event_whispering_statue_niche",
+      "name": "低语壁龛",
+      "description": "墙壁深处的龛位里立着一尊无头雕像，每当你靠近，耳边就会响起细碎的命名低语。",
+      "room_tags_any": [
+        "religious",
+        "high_place"
+      ],
+      "choices": [
+        {
+          "id": "choice_whisper_true_name",
+          "text": "对着壁龛低声说出自己的真名",
+          "check": {
+            "stat": "will",
+            "dc": 12,
+            "mode": "normal"
+          },
+          "outcomes": [
+            {
+              "result": "success",
+              "text": "雕像认可了你的存在，一缕神圣的光辉为你赋予了坚实的护佑。",
+              "weight": 100,
+              "effects": [
+                {
+                  "trigger": "on_event_resolve",
+                  "operation": "apply_status",
+                  "target": "self",
+                  "status": "ward",
+                  "stacks": 2,
+                  "duration": 2
+                }
+              ],
+              "set_flags": [
+                "flag_statue_named"
+              ]
+            },
+            {
+              "result": "failure",
+              "text": "虚空的低语反向侵蚀了你的名字，令你陷入深深的精神恐慌。",
+              "weight": 100,
+              "effects": [
+                {
+                  "trigger": "on_event_resolve",
+                  "operation": "apply_status",
+                  "target": "self",
+                  "status": "fear",
+                  "stacks": 2,
+                  "duration": 2
+                }
+              ],
+              "set_flags": []
+            }
+          ]
+        },
+        {
+          "id": "choice_offer_vow",
+          "text": "向雕像献上之前铭记的安息誓言",
+          "requirements_all": [
+            "flag_statue_named"
+          ],
+          "outcomes": [
+            {
+              "result": "automatic",
+              "text": "誓言得到了壁龛的共鸣，温热的神圣能量注入全身，抚平了所有创伤。",
+              "weight": 100,
+              "effects": [
+                {
+                  "trigger": "on_event_resolve",
+                  "operation": "heal",
+                  "target": "self",
+                  "value": 6
+                },
+                {
+                  "trigger": "on_event_resolve",
+                  "operation": "resource_gain",
+                  "target": "self",
+                  "resource": "focus",
+                  "value": 2
+                }
+              ],
+              "set_flags": []
+            }
+          ]
+        },
+        {
+          "id": "choice_cover_niche",
+          "text": "解下斗篷盖住低语的壁龛",
+          "cost_effects": [
+            {
+              "trigger": "on_event_resolve",
+              "operation": "resource_loss",
+              "target": "self",
+              "resource": "focus",
+              "value": 1
+            }
+          ],
+          "outcomes": [
+            {
+              "result": "automatic",
+              "text": "声音消失了，但遮挡壁龛的动静在安静的高处传得很远。",
+              "weight": 100,
+              "effects": [
+                {
+                  "trigger": "on_event_resolve",
+                  "operation": "resource_gain",
+                  "target": "world",
+                  "resource": "attention",
+                  "value": 1
+                }
+              ],
+              "set_flags": []
+            }
+          ]
+        }
+      ],
+      "weight": 30,
+      "unique": true,
+      "tags": [
+        "event",
+        "religious",
+        "high_place"
+      ]
+    }
+  ],
+  "locations": [],
+  "observer_actions": [],
+  "flavor_text": []
+}

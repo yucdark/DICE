@@ -1,0 +1,280 @@
+{
+  "meta": {
+    "pack_id": "veil_dice_flavor_pack_i4",
+    "name": "幕外之骰混合风味文本包",
+    "version": "0.2.0",
+    "language": "zh-CN",
+    "theme": "gothic_dark_fairy_tale",
+    "author": "prototype"
+  },
+  "equipment_bases": [],
+  "materials": [],
+  "affixes": [],
+  "skills": [],
+  "enemies": [],
+  "events": [],
+  "locations": [],
+  "observer_actions": [],
+  "flavor_text": [
+    {
+      "id": "flavor_i4_room_enter_01",
+      "category": "room_enter",
+      "text": "铸铁推门发出沉重的嘎吱声，房间中央停放着一台未完成的巨型钟表。",
+      "tags": [
+        "indoor",
+        "clockwork"
+      ]
+    },
+    {
+      "id": "flavor_i4_room_enter_02",
+      "category": "room_enter",
+      "text": "地下水顺着青苔覆盖的墙壁滴落，石板地面泛着幽暗的水光。",
+      "tags": [
+        "underground",
+        "water"
+      ]
+    },
+    {
+      "id": "flavor_i4_room_enter_03",
+      "category": "room_enter",
+      "text": "破损的祭坛前排列着半融化的蜡烛，空气中弥漫着干枯香草的气味。",
+      "tags": [
+        "religious",
+        "dark"
+      ]
+    },
+    {
+      "id": "flavor_i4_combat_start_01",
+      "category": "combat_start",
+      "text": "埋伏在废墟阴影中的构装守卫拔出铁刃，齿轮轰鸣着锁定目标。",
+      "tags": [
+        "clockwork",
+        "physical"
+      ]
+    },
+    {
+      "id": "flavor_i4_combat_start_02",
+      "category": "combat_start",
+      "text": "破裂的彩绘玻璃窗外跃入狂热的袭击者，咆哮声响彻整座长廊。",
+      "tags": [
+        "religious",
+        "danger"
+      ]
+    },
+    {
+      "id": "flavor_i4_combat_start_03",
+      "category": "combat_start",
+      "text": "密集的藤蔓突然如蛇般弹起，潜伏其间的异形撕开包覆扑出。",
+      "tags": [
+        "plant",
+        "danger"
+      ]
+    },
+    {
+      "id": "flavor_i4_hit_01",
+      "category": "hit",
+      "text": "锐刃狠狠斩入关节接合处，喷溅的黑色机油涂满了石壁。",
+      "tags": [
+        "clockwork",
+        "physical"
+      ]
+    },
+    {
+      "id": "flavor_i4_hit_02",
+      "category": "hit",
+      "text": "沉重的重击砸偏了对手的防线，骨骼在闷响声中发生错位。",
+      "tags": [
+        "physical"
+      ]
+    },
+    {
+      "id": "flavor_i4_hit_03",
+      "category": "hit",
+      "text": "圣洁的光芒在创口处爆裂，将蠕动的黑暗物质烧灼得滋滋作响。",
+      "tags": [
+        "holy",
+        "occult"
+      ]
+    },
+    {
+      "id": "flavor_i4_miss_01",
+      "category": "miss",
+      "text": "刺杀偏离了要害，锋刃在坚硬的铁甲上擦出一串耀眼的火花。",
+      "tags": [
+        "physical",
+        "clockwork"
+      ]
+    },
+    {
+      "id": "flavor_i4_miss_02",
+      "category": "miss",
+      "text": "对手借着滑步躲入石柱后方，重击仅仅轰碎了一块石雕边角。",
+      "tags": [
+        "physical",
+        "ruin"
+      ]
+    },
+    {
+      "id": "flavor_i4_miss_03",
+      "category": "miss",
+      "text": "招式落空在浓密的孢子雾气中，招致对方顺势发动了反击。",
+      "tags": [
+        "plant",
+        "dark"
+      ]
+    },
+    {
+      "id": "flavor_i4_critical_01",
+      "category": "critical",
+      "text": "贯穿性的一击直接击碎了能量核心，敌人在剧烈震荡中轰然倒塌。",
+      "tags": [
+        "critical",
+        "clockwork"
+      ]
+    },
+    {
+      "id": "flavor_i4_critical_02",
+      "category": "critical",
+      "text": "刃芒精准斩断咽喉要害，庞大的躯壳带着轰鸣重重砸在地砖上。",
+      "tags": [
+        "critical",
+        "physical"
+      ]
+    },
+    {
+      "id": "flavor_i4_critical_03",
+      "category": "critical",
+      "text": "破魔之力彻底撕碎了污秽的躯壳，余波将四周的阴影一扫而空。",
+      "tags": [
+        "critical",
+        "holy"
+      ]
+    },
+    {
+      "id": "flavor_i4_loot_01",
+      "category": "loot",
+      "text": "从废弃的机械机柜中拆下了一枚带有发条纹路的密封盒。",
+      "tags": [
+        "clockwork"
+      ]
+    },
+    {
+      "id": "flavor_i4_loot_02",
+      "category": "loot",
+      "text": "拨开石槽中的积水，底端静静躺着一柄带有宗教铭文的银匙。",
+      "tags": [
+        "religious"
+      ]
+    },
+    {
+      "id": "flavor_i4_loot_03",
+      "category": "loot",
+      "text": "从倾覆的车厢残骸里翻找出一包密封良好的急救绷带。",
+      "tags": [
+        "ruin"
+      ]
+    },
+    {
+      "id": "flavor_i4_rest_01",
+      "category": "rest",
+      "text": "蜷缩在废弃壁炉的余温旁，握紧武器在断断续续的响声中假寐。",
+      "tags": [
+        "quiet",
+        "indoor"
+      ]
+    },
+    {
+      "id": "flavor_i4_rest_02",
+      "category": "rest",
+      "text": "倚着冷却的黄铜管道坐下，喝了一小口带有铁锈味的冷水。",
+      "tags": [
+        "clockwork",
+        "indoor"
+      ]
+    },
+    {
+      "id": "flavor_i4_rest_03",
+      "category": "rest",
+      "text": "在圣像脚下的阴影里短暂打坐，平复剧烈起伏的心跳与呼吸。",
+      "tags": [
+        "religious",
+        "quiet"
+      ]
+    },
+    {
+      "id": "flavor_i4_omen_01",
+      "category": "omen",
+      "text": "管道深处传来金属敲击声，节律与人的心跳惊人地一致。",
+      "tags": [
+        "clockwork",
+        "danger"
+      ]
+    },
+    {
+      "id": "flavor_i4_omen_02",
+      "category": "omen",
+      "text": "墙角的植物藤蔓以微小的幅度蠕动，嫩芽悄然转向行走的方向。",
+      "tags": [
+        "plant",
+        "anomaly"
+      ]
+    },
+    {
+      "id": "flavor_i4_omen_03",
+      "category": "omen",
+      "text": "石壁上的油灯火焰突然转为幽蓝，温度随之骤降。",
+      "tags": [
+        "fire",
+        "occult"
+      ]
+    },
+    {
+      "id": "flavor_i4_injury_01",
+      "category": "injury",
+      "text": "飞溅的金属碎片划破脸颊，冰冷的鲜血缓缓流进口角。",
+      "tags": [
+        "physical"
+      ]
+    },
+    {
+      "id": "flavor_i4_injury_02",
+      "category": "injury",
+      "text": "钝击震撼了胸腔，急促的呼吸伴随着阵阵剧烈的刺痛。",
+      "tags": [
+        "physical"
+      ]
+    },
+    {
+      "id": "flavor_i4_death_01",
+      "category": "death",
+      "text": "最后的视线定格在破碎的穹顶，寒冷与死寂彻底包围了一切。",
+      "tags": [
+        "dark"
+      ]
+    },
+    {
+      "id": "flavor_i4_death_02",
+      "category": "death",
+      "text": "发条齿轮停止了转动，冰冷的肉体在废墟中渐渐失去温度。",
+      "tags": [
+        "clockwork"
+      ]
+    },
+    {
+      "id": "flavor_i4_victory_01",
+      "category": "victory",
+      "text": "呼啸的狂风吹散了硝烟，残破的场地重新归于死一般的寂静。",
+      "tags": [
+        "quiet"
+      ]
+    },
+    {
+      "id": "flavor_i4_victory_02",
+      "category": "victory",
+      "text": "跨过失去生息的阻碍者，握紧武器向着未知的黑暗深处前行。",
+      "tags": [
+        "dark"
+      ]
+    }
+  ]
+}

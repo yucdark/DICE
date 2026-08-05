@@ -1,0 +1,347 @@
+{
+  "meta": {
+    "pack_id": "veil_dice_observer_actions_pack_h",
+    "name": "幕外之骰观测者能力包",
+    "version": "0.2.0",
+    "language": "zh-CN",
+    "theme": "gothic_dark_fairy_tale",
+    "author": "prototype"
+  },
+  "equipment_bases": [],
+  "materials": [],
+  "affixes": [],
+  "skills": [],
+  "enemies": [],
+  "events": [],
+  "locations": [],
+  "observer_actions": [
+    {
+      "id": "subtle_nudge",
+      "name": "微弱推演",
+      "description": "在命运骰子落下前，于虚空中投下一缕不易察觉的微光，微幅降低当次判定遭遇的法则阻力。",
+      "cost": 1,
+      "attention": 0,
+      "timing": "before_check",
+      "effects": [
+        {
+          "trigger": "on_check",
+          "operation": "modify_dc",
+          "target": "current_check",
+          "value": -2
+        }
+      ],
+      "requires_roll": false
+    },
+    {
+      "id": "aegis_glance",
+      "name": "幕外庇护",
+      "description": "将视线短暂聚焦于冒险者身上，在战斗爆发的瞬间为其凝聚出一道抵挡伤害的虚无屏障。",
+      "cost": 2,
+      "attention": 1,
+      "timing": "combat_start",
+      "effects": [
+        {
+          "trigger": "on_combat_start",
+          "operation": "shield",
+          "target": "self",
+          "value": 6
+        },
+        {
+          "trigger": "on_combat_start",
+          "operation": "apply_status",
+          "target": "self",
+          "status": "ward",
+          "stacks": 1,
+          "duration": 2
+        }
+      ],
+      "requires_roll": false
+    },
+    {
+      "id": "whispered_insight",
+      "name": "低语指引",
+      "description": "将异界的迷途经验化作耳语传达给冒险者，使其在关键试炼中能够规避最坏的直觉误区。",
+      "cost": 1,
+      "attention": 1,
+      "timing": "before_check",
+      "effects": [
+        {
+          "trigger": "on_check",
+          "operation": "advantage",
+          "target": "current_check"
+        }
+      ],
+      "requires_roll": false
+    },
+    {
+      "id": "second_chance",
+      "name": "强行纠偏",
+      "description": "在判定即将滑入失败深渊时扭曲因果，赋予冒险者一次重掷的机会，但这引发了世界的震荡。",
+      "cost": 2,
+      "attention": 1,
+      "timing": "after_check",
+      "effects": [
+        {
+          "trigger": "on_check_fail",
+          "operation": "reroll",
+          "target": "current_check",
+          "value": 1
+        }
+      ],
+      "requires_roll": false
+    },
+    {
+      "id": "curtain_peeking",
+      "name": "幕角落照",
+      "description": "在跨入新区域前揭开迷雾的一角，提前看清门后潜藏的幽邃环境与异变结构。",
+      "cost": 1,
+      "attention": 1,
+      "timing": "before_room",
+      "effects": [
+        {
+          "trigger": "on_enter_room",
+          "operation": "reveal",
+          "target": "current_room",
+          "value": 1
+        }
+      ],
+      "requires_roll": false
+    },
+    {
+      "id": "desperate_gambit",
+      "name": "孤注一掷",
+      "description": "以燃烧专注为代价强行拔高命中的几率，强行改变判定的势头，但心智因此受到剧烈反噬。",
+      "cost": 0,
+      "attention": 2,
+      "timing": "before_check",
+      "effects": [
+        {
+          "trigger": "on_check",
+          "operation": "advantage",
+          "target": "current_check"
+        },
+        {
+          "trigger": "on_check",
+          "operation": "resource_loss",
+          "target": "self",
+          "resource": "focus",
+          "value": 2
+        }
+      ],
+      "requires_roll": false
+    },
+    {
+      "id": "frenzied_clarity",
+      "name": "狂乱视界",
+      "description": "将极度繁复的法则洞察灌入脑海，虽然极大地降低了行事的难度，却使其身心被恐惧笼罩。",
+      "cost": 1,
+      "attention": 2,
+      "timing": "before_check",
+      "effects": [
+        {
+          "trigger": "on_check",
+          "operation": "modify_dc",
+          "target": "current_check",
+          "value": -3
+        },
+        {
+          "trigger": "on_check",
+          "operation": "apply_status",
+          "target": "self",
+          "status": "fear",
+          "stacks": 1,
+          "duration": 2
+        }
+      ],
+      "requires_roll": false
+    },
+    {
+      "id": "blood_exchange_shield",
+      "name": "血契凝护",
+      "description": "在战斗开始时将冒险者的部分体液蒸发为坚固的血晶护盾，换取极高的防护却伴随着创伤。",
+      "cost": 1,
+      "attention": 2,
+      "timing": "combat_start",
+      "effects": [
+        {
+          "trigger": "on_combat_start",
+          "operation": "shield",
+          "target": "self",
+          "value": 10
+        },
+        {
+          "trigger": "on_combat_start",
+          "operation": "damage",
+          "target": "self",
+          "value": 3
+        }
+      ],
+      "requires_roll": false
+    },
+    {
+      "id": "marked_fate",
+      "name": "命运印记",
+      "description": "在强行扭曲判定难度的同时，将冒险者的存在暴露给未知的虚空敌人，使其更容易被锁定。",
+      "cost": 0,
+      "attention": 3,
+      "timing": "before_check",
+      "effects": [
+        {
+          "trigger": "on_check",
+          "operation": "modify_dc",
+          "target": "current_check",
+          "value": -2
+        },
+        {
+          "trigger": "on_check",
+          "operation": "apply_status",
+          "target": "self",
+          "status": "mark",
+          "stacks": 1,
+          "duration": 3
+        }
+      ],
+      "requires_roll": false
+    },
+    {
+      "id": "vulnerable_surge",
+      "name": "破绽爆发",
+      "description": "为冒险者注入转瞬即逝的敏捷力量以占据优势，但动作过猛使其当场暴露破绽并陷入失衡。",
+      "cost": 1,
+      "attention": 2,
+      "timing": "before_check",
+      "effects": [
+        {
+          "trigger": "on_check",
+          "operation": "advantage",
+          "target": "current_check"
+        },
+        {
+          "trigger": "on_check",
+          "operation": "apply_status",
+          "target": "self",
+          "status": "stagger",
+          "stacks": 1,
+          "duration": 1
+        }
+      ],
+      "requires_roll": false
+    },
+    {
+      "id": "summon_gaze",
+      "name": "凝视引敌",
+      "description": "向虚空主动释放高浓度的存在感，招致不可名状的关注与危险，借由此种裂隙抽取干涉能量。",
+      "cost": -1,
+      "attention": 3,
+      "timing": "before_room",
+      "effects": [
+        {
+          "trigger": "on_enter_room",
+          "operation": "spawn",
+          "target": "current_room",
+          "value": 1
+        }
+      ],
+      "requires_roll": false
+    },
+    {
+      "id": "sanguine_offering",
+      "name": "鲜血干涉",
+      "description": "在战斗回合开始时抽走冒险者的生命力奉献给幕外法则，换取干涉力量，造成持续出血。",
+      "cost": -1,
+      "attention": 3,
+      "timing": "turn_start",
+      "effects": [
+        {
+          "trigger": "turn_start",
+          "operation": "damage",
+          "target": "self",
+          "value": 4
+        },
+        {
+          "trigger": "turn_start",
+          "operation": "apply_status",
+          "target": "self",
+          "status": "bleed",
+          "stacks": 2,
+          "duration": 2
+        }
+      ],
+      "requires_roll": false
+    },
+    {
+      "id": "mind_tether_siphon",
+      "name": "理智汲取",
+      "description": "强行抽取冒险者紧绷的精神专注作为观测者的干涉能源，令其心智防线出现裂痕与混乱。",
+      "cost": -1,
+      "attention": 2,
+      "timing": "before_check",
+      "effects": [
+        {
+          "trigger": "on_check",
+          "operation": "resource_loss",
+          "target": "self",
+          "resource": "focus",
+          "value": 2
+        },
+        {
+          "trigger": "on_check",
+          "operation": "disadvantage",
+          "target": "current_check"
+        }
+      ],
+      "requires_roll": false
+    },
+    {
+      "id": "toxic_beacon",
+      "name": "剧毒信标",
+      "description": "将腐蚀性的虚空毒素注入当前空间，强行抽取大量的干涉点数，但冒险者也会被剧毒侵蚀。",
+      "cost": -2,
+      "attention": 4,
+      "timing": "turn_start",
+      "effects": [
+        {
+          "trigger": "turn_start",
+          "operation": "damage",
+          "target": "self",
+          "value": 2
+        },
+        {
+          "trigger": "turn_start",
+          "operation": "apply_status",
+          "target": "self",
+          "status": "poison",
+          "stacks": 2,
+          "duration": 3
+        }
+      ],
+      "requires_roll": false
+    },
+    {
+      "id": "provoke_abyss",
+      "name": "挑衅深渊",
+      "description": "彻底撕开幕外遮罩对深渊发出强烈挑衅，将世界难度提升并使冒险者陷入极度惊恐，以此夺取极高干涉力。",
+      "cost": -2,
+      "attention": 5,
+      "timing": "before_check",
+      "effects": [
+        {
+          "trigger": "on_check",
+          "operation": "modify_dc",
+          "target": "current_check",
+          "value": 3
+        },
+        {
+          "trigger": "on_check",
+          "operation": "apply_status",
+          "target": "self",
+          "status": "fear",
+          "stacks": 2,
+          "duration": 3
+        }
+      ],
+      "requires_roll": false
+    }
+  ],
+  "flavor_text": []
+}

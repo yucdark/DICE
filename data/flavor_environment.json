@@ -1,0 +1,290 @@
+{
+  "meta": {
+    "pack_id": "veil_dice_flavor_pack_i1",
+    "name": "幕外之骰环境风味文本包",
+    "version": "0.2.0",
+    "language": "zh-CN",
+    "theme": "gothic_dark_fairy_tale",
+    "author": "prototype"
+  },
+  "equipment_bases": [],
+  "materials": [],
+  "affixes": [],
+  "skills": [],
+  "enemies": [],
+  "events": [],
+  "locations": [],
+  "observer_actions": [],
+  "flavor_text": [
+    {
+      "id": "flavor_i1_room_enter_01",
+      "category": "room_enter",
+      "text": "石门在轴承的剧烈磨损声中推开，潮湿的冷气扑面而来。",
+      "tags": [
+        "indoor",
+        "dark"
+      ]
+    },
+    {
+      "id": "flavor_i1_room_enter_02",
+      "category": "room_enter",
+      "text": "拱顶上方垂落着成束的铜制飞缆，微弱的电火花在绝缘层裂口间闪烁。",
+      "tags": [
+        "clockwork",
+        "indoor"
+      ]
+    },
+    {
+      "id": "flavor_i1_room_enter_03",
+      "category": "room_enter",
+      "text": "泥泞的排水沟沿墙根延伸，水面上浮着一层粘稠的黑色油脂。",
+      "tags": [
+        "underground",
+        "water"
+      ]
+    },
+    {
+      "id": "flavor_i1_room_enter_04",
+      "category": "room_enter",
+      "text": "讲坛上的蜡烛早已熄灭，干涸的蜡油顺着雕花木台一路淌到地砖缝隙里。",
+      "tags": [
+        "religious",
+        "indoor"
+      ]
+    },
+    {
+      "id": "flavor_i1_room_enter_05",
+      "category": "room_enter",
+      "text": "狂风刮过破损的彩绘玻璃，尖锐的呜咽声在空旷的走廊内反复回荡。",
+      "tags": [
+        "high_place",
+        "ruin"
+      ]
+    },
+    {
+      "id": "flavor_i1_room_enter_06",
+      "category": "room_enter",
+      "text": "墙壁上的煤气灯管发出断断续续的嘶嘶声，绿色的微光将阴影拉得极长。",
+      "tags": [
+        "dark",
+        "indoor"
+      ]
+    },
+    {
+      "id": "flavor_i1_room_enter_07",
+      "category": "room_enter",
+      "text": "刺藤死死缠住两旁的石柱，嫩芽顶端散发出带甜味的发酵气息。",
+      "tags": [
+        "plant",
+        "outdoor"
+      ]
+    },
+    {
+      "id": "flavor_i1_room_enter_08",
+      "category": "room_enter",
+      "text": "巨型发条轴承在脚下咔哒转动，整座铁板地面随着机械节律轻微震颤。",
+      "tags": [
+        "clockwork",
+        "ruin"
+      ]
+    },
+    {
+      "id": "flavor_i1_room_enter_09",
+      "category": "room_enter",
+      "text": "积水倒映出高处悬挂的生锈铁笼，笼底的锁扣正缓缓左右晃动。",
+      "tags": [
+        "water",
+        "ruin"
+      ]
+    },
+    {
+      "id": "flavor_i1_room_enter_10",
+      "category": "room_enter",
+      "text": "告解室的木门虚掩着，雕花窗格后隐约透出干涸血斑的轮廓。",
+      "tags": [
+        "religious",
+        "dark"
+      ]
+    },
+    {
+      "id": "flavor_i1_room_enter_11",
+      "category": "room_enter",
+      "text": "陡峭的石阶一路向下倾斜，尽头浸泡在泛着微光的地下潭水里。",
+      "tags": [
+        "underground",
+        "water"
+      ]
+    },
+    {
+      "id": "flavor_i1_room_enter_12",
+      "category": "room_enter",
+      "text": "露天中庭的石雕花坛已经开裂，黑色的孢子云团在残破的雕像脚下聚散。",
+      "tags": [
+        "outdoor",
+        "anomaly"
+      ]
+    },
+    {
+      "id": "flavor_i1_omen_01",
+      "category": "omen",
+      "text": "铜管深处传来不规律的敲击声，每隔三秒便停顿一次。",
+      "tags": [
+        "clockwork",
+        "danger"
+      ]
+    },
+    {
+      "id": "flavor_i1_omen_02",
+      "category": "omen",
+      "text": "墙角的草株无风自动，细小的孢子沿着缝隙向暗处飘散。",
+      "tags": [
+        "plant",
+        "anomaly"
+      ]
+    },
+    {
+      "id": "flavor_i1_omen_03",
+      "category": "omen",
+      "text": "脚下的石板微微塌陷半分，深处传来机关簧片绷紧的声响。",
+      "tags": [
+        "underground",
+        "danger"
+      ]
+    },
+    {
+      "id": "flavor_i1_omen_04",
+      "category": "omen",
+      "text": "烛台上的火焰突然转为幽蓝色，剧烈晃动后缩成一小点。",
+      "tags": [
+        "fire",
+        "occult"
+      ]
+    },
+    {
+      "id": "flavor_i1_omen_05",
+      "category": "omen",
+      "text": "水面泛起环环相扣的涟漪，水底隐约有沉重的阴影游过。",
+      "tags": [
+        "water",
+        "danger"
+      ]
+    },
+    {
+      "id": "flavor_i1_omen_06",
+      "category": "omen",
+      "text": "挂在墙上的玻璃表盘指针开始剧烈逆转，发条发出崩裂前夕的惨鸣。",
+      "tags": [
+        "clockwork",
+        "anomaly"
+      ]
+    },
+    {
+      "id": "flavor_i1_omen_07",
+      "category": "omen",
+      "text": "空气中的气味从霉味急剧转变为刺鼻的硫磺与焦糊味。",
+      "tags": [
+        "fire",
+        "danger"
+      ]
+    },
+    {
+      "id": "flavor_i1_omen_08",
+      "category": "omen",
+      "text": "石壁后传来钝器刮擦花岗岩的刺耳声响，距离越来越近。",
+      "tags": [
+        "dark",
+        "danger"
+      ]
+    },
+    {
+      "id": "flavor_i1_omen_09",
+      "category": "omen",
+      "text": "圣像眼眶中渗出粘稠的黑色液体，滴落在地砖上发出蚀坑声。",
+      "tags": [
+        "religious",
+        "anomaly"
+      ]
+    },
+    {
+      "id": "flavor_i1_omen_10",
+      "category": "omen",
+      "text": "远处的绞盘钢缆骤然绷紧，金属摩擦的尖锐高音撕裂了死寂。",
+      "tags": [
+        "high_place",
+        "danger"
+      ]
+    },
+    {
+      "id": "flavor_i1_rest_01",
+      "category": "rest",
+      "text": "靠在潮湿的壁炉旁合眼，金属发条转动的轻响充斥着不安的梦境。",
+      "tags": [
+        "quiet",
+        "indoor"
+      ]
+    },
+    {
+      "id": "flavor_i1_rest_02",
+      "category": "rest",
+      "text": "清理掉石台上的碎石与断骨，在冷风吹不到的墙角暂时合拢双眼。",
+      "tags": [
+        "quiet",
+        "ruin"
+      ]
+    },
+    {
+      "id": "flavor_i1_rest_03",
+      "category": "rest",
+      "text": "微弱的篝火舔舐着枯枝，四周暗处始终传来细碎的沙沙声。",
+      "tags": [
+        "fire",
+        "outdoor"
+      ]
+    },
+    {
+      "id": "flavor_i1_rest_04",
+      "category": "rest",
+      "text": "将背脊顶住锁紧的铁门，紧握武器在迷糊中度过短暂的半个时辰。",
+      "tags": [
+        "quiet",
+        "danger"
+      ]
+    },
+    {
+      "id": "flavor_i1_rest_05",
+      "category": "rest",
+      "text": "水滴定期落在冰冷的盔甲上，清冷刺骨的刺激让人无法陷入深度沉睡。",
+      "tags": [
+        "water",
+        "underground"
+      ]
+    },
+    {
+      "id": "flavor_i1_rest_06",
+      "category": "rest",
+      "text": "裹紧破损的斗篷坐在祭坛阴影里，呼吸间全是干枯香草与霉菌的气味。",
+      "tags": [
+        "religious",
+        "dark"
+      ]
+    },
+    {
+      "id": "flavor_i1_rest_07",
+      "category": "rest",
+      "text": "拆下废弃车厢的木板升起小火，烫温了皮革囊里的残余苦水。",
+      "tags": [
+        "fire",
+        "outdoor"
+      ]
+    },
+    {
+      "id": "flavor_i1_rest_08",
+      "category": "rest",
+      "text": "靠着微温的机械管道打瞌睡，高压蒸汽的泄压声不时将人惊醒。",
+      "tags": [
+        "clockwork",
+        "indoor"
+      ]
+    }
+  ]
+}

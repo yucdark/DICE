@@ -1,0 +1,40 @@
+{
+  "meta": {
+    "pack_id": "veil_dice_materials",
+    "name": "幕外之骰装备材质包",
+    "version": "0.2.0",
+    "language": "zh-CN",
+    "theme": "gothic_dark_fairy_tale",
+    "author": "prototype"
+  },
+  "equipment_bases": [],
+  "materials": [
+    {"id":"cold_iron","name":"冷铁","rarity":"common","power_budget":0,"description":"低温锤打锻造的粗糙铁材，对异质气息有天然的排斥。","allowed_categories":["light_weapon","heavy_weapon","shield","heavy_armor"],"guard_mod":0,"damage_reduction_mod":0,"weight_mod":0,"damage_die_step":0,"effects":[],"tags":["metal","cold"]},
+    {"id":"grave_silver","name":"墓银","rarity":"uncommon","power_budget":1,"description":"从古老墓穴殉葬品中熔炼出的暗沉白银，质地韧软且传导灵性。","allowed_categories":["light_weapon","focus","accessory"],"guard_mod":0,"damage_reduction_mod":0,"weight_mod":-1,"damage_die_step":0,"effects":[],"tags":["metal","holy"]},
+    {"id":"bone_ash_steel","name":"骨灰钢","rarity":"rare","power_budget":3,"description":"折叠锻打时掺入兽骨细粉的坚硬钢材，淬火后呈灰白纹理。","allowed_categories":["heavy_weapon","heavy_armor","shield"],"guard_mod":1,"damage_reduction_mod":0,"weight_mod":1,"damage_die_step":0,"effects":[],"tags":["metal","bone"]},
+    {"id":"mourning_silk","name":"悼亡丝","rarity":"common","power_budget":1,"description":"使用黑蚕吐出的暗色丝线纺织成的面料，触感冰凉且不吸水分。","allowed_categories":["garment","focus"],"guard_mod":0,"damage_reduction_mod":0,"weight_mod":-1,"damage_die_step":0,"effects":[],"tags":["cloth","soft"]},
+    {"id":"ash_leather","name":"灰烬皮革","rarity":"uncommon","power_budget":1,"description":"浸泡在植物灰碱水中反复鞣制的厚重皮革，耐磨损且防水。","allowed_categories":["light_armor","garment","shield"],"guard_mod":0,"damage_reduction_mod":1,"weight_mod":0,"damage_die_step":0,"effects":[],"tags":["leather","tough"]},
+    {"id":"bog_oak","name":"沼泽黑橡","rarity":"uncommon","power_budget":1,"description":"在淤泥深处沉淀百年的炭化橡木，质地如石般坚硬且不易腐朽。","allowed_categories":["focus","shield","light_weapon"],"guard_mod":1,"damage_reduction_mod":0,"weight_mod":0,"damage_die_step":0,"effects":[],"tags":["wood","dense"]},
+    {"id":"bleached_bone","name":"漂白兽骨","rarity":"common","power_budget":0,"description":"经日光与盐水风干剥离的坚硬骨骼，表面刻有天然的微小孔隙。","allowed_categories":["light_weapon","focus","accessory"],"guard_mod":0,"damage_reduction_mod":0,"weight_mod":0,"damage_die_step":0,"effects":[],"tags":["bone","light"]},
+    {"id":"dusk_brass","name":"黄昏黄铜","rarity":"uncommon","power_budget":1,"description":"色泽黯淡的暗金铜合金，击打时发出的声音沉闷而传之甚远。","allowed_categories":["focus","accessory","heavy_weapon"],"guard_mod":0,"damage_reduction_mod":0,"weight_mod":1,"damage_die_step":0,"effects":[],"tags":["metal","sound"]},
+    {"id":"obsidian_glass","name":"黑曜玻璃","rarity":"rare","power_budget":4,"description":"火山熔岩急速凝固形成的黑玻璃，断口极其锋利但耐受力较差。","allowed_categories":["light_weapon","focus","accessory"],"guard_mod":-1,"damage_reduction_mod":0,"weight_mod":0,"damage_die_step":2,"effects":[],"tags":["glass","sharp"]},
+    {"id":"plague_copper","name":"疫病青铜","rarity":"common","power_budget":0,"description":"表面生成厚重铜绿的古老青铜，散发着陈腐的金属气味。","allowed_categories":["heavy_weapon","heavy_armor","shield"],"guard_mod":1,"damage_reduction_mod":0,"weight_mod":1,"damage_die_step":0,"effects":[],"tags":["metal","ancient"]},
+    {"id":"whitetail_sinew","name":"白尾兽筋","rarity":"common","power_budget":0,"description":"经过浸油与抽拉处理的野兽大筋，拥有惊人的拉伸韧性。","allowed_categories":["light_weapon","garment"],"guard_mod":0,"damage_reduction_mod":0,"weight_mod":0,"damage_die_step":0,"effects":[],"tags":["organ","flexible"]},
+    {"id":"meteorite_ore","name":"陨星铁矿","rarity":"rare","power_budget":4,"description":"坠落天外熔岩残余的黑陨铁，极其沉重且能吸收外界撞击。","allowed_categories":["heavy_weapon","heavy_armor"],"guard_mod":1,"damage_reduction_mod":1,"weight_mod":2,"damage_die_step":0,"effects":[],"tags":["metal","rare"]},
+    {"id":"hallowed_amber","name":"圣化琥珀","rarity":"epic","power_budget":7,"description":"包裹着古代孢子与昆虫的透明琥珀，摸上去永远带着微温。","allowed_categories":["focus","accessory"],"guard_mod":0,"damage_reduction_mod":0,"weight_mod":-1,"damage_die_step":0,"effects":[{"trigger":"on_skill_use","operation":"advantage","target":"current_check","condition_tags_any":["holy"]},{"trigger":"on_hit","operation":"heal","target":"self","value":1,"condition_tags_any":["holy"]}],"tags":["gem","holy"]},
+    {"id":"shadow_weave_felt","name":"影织毡毛","rarity":"uncommon","power_budget":1,"description":"使用深山野羊粗毛压制而成的厚毛毡，能有效吸收摩擦声响。","allowed_categories":["garment","light_armor"],"guard_mod":0,"damage_reduction_mod":1,"weight_mod":0,"damage_die_step":0,"effects":[],"tags":["cloth","stealth"]},
+    {"id":"lead_alloy","name":"铅锡合金","rarity":"uncommon","power_budget":1,"description":"高密度的软质重金属合金，常用于配重或吸收强烈振动。","allowed_categories":["heavy_weapon","shield","heavy_armor"],"guard_mod":1,"damage_reduction_mod":0,"weight_mod":2,"damage_die_step":0,"effects":[],"tags":["metal","heavy"]},
+    {"id":"raven_feather_cloth","name":"乌鸦羽布","rarity":"epic","power_budget":6,"description":"将漆黑羽毛交织编入布匹中的特殊织物，轻盈且随风飘甩。","allowed_categories":["garment","accessory"],"guard_mod":0,"damage_reduction_mod":0,"weight_mod":-1,"damage_die_step":0,"effects":[{"trigger":"on_check","operation":"advantage","target":"current_check","condition_tags_any":["light"]},{"trigger":"passive","operation":"stat_mod","target":"self","stat":"finesse","value":1,"condition_tags_any":["feather"]}],"tags":["feather","light"]},
+    {"id":"blood_vein_stone","name":"血脉矿石","rarity":"epic","power_budget":7,"description":"内部布满红色网状纹理的原石，对体液与温度变化十分敏感。","allowed_categories":["focus","accessory","light_weapon"],"guard_mod":0,"damage_reduction_mod":0,"weight_mod":0,"damage_die_step":1,"effects":[{"trigger":"on_hit","operation":"heal","target":"self","value":2,"condition_tags_any":["occult"]},{"trigger":"on_kill","operation":"resource_gain","target":"self","resource":"focus","value":1,"condition_tags_any":["occult"]}],"tags":["mineral","occult"]},
+    {"id":"thorn_vine_wood","name":"荆棘藤木","rarity":"common","power_budget":0,"description":"干瘪交错的硬质藤木，表皮带有些许未褪去的坚硬刺角。","allowed_categories":["light_weapon","focus","shield"],"guard_mod":0,"damage_reduction_mod":0,"weight_mod":0,"damage_die_step":0,"effects":[],"tags":["wood","thorny"]},
+    {"id":"phantom_thread","name":"幻影蛛丝","rarity":"rare","power_budget":4,"description":"来自深渊巨蛛的韧性单丝，透明细瘦却难以用普通手段割断。","allowed_categories":["garment","light_armor"],"guard_mod":1,"damage_reduction_mod":1,"weight_mod":-1,"damage_die_step":0,"effects":[],"tags":["silk","rare"]},
+    {"id":"chitin_shell","name":"黑甲壳","rarity":"rare","power_budget":3,"description":"剥离自巨型害虫的硬质外壳，兼具弧形偏斜力与绝佳防腐性。","allowed_categories":["light_armor","heavy_armor","shield"],"guard_mod":1,"damage_reduction_mod":1,"weight_mod":0,"damage_die_step":0,"effects":[],"tags":["chitin","sturdy"]}
+  ],
+  "affixes": [],
+  "skills": [],
+  "enemies": [],
+  "events": [],
+  "locations": [],
+  "observer_actions": [],
+  "flavor_text": []
+}

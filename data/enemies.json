@@ -1,0 +1,1578 @@
+{
+  "meta": {
+    "pack_id": "veil_dice_enemies_pack_e",
+    "name": "幕外之骰敌人与招式包",
+    "version": "0.2.0",
+    "language": "zh-CN",
+    "theme": "gothic_dark_fairy_tale",
+    "author": "prototype"
+  },
+  "equipment_bases": [],
+  "materials": [],
+  "affixes": [],
+  "skills": [],
+  "enemies": [
+    {
+      "id": "hollow_cinder_sprite",
+      "name": "虚空灰烬妖",
+      "rank": "minion",
+      "description": "依靠残留的热感感知生灵，以低空飘忽的弧线向前猛冲，撞击后自身易陷入失衡。",
+      "hp": 10,
+      "guard": 8,
+      "will_defense": 7,
+      "damage_reduction": 0,
+      "tags": [
+        "elemental",
+        "fire",
+        "minion"
+      ],
+      "resistances": [
+        "fire"
+      ],
+      "weaknesses": [
+        "water",
+        "frost"
+      ],
+      "actions": [
+        {
+          "id": "cinder_sprite_burst",
+          "name": "星火灼喷",
+          "weight": 70,
+          "description": "向前方喷吐残留的余烬火星。",
+          "attack_bonus": 2,
+          "damage_die": "1d4",
+          "effects": [
+            {
+              "trigger": "on_hit",
+              "operation": "apply_status",
+              "target": "enemy",
+              "status": "burn",
+              "stacks": 1,
+              "duration": 2
+            }
+          ]
+        },
+        {
+          "id": "cinder_sprite_flicker",
+          "name": "忽明忽暗",
+          "weight": 30,
+          "description": "灰烬体剧烈闪烁并短暂凝聚防护层。",
+          "effects": [
+            {
+              "trigger": "on_skill_use",
+              "operation": "shield",
+              "target": "self",
+              "value": 3
+            }
+          ]
+        }
+      ],
+      "loot_tags": [
+        "ash",
+        "fire_essence"
+      ]
+    },
+    {
+      "id": "brass_clockwork_spider",
+      "name": "黄铜齿轮蛛",
+      "rank": "minion",
+      "description": "顺着墙壁缝隙急速爬行，通过金属震动锁定敌人位置，攻击前关节会发出高亢鸣响。",
+      "hp": 12,
+      "guard": 10,
+      "will_defense": 8,
+      "damage_reduction": 0,
+      "tags": [
+        "construct",
+        "clockwork",
+        "mechanical"
+      ],
+      "resistances": [
+        "poison",
+        "bleed"
+      ],
+      "weaknesses": [
+        "blunt",
+        "lightning"
+      ],
+      "actions": [
+        {
+          "id": "clockwork_spider_stab",
+          "name": "发条刺扎",
+          "weight": 60,
+          "description": "用尖锐的黄铜前肢刺向目标。",
+          "attack_bonus": 3,
+          "damage_die": "1d4+1",
+          "effects": [
+            {
+              "trigger": "on_hit",
+              "operation": "apply_status",
+              "target": "enemy",
+              "status": "mark",
+              "stacks": 1,
+              "duration": 2
+            }
+          ]
+        },
+        {
+          "id": "clockwork_spider_wound",
+          "name": "齿轮割裂",
+          "weight": 40,
+          "description": "高速旋转肢体上的小型齿轮划伤敌人。",
+          "attack_bonus": 2,
+          "damage_die": "1d4",
+          "effects": [
+            {
+              "trigger": "on_hit",
+              "operation": "apply_status",
+              "target": "enemy",
+              "status": "bleed",
+              "stacks": 1,
+              "duration": 2
+            }
+          ]
+        }
+      ],
+      "loot_tags": [
+        "clockwork",
+        "scrap_metal"
+      ]
+    },
+    {
+      "id": "sprout_strangler",
+      "name": "绞杀幼芽",
+      "rank": "minion",
+      "description": "沿潮湿泥土贴地潜行，专挑落单者的脚踝缠绕，根须暴露于阳光下时行动明显迟缓。",
+      "hp": 14,
+      "guard": 9,
+      "will_defense": 9,
+      "damage_reduction": 0,
+      "tags": [
+        "plant",
+        "organic"
+      ],
+      "resistances": [
+        "stagger"
+      ],
+      "weaknesses": [
+        "fire",
+        "blade"
+      ],
+      "actions": [
+        {
+          "id": "sprout_strangler_vine",
+          "name": "藤蔓绊倒",
+          "weight": 65,
+          "description": "伸展幼嫩的藤蔓缠绕目标的双腿。",
+          "attack_bonus": 2,
+          "damage_die": "1d4",
+          "effects": [
+            {
+              "trigger": "on_hit",
+              "operation": "apply_status",
+              "target": "enemy",
+              "status": "stagger",
+              "stacks": 1,
+              "duration": 1
+            }
+          ]
+        },
+        {
+          "id": "sprout_strangler_drain",
+          "name": "根须汲润",
+          "weight": 35,
+          "description": "刺入皮肤吸取体液恢复生命。",
+          "attack_bonus": 1,
+          "damage_die": "1d4",
+          "effects": [
+            {
+              "trigger": "on_hit",
+              "operation": "heal",
+              "target": "self",
+              "value": 2
+            }
+          ]
+        }
+      ],
+      "loot_tags": [
+        "plant_seed",
+        "vine"
+      ]
+    },
+    {
+      "id": "tattered_choir_page",
+      "name": "破烂唱诗童",
+      "rank": "minion",
+      "description": "双脚悬空漂浮，依据求救声的方位盲目靠近，每次高声合唱前都会短暂停顿整理残缺袍服。",
+      "hp": 11,
+      "guard": 9,
+      "will_defense": 10,
+      "damage_reduction": 0,
+      "tags": [
+        "undead",
+        "holy",
+        "relic"
+      ],
+      "resistances": [
+        "fear"
+      ],
+      "weaknesses": [
+        "dark",
+        "curse"
+      ],
+      "actions": [
+        {
+          "id": "choir_page_hymn",
+          "name": "刺耳合唱",
+          "weight": 70,
+          "description": "发出尖锐无序的赞美诗呐喊。",
+          "attack_bonus": 2,
+          "damage_die": "1d4",
+          "effects": [
+            {
+              "trigger": "on_hit",
+              "operation": "apply_status",
+              "target": "enemy",
+              "status": "fear",
+              "stacks": 1,
+              "duration": 1
+            }
+          ]
+        },
+        {
+          "id": "choir_page_prayer",
+          "name": "遗缺祷告",
+          "weight": 30,
+          "description": "低头诵读残破的经文页。",
+          "effects": [
+            {
+              "trigger": "on_skill_use",
+              "operation": "apply_status",
+              "target": "self",
+              "status": "ward",
+              "stacks": 1,
+              "duration": 2
+            }
+          ]
+        }
+      ],
+      "loot_tags": [
+        "parchment",
+        "sacred_dust"
+      ]
+    },
+    {
+      "id": "porcelain_ballerina",
+      "name": "裁缝瓷偶",
+      "rank": "normal",
+      "description": "踏着固定机械舞步沿直线旋转移动，凭借镜面眼眶反射的光线捕捉目标，转向时关节极其僵硬。",
+      "hp": 22,
+      "guard": 13,
+      "will_defense": 11,
+      "damage_reduction": 1,
+      "tags": [
+        "construct",
+        "toy",
+        "gothic"
+      ],
+      "resistances": [
+        "bleed",
+        "poison"
+      ],
+      "weaknesses": [
+        "blunt",
+        "heavy_impact"
+      ],
+      "actions": [
+        {
+          "id": "ballerina_pirouette",
+          "name": "高速旋转",
+          "weight": 60,
+          "description": "展开锋利的瓷质裙摆进行快速旋转切割。",
+          "attack_bonus": 4,
+          "damage_die": "1d6+2",
+          "effects": [
+            {
+              "trigger": "on_crit",
+              "operation": "bonus_die",
+              "target": "enemy",
+              "die": "1d4"
+            }
+          ]
+        },
+        {
+          "id": "ballerina_puncture",
+          "name": "缝纫针刺",
+          "weight": 40,
+          "description": "用长针手臂精准刺入目标缝隙。",
+          "attack_bonus": 3,
+          "damage_die": "1d6",
+          "effects": [
+            {
+              "trigger": "on_hit",
+              "operation": "apply_status",
+              "target": "enemy",
+              "status": "bleed",
+              "stacks": 1,
+              "duration": 2
+            }
+          ]
+        }
+      ],
+      "loot_tags": [
+        "porcelain",
+        "sharp_needle"
+      ]
+    },
+    {
+      "id": "wax_crying_priest",
+      "name": "蜡化哭泣祭司",
+      "rank": "normal",
+      "description": "托着庞大烛台蹒跚缓行，优先攻击持有亮光或发出巨大噪音的单位，蜡质融化时防护大幅下降。",
+      "hp": 26,
+      "guard": 12,
+      "will_defense": 14,
+      "damage_reduction": 0,
+      "tags": [
+        "humanoid",
+        "cultist",
+        "wax"
+      ],
+      "resistances": [
+        "fear",
+        "stagger"
+      ],
+      "weaknesses": [
+        "fire",
+        "heat"
+      ],
+      "actions": [
+        {
+          "id": "crying_priest_tear",
+          "name": "熔蜡泼洒",
+          "weight": 50,
+          "description": "倾斜手中烛台泼洒滚烫的炽热熔蜡。",
+          "attack_bonus": 3,
+          "damage_die": "1d6+1",
+          "effects": [
+            {
+              "trigger": "on_hit",
+              "operation": "apply_status",
+              "target": "enemy",
+              "status": "burn",
+              "stacks": 1,
+              "duration": 2
+            }
+          ]
+        },
+        {
+          "id": "crying_priest_sob",
+          "name": "忏悔恸哭",
+          "weight": 30,
+          "description": "发出令人心神崩溃的哀号声。",
+          "attack_bonus": 2,
+          "damage_die": "1d4",
+          "effects": [
+            {
+              "trigger": "on_hit",
+              "operation": "apply_status",
+              "target": "enemy",
+              "status": "fear",
+              "stacks": 1,
+              "duration": 2
+            }
+          ]
+        },
+        {
+          "id": "crying_priest_guard",
+          "name": "蜡封姿态",
+          "weight": 20,
+          "description": "用冷却凝固的硬蜡覆盖身体抵抗伤害。",
+          "effects": [
+            {
+              "trigger": "on_skill_use",
+              "operation": "shield",
+              "target": "self",
+              "value": 5
+            }
+          ]
+        }
+      ],
+      "loot_tags": [
+        "candle_wax",
+        "holy_relic"
+      ]
+    },
+    {
+      "id": "iron_ironing_maid",
+      "name": "铁熨斗侍女",
+      "rank": "normal",
+      "description": "举着烧红的巨型铁斗在废墟间来回巡视，通过地表温度变化追踪生灵，起手摆臂幅度过大。",
+      "hp": 28,
+      "guard": 14,
+      "will_defense": 12,
+      "damage_reduction": 1,
+      "tags": [
+        "construct",
+        "servant",
+        "metal"
+      ],
+      "resistances": [
+        "burn",
+        "poison"
+      ],
+      "weaknesses": [
+        "cold",
+        "rust"
+      ],
+      "actions": [
+        {
+          "id": "ironing_maid_press",
+          "name": "熨斗重压",
+          "weight": 65,
+          "description": "将炽热的铁熨斗重重砸向目标。",
+          "attack_bonus": 4,
+          "damage_die": "1d8+1",
+          "effects": [
+            {
+              "trigger": "on_hit",
+              "operation": "apply_status",
+              "target": "enemy",
+              "status": "burn",
+              "stacks": 1,
+              "duration": 2
+            }
+          ]
+        },
+        {
+          "id": "ironing_maid_steam",
+          "name": "灼热蒸汽",
+          "weight": 35,
+          "description": "喷射高压蒸汽使敌人无法立足。",
+          "attack_bonus": 2,
+          "damage_die": "1d4",
+          "effects": [
+            {
+              "trigger": "on_hit",
+              "operation": "apply_status",
+              "target": "enemy",
+              "status": "stagger",
+              "stacks": 1,
+              "duration": 1
+            }
+          ]
+        }
+      ],
+      "loot_tags": [
+        "iron_ingot",
+        "coal"
+      ]
+    },
+    {
+      "id": "brier_knight_statue",
+      "name": "荆棘骑士雕像",
+      "rank": "normal",
+      "description": "拖着沉重的藤蔓铠甲跨步逼近，依据金属碰撞声识别敌意，每次挥剑后胸口核心会短暂暴露。",
+      "hp": 30,
+      "guard": 15,
+      "will_defense": 10,
+      "damage_reduction": 1,
+      "tags": [
+        "construct",
+        "plant",
+        "knight"
+      ],
+      "resistances": [
+        "bleed",
+        "fear"
+      ],
+      "weaknesses": [
+        "fire",
+        "acid"
+      ],
+      "actions": [
+        {
+          "id": "brier_knight_cleave",
+          "name": "荆棘斩击",
+          "weight": 50,
+          "description": "挥动缠满刺棘的石质巨剑劈砍。",
+          "attack_bonus": 4,
+          "damage_die": "1d8+2",
+          "effects": []
+        },
+        {
+          "id": "brier_knight_entangle",
+          "name": "刺藤抽打",
+          "weight": 30,
+          "description": "伸长手臂上的藤蔓锁定并缠绕敌人。",
+          "attack_bonus": 3,
+          "damage_die": "1d4",
+          "effects": [
+            {
+              "trigger": "on_hit",
+              "operation": "apply_status",
+              "target": "enemy",
+              "status": "mark",
+              "stacks": 1,
+              "duration": 2
+            }
+          ]
+        },
+        {
+          "id": "brier_knight_shield",
+          "name": "石构防御",
+          "weight": 20,
+          "description": "举起石盾收拢全身藤蔓防御。",
+          "effects": [
+            {
+              "trigger": "on_skill_use",
+              "operation": "guard_mod",
+              "target": "self",
+              "value": 2
+            }
+          ]
+        }
+      ],
+      "loot_tags": [
+        "stone_fragment",
+        "thorny_vine"
+      ]
+    },
+    {
+      "id": "mirror_glass_herald",
+      "name": "镜片使者",
+      "rank": "normal",
+      "description": "折射光影折跃移动，专注追踪身上有标记的目标，受击后镜面裂痕会暴露真身方向。",
+      "hp": 20,
+      "guard": 12,
+      "will_defense": 13,
+      "damage_reduction": 0,
+      "tags": [
+        "humanoid",
+        "glass",
+        "occult"
+      ],
+      "resistances": [
+        "burn"
+      ],
+      "weaknesses": [
+        "blunt",
+        "heavy_impact"
+      ],
+      "actions": [
+        {
+          "id": "glass_herald_strike",
+          "name": "镜刃突刺",
+          "weight": 60,
+          "description": "持锋利的折光玻璃片猛刺目标。",
+          "attack_bonus": 5,
+          "damage_die": "1d6+2",
+          "effects": [
+            {
+              "trigger": "on_hit",
+              "operation": "apply_status",
+              "target": "enemy",
+              "status": "bleed",
+              "stacks": 1,
+              "duration": 2
+            }
+          ]
+        },
+        {
+          "id": "glass_herald_glare",
+          "name": "强光折射",
+          "weight": 40,
+          "description": "反射刺眼光束照亮敌人的破绽。",
+          "attack_bonus": 2,
+          "damage_die": "1d4",
+          "effects": [
+            {
+              "trigger": "on_hit",
+              "operation": "apply_status",
+              "target": "enemy",
+              "status": "mark",
+              "stacks": 1,
+              "duration": 2
+            }
+          ]
+        }
+      ],
+      "loot_tags": [
+        "mirror_shard",
+        "refraction_crystal"
+      ]
+    },
+    {
+      "id": "gallows_organist",
+      "name": "绞刑架琴师",
+      "rank": "normal",
+      "description": "端坐在悬空的残破琴架前随风漂移，通过声波共振定位目标，弹奏高潮段落前呼吸会急促停顿。",
+      "hp": 24,
+      "guard": 11,
+      "will_defense": 15,
+      "damage_reduction": 0,
+      "tags": [
+        "undead",
+        "music",
+        "ghost"
+      ],
+      "resistances": [
+        "stagger",
+        "poison"
+      ],
+      "weaknesses": [
+        "holy",
+        "silence"
+      ],
+      "actions": [
+        {
+          "id": "organist_death_march",
+          "name": "亡者行进",
+          "weight": 45,
+          "description": "弹奏沉重的压迫性乐章侵蚀敌心灵。",
+          "attack_bonus": 3,
+          "damage_die": "1d6",
+          "effects": [
+            {
+              "trigger": "on_hit",
+              "operation": "apply_status",
+              "target": "enemy",
+              "status": "fear",
+              "stacks": 1,
+              "duration": 2
+            }
+          ]
+        },
+        {
+          "id": "organist_chord",
+          "name": "不谐和音",
+          "weight": 30,
+          "description": "奏出高频杂音干扰目标的专注。",
+          "attack_bonus": 4,
+          "damage_die": "1d6+1",
+          "effects": [
+            {
+              "trigger": "on_hit",
+              "operation": "resource_loss",
+              "target": "enemy",
+              "resource": "focus",
+              "value": 1
+            }
+          ]
+        },
+        {
+          "id": "organist_curse",
+          "name": "诅咒印记",
+          "weight": 25,
+          "description": "将诡异音符烙印在敌人身上。",
+          "effects": [
+            {
+              "trigger": "on_skill_use",
+              "operation": "apply_status",
+              "target": "enemy",
+              "status": "mark",
+              "stacks": 1,
+              "duration": 2
+            }
+          ]
+        }
+      ],
+      "loot_tags": [
+        "sheet_music",
+        "spectral_string"
+      ]
+    },
+    {
+      "id": "cuckoo_sentinel",
+      "name": "布谷鸟哨兵",
+      "rank": "normal",
+      "description": "沿着固定轨道俯冲飞行，依靠齿轮鸣响判断距离，俯冲拉升的转弯半径极大。",
+      "hp": 25,
+      "guard": 13,
+      "will_defense": 12,
+      "damage_reduction": 1,
+      "tags": [
+        "construct",
+        "clockwork",
+        "bird"
+      ],
+      "resistances": [
+        "poison",
+        "fear"
+      ],
+      "weaknesses": [
+        "lightning",
+        "blunt"
+      ],
+      "actions": [
+        {
+          "id": "cuckoo_sentinel_dive",
+          "name": "俯冲喙击",
+          "weight": 65,
+          "description": "从高空沿轨道急速俯冲用铁喙撞击。",
+          "attack_bonus": 5,
+          "damage_die": "1d8",
+          "effects": [
+            {
+              "trigger": "on_hit",
+              "operation": "bonus_die",
+              "target": "enemy",
+              "die": "1d4"
+            }
+          ]
+        },
+        {
+          "id": "cuckoo_sentinel_chime",
+          "name": "钟鸣震慑",
+          "weight": 35,
+          "description": "敲响胸前的小铜钟发出巨响。",
+          "attack_bonus": 2,
+          "damage_die": "1d4",
+          "effects": [
+            {
+              "trigger": "on_hit",
+              "operation": "apply_status",
+              "target": "enemy",
+              "status": "stagger",
+              "stacks": 1,
+              "duration": 1
+            }
+          ]
+        }
+      ],
+      "loot_tags": [
+        "brass_feather",
+        "clockwork_gear"
+      ]
+    },
+    {
+      "id": "fungal_apothecary",
+      "name": "真菌药剂师",
+      "rank": "normal",
+      "description": "背着硕大的孢子囊缓慢踱步，靠嗅觉寻找活人，释放孢子粉尘前囊体会剧烈膨胀。",
+      "hp": 27,
+      "guard": 12,
+      "will_defense": 13,
+      "damage_reduction": 0,
+      "tags": [
+        "plant",
+        "spore",
+        "organic"
+      ],
+      "resistances": [
+        "poison"
+      ],
+      "weaknesses": [
+        "fire",
+        "blade"
+      ],
+      "actions": [
+        {
+          "id": "apothecary_spore",
+          "name": "毒孢喷雾",
+          "weight": 45,
+          "description": "挤压背囊喷洒剧毒孢子雾气。",
+          "attack_bonus": 3,
+          "damage_die": "1d4",
+          "effects": [
+            {
+              "trigger": "on_hit",
+              "operation": "apply_status",
+              "target": "enemy",
+              "status": "poison",
+              "stacks": 1,
+              "duration": 3
+            }
+          ]
+        },
+        {
+          "id": "apothecary_vial",
+          "name": "腐蚀药瓶",
+          "weight": 35,
+          "description": "掷出盛有强酸液体的小玻璃瓶。",
+          "attack_bonus": 4,
+          "damage_die": "1d6+1",
+          "effects": [
+            {
+              "trigger": "on_hit",
+              "operation": "guard_mod",
+              "target": "enemy",
+              "value": -2
+            }
+          ]
+        },
+        {
+          "id": "apothecary_soothe",
+          "name": "孢子敷贴",
+          "weight": 20,
+          "description": "利用治愈性真菌恢复伤口。",
+          "effects": [
+            {
+              "trigger": "on_skill_use",
+              "operation": "heal",
+              "target": "self",
+              "value": 4
+            }
+          ]
+        }
+      ],
+      "loot_tags": [
+        "toxic_fungus",
+        "alchemy_vial"
+      ]
+    },
+    {
+      "id": "bell_tower_gargoyle",
+      "name": "钟楼石像鬼",
+      "rank": "normal",
+      "description": "平时佯装石雕俯瞰大地，感知到活物经过时猛然扑下，起飞准备时间极长。",
+      "hp": 29,
+      "guard": 15,
+      "will_defense": 11,
+      "damage_reduction": 2,
+      "tags": [
+        "construct",
+        "stone",
+        "beast"
+      ],
+      "resistances": [
+        "bleed",
+        "burn",
+        "poison"
+      ],
+      "weaknesses": [
+        "heavy_impact",
+        "pickaxe"
+      ],
+      "actions": [
+        {
+          "id": "gargoyle_pounce",
+          "name": "花岗岩猛扑",
+          "weight": 70,
+          "description": "展开沉重的石翼从空中重重扑倒目标。",
+          "attack_bonus": 4,
+          "damage_die": "1d8+2",
+          "effects": [
+            {
+              "trigger": "on_hit",
+              "operation": "apply_status",
+              "target": "enemy",
+              "status": "stagger",
+              "stacks": 1,
+              "duration": 1
+            }
+          ]
+        },
+        {
+          "id": "gargoyle_harden",
+          "name": "石化凝结",
+          "weight": 30,
+          "description": "瞬间将躯体石化以吸收伤害。",
+          "effects": [
+            {
+              "trigger": "on_skill_use",
+              "operation": "shield",
+              "target": "self",
+              "value": 6
+            }
+          ]
+        }
+      ],
+      "loot_tags": [
+        "carved_stone",
+        "gargoyle_claw"
+      ]
+    },
+    {
+      "id": "stained_glass_saint",
+      "name": "彩绘玻璃圣徒",
+      "rank": "normal",
+      "description": "滑动在教堂花窗框格间，追逐光线照射下的影子，光线阴暗处动作会产生明显卡顿。",
+      "hp": 23,
+      "guard": 14,
+      "will_defense": 14,
+      "damage_reduction": 1,
+      "tags": [
+        "construct",
+        "glass",
+        "holy"
+      ],
+      "resistances": [
+        "burn",
+        "fear"
+      ],
+      "weaknesses": [
+        "blunt",
+        "dark"
+      ],
+      "actions": [
+        {
+          "id": "glass_saint_beam",
+          "name": "折光束击",
+          "weight": 45,
+          "description": "聚焦聚集的光芒射向目标破绽。",
+          "attack_bonus": 4,
+          "damage_die": "1d6+2",
+          "effects": [
+            {
+              "trigger": "on_hit",
+              "operation": "apply_status",
+              "target": "enemy",
+              "status": "mark",
+              "stacks": 1,
+              "duration": 2
+            }
+          ]
+        },
+        {
+          "id": "glass_saint_blessing",
+          "name": "光辉洗礼",
+          "weight": 30,
+          "description": "凝结一束护佑光流笼罩自身。",
+          "effects": [
+            {
+              "trigger": "on_skill_use",
+              "operation": "apply_status",
+              "target": "self",
+              "status": "ward",
+              "stacks": 1,
+              "duration": 2
+            }
+          ]
+        },
+        {
+          "id": "glass_saint_shatter",
+          "name": "玻璃飞溅",
+          "weight": 25,
+          "description": "震碎边缘玻璃形成细小飞屑。",
+          "attack_bonus": 3,
+          "damage_die": "1d8",
+          "effects": [
+            {
+              "trigger": "on_hit",
+              "operation": "apply_status",
+              "target": "enemy",
+              "status": "bleed",
+              "stacks": 1,
+              "duration": 2
+            }
+          ]
+        }
+      ],
+      "loot_tags": [
+        "colored_glass",
+        "holy_symbol"
+      ]
+    },
+    {
+      "id": "hollow_executioner",
+      "name": "空心处刑官",
+      "rank": "elite",
+      "description": "踏着沉重脚步逼近最虚弱的猎物，依靠空洞铠甲内的空气震动寻敌，挥动巨斧前有极长前摇。",
+      "hp": 55,
+      "guard": 17,
+      "will_defense": 15,
+      "damage_reduction": 2,
+      "tags": [
+        "construct",
+        "armor",
+        "giant",
+        "elite"
+      ],
+      "resistances": [
+        "fear",
+        "bleed",
+        "poison"
+      ],
+      "weaknesses": [
+        "lightning",
+        "joint_attack"
+      ],
+      "actions": [
+        {
+          "id": "executioner_guillotine",
+          "name": "断头台巨斩",
+          "weight": 45,
+          "description": "举起锈蚀斩首巨斧全力向下劈砍。",
+          "attack_bonus": 6,
+          "damage_die": "1d12+3",
+          "effects": [
+            {
+              "trigger": "on_hit",
+              "operation": "apply_status",
+              "target": "enemy",
+              "status": "stagger",
+              "stacks": 1,
+              "duration": 1
+            }
+          ]
+        },
+        {
+          "id": "executioner_stomp",
+          "name": "重踏践踏",
+          "weight": 25,
+          "description": "高高抬起铁靴重击地面引发震荡。",
+          "attack_bonus": 5,
+          "damage_die": "1d6+2",
+          "effects": [
+            {
+              "trigger": "on_hit",
+              "operation": "apply_status",
+              "target": "enemy",
+              "status": "stagger",
+              "stacks": 1,
+              "duration": 1
+            }
+          ]
+        },
+        {
+          "id": "executioner_posture",
+          "name": "防守架势",
+          "weight": 30,
+          "description": "将巨斧横挡在胸前做好防御准备。",
+          "effects": [
+            {
+              "trigger": "on_skill_use",
+              "operation": "guard_mod",
+              "target": "self",
+              "value": 3
+            },
+            {
+              "trigger": "on_skill_use",
+              "operation": "shield",
+              "target": "self",
+              "value": 5
+            }
+          ]
+        }
+      ],
+      "loot_tags": [
+        "executioner_axe",
+        "steel_plate"
+      ]
+    },
+    {
+      "id": "clockwork_maestro",
+      "name": "齿轮指挥家",
+      "rank": "elite",
+      "description": "站在高处以机械棒指挥战场节奏，通过音叉震动感知全局，发条松动时指挥动作会出现错乱。",
+      "hp": 48,
+      "guard": 16,
+      "will_defense": 17,
+      "damage_reduction": 1,
+      "tags": [
+        "construct",
+        "clockwork",
+        "leader",
+        "elite"
+      ],
+      "resistances": [
+        "fear",
+        "poison"
+      ],
+      "weaknesses": [
+        "blunt",
+        "overload"
+      ],
+      "actions": [
+        {
+          "id": "maestro_baton",
+          "name": "指挥棒挥击",
+          "weight": 35,
+          "description": "挥动金属指挥棒精准刺向要害。",
+          "attack_bonus": 5,
+          "damage_die": "1d8+2",
+          "effects": [
+            {
+              "trigger": "on_hit",
+              "operation": "apply_status",
+              "target": "enemy",
+              "status": "mark",
+              "stacks": 1,
+              "duration": 2
+            }
+          ]
+        },
+        {
+          "id": "maestro_summon",
+          "name": "唤醒辅助发条",
+          "weight": 35,
+          "description": "启动机制召唤小型的发条杂兵协助。",
+          "effects": [
+            {
+              "trigger": "on_skill_use",
+              "operation": "spawn",
+              "target": "current_room",
+              "value": 1
+            }
+          ]
+        },
+        {
+          "id": "maestro_overhaul",
+          "name": "战术调度",
+          "weight": 30,
+          "description": "通过节拍干扰敌人的思考节奏。",
+          "effects": [
+            {
+              "trigger": "on_skill_use",
+              "operation": "resource_loss",
+              "target": "enemy",
+              "resource": "focus",
+              "value": 1
+            },
+            {
+              "trigger": "on_skill_use",
+              "operation": "advantage",
+              "target": "self"
+            }
+          ]
+        }
+      ],
+      "loot_tags": [
+        "silver_baton",
+        "precision_gear"
+      ]
+    },
+    {
+      "id": "bramble_matriarch",
+      "name": "荆棘圣母",
+      "rank": "elite",
+      "description": "根须盘踞房间中央，伸展蔓藤袭击所有试图靠近者，中央母体受创后蔓藤会短暂回缩。",
+      "hp": 60,
+      "guard": 15,
+      "will_defense": 16,
+      "damage_reduction": 2,
+      "tags": [
+        "plant",
+        "corrupted",
+        "mother",
+        "elite"
+      ],
+      "resistances": [
+        "stagger",
+        "bleed"
+      ],
+      "weaknesses": [
+        "fire",
+        "blight"
+      ],
+      "actions": [
+        {
+          "id": "matriarch_whip",
+          "name": "荆棘狂鞭",
+          "weight": 45,
+          "description": "挥动多根带刺蔓藤连续抽打敌人。",
+          "attack_bonus": 5,
+          "damage_die": "1d10+2",
+          "effects": [
+            {
+              "trigger": "on_hit",
+              "operation": "apply_status",
+              "target": "enemy",
+              "status": "bleed",
+              "stacks": 1,
+              "duration": 2
+            }
+          ]
+        },
+        {
+          "id": "matriarch_spore",
+          "name": "窒息孢子",
+          "weight": 25,
+          "description": "从花朵中央喷出一团浓郁的毒气粉雾。",
+          "attack_bonus": 4,
+          "damage_die": "1d6",
+          "effects": [
+            {
+              "trigger": "on_hit",
+              "operation": "apply_status",
+              "target": "enemy",
+              "status": "poison",
+              "stacks": 1,
+              "duration": 2
+            }
+          ]
+        },
+        {
+          "id": "matriarch_regrowth",
+          "name": "根须自愈",
+          "weight": 30,
+          "description": "从深层土壤中汲取营养滋养自身。",
+          "effects": [
+            {
+              "trigger": "on_skill_use",
+              "operation": "heal",
+              "target": "self",
+              "value": 6
+            },
+            {
+              "trigger": "on_skill_use",
+              "operation": "apply_status",
+              "target": "self",
+              "status": "ward",
+              "stacks": 1,
+              "duration": 2
+            }
+          ]
+        }
+      ],
+      "loot_tags": [
+        "matriarch_core",
+        "ancient_vine"
+      ]
+    },
+    {
+      "id": "wax_cardinal",
+      "name": "熔蜡枢机",
+      "rank": "elite",
+      "description": "漂浮在半空洒下灼热熔蜡，锁定意志防线最低的单位，头部圣冠倾斜时熔蜡喷射方向固定。",
+      "hp": 52,
+      "guard": 16,
+      "will_defense": 18,
+      "damage_reduction": 1,
+      "tags": [
+        "humanoid",
+        "wax",
+        "cultist",
+        "elite"
+      ],
+      "resistances": [
+        "fear",
+        "stagger"
+      ],
+      "weaknesses": [
+        "fire",
+        "cold"
+      ],
+      "actions": [
+        {
+          "id": "wax_cardinal_seal",
+          "name": "炽蜡圣印",
+          "weight": 45,
+          "description": "将一大块融化的滚烫红蜡压向敌人。",
+          "attack_bonus": 6,
+          "damage_die": "1d8+3",
+          "effects": [
+            {
+              "trigger": "on_hit",
+              "operation": "apply_status",
+              "target": "enemy",
+              "status": "burn",
+              "stacks": 1,
+              "duration": 2
+            }
+          ]
+        },
+        {
+          "id": "wax_cardinal_anathema",
+          "name": "异端诅咒",
+          "weight": 25,
+          "description": "宣告神圣咒逐使目标陷入精神恐慌。",
+          "attack_bonus": 4,
+          "damage_die": "1d6",
+          "effects": [
+            {
+              "trigger": "on_hit",
+              "operation": "apply_status",
+              "target": "enemy",
+              "status": "fear",
+              "stacks": 1,
+              "duration": 2
+            }
+          ]
+        },
+        {
+          "id": "wax_cardinal_shield",
+          "name": "圣烛护庇",
+          "weight": 30,
+          "description": "凝聚厚重的圆融蜡层护罩。",
+          "effects": [
+            {
+              "trigger": "on_skill_use",
+              "operation": "shield",
+              "target": "self",
+              "value": 8
+            },
+            {
+              "trigger": "on_skill_use",
+              "operation": "resource_gain",
+              "target": "world",
+              "resource": "attention",
+              "value": 1
+            }
+          ]
+        }
+      ],
+      "loot_tags": [
+        "cardinal_seal",
+        "pure_wax"
+      ]
+    },
+    {
+      "id": "puppet_king_alys",
+      "name": "傀儡国王·阿利斯",
+      "rank": "boss",
+      "description": "悬于半空的丝线拉扯其肢体进行诡异的宫廷舞步，优先攻击对其造成最高累计伤害者，背后主线紧绷时极其脆弱。",
+      "hp": 140,
+      "guard": 20,
+      "will_defense": 18,
+      "damage_reduction": 3,
+      "tags": [
+        "boss",
+        "puppet",
+        "king",
+        "construct"
+      ],
+      "resistances": [
+        "bleed",
+        "poison",
+        "fear"
+      ],
+      "weaknesses": [
+        "string_sever",
+        "fire"
+      ],
+      "actions": [
+        {
+          "id": "king_alys_blade",
+          "name": "王者佩剑",
+          "weight": 30,
+          "description": "挥动华丽的皇家细剑发起迅捷刺击。",
+          "attack_bonus": 7,
+          "damage_die": "1d10+4",
+          "effects": [
+            {
+              "trigger": "on_crit",
+              "operation": "bonus_die",
+              "target": "enemy",
+              "die": "1d6"
+            }
+          ]
+        },
+        {
+          "id": "king_alys_string",
+          "name": "傀儡丝缠绕",
+          "weight": 25,
+          "description": "发射空中悬挂的隐形丝线勒住敌人。",
+          "attack_bonus": 6,
+          "damage_die": "1d6+2",
+          "effects": [
+            {
+              "trigger": "on_hit",
+              "operation": "apply_status",
+              "target": "enemy",
+              "status": "stagger",
+              "stacks": 1,
+              "duration": 1
+            },
+            {
+              "trigger": "on_hit",
+              "operation": "apply_status",
+              "target": "enemy",
+              "status": "mark",
+              "stacks": 1,
+              "duration": 2
+            }
+          ]
+        },
+        {
+          "id": "king_alys_summon",
+          "name": "召集侍从",
+          "weight": 15,
+          "description": "拽动丝线强行召唤一名发条侍从参战。",
+          "effects": [
+            {
+              "trigger": "on_skill_use",
+              "operation": "spawn",
+              "target": "current_room",
+              "value": 1
+            }
+          ]
+        },
+        {
+          "id": "king_alys_guard",
+          "name": "御前姿态",
+          "weight": 15,
+          "description": "利用加固的傀儡铠甲与护栏防守。",
+          "effects": [
+            {
+              "trigger": "on_skill_use",
+              "operation": "shield",
+              "target": "self",
+              "value": 10
+            },
+            {
+              "trigger": "on_skill_use",
+              "operation": "guard_mod",
+              "target": "self",
+              "value": 2
+            }
+          ]
+        },
+        {
+          "id": "king_alys_gaze",
+          "name": "君权凝视",
+          "weight": 15,
+          "description": "散发残存的冷酷威严压迫对手。",
+          "attack_bonus": 5,
+          "damage_die": "1d8",
+          "effects": [
+            {
+              "trigger": "on_hit",
+              "operation": "apply_status",
+              "target": "enemy",
+              "status": "fear",
+              "stacks": 1,
+              "duration": 2
+            },
+            {
+              "trigger": "on_hit",
+              "operation": "resource_loss",
+              "target": "enemy",
+              "resource": "focus",
+              "value": 1
+            }
+          ]
+        }
+      ],
+      "loot_tags": [
+        "king_crown",
+        "royal_rapier",
+        "puppet_thread"
+      ]
+    },
+    {
+      "id": "mother_of_forgotten_dolls",
+      "name": "遗弃偶之母",
+      "rank": "boss",
+      "description": "坐于庞大破旧育婴床中央，通过哭声与缝合针指引傀儡进攻，怀中抱着的八音盒停顿转动时是绝佳输出时机。",
+      "hp": 160,
+      "guard": 22,
+      "will_defense": 20,
+      "damage_reduction": 3,
+      "tags": [
+        "boss",
+        "gothic",
+        "doll",
+        "mother"
+      ],
+      "resistances": [
+        "stagger",
+        "fear",
+        "poison"
+      ],
+      "weaknesses": [
+        "holy",
+        "fire"
+      ],
+      "actions": [
+        {
+          "id": "mother_dolls_thrust",
+          "name": "缝合长针",
+          "weight": 30,
+          "description": "用巨大且锈蚀的刺绣巨针猛烈刺击。",
+          "attack_bonus": 8,
+          "damage_die": "1d12+3",
+          "effects": [
+            {
+              "trigger": "on_hit",
+              "operation": "apply_status",
+              "target": "enemy",
+              "status": "bleed",
+              "stacks": 1,
+              "duration": 2
+            }
+          ]
+        },
+        {
+          "id": "mother_dolls_screaming",
+          "name": "摇篮尖叫",
+          "weight": 25,
+          "description": "发出摧残理智的狂暴哭号。",
+          "attack_bonus": 6,
+          "damage_die": "1d8+2",
+          "effects": [
+            {
+              "trigger": "on_hit",
+              "operation": "apply_status",
+              "target": "enemy",
+              "status": "fear",
+              "stacks": 1,
+              "duration": 2
+            }
+          ]
+        },
+        {
+          "id": "mother_dolls_awaken",
+          "name": "唤醒弃偶",
+          "weight": 15,
+          "description": "从育婴床深处拽出一具被遗弃的人偶。",
+          "effects": [
+            {
+              "trigger": "on_skill_use",
+              "operation": "spawn",
+              "target": "current_room",
+              "value": 1
+            }
+          ]
+        },
+        {
+          "id": "mother_dolls_cradle",
+          "name": "摇篮拥抱",
+          "weight": 15,
+          "description": "缩回软垫破损的育婴床内疗愈伤势。",
+          "effects": [
+            {
+              "trigger": "on_skill_use",
+              "operation": "heal",
+              "target": "self",
+              "value": 8
+            },
+            {
+              "trigger": "on_skill_use",
+              "operation": "apply_status",
+              "target": "self",
+              "status": "ward",
+              "stacks": 2,
+              "duration": 2
+            }
+          ]
+        },
+        {
+          "id": "mother_dolls_spite",
+          "name": "怨毒泼洒",
+          "weight": 15,
+          "description": "向四周喷洒具有腐蚀性的黑色眼泪。",
+          "attack_bonus": 7,
+          "damage_die": "1d6+3",
+          "effects": [
+            {
+              "trigger": "on_hit",
+              "operation": "apply_status",
+              "target": "enemy",
+              "status": "burn",
+              "stacks": 1,
+              "duration": 2
+            },
+            {
+              "trigger": "on_hit",
+              "operation": "apply_status",
+              "target": "enemy",
+              "status": "mark",
+              "stacks": 1,
+              "duration": 2
+            }
+          ]
+        }
+      ],
+      "loot_tags": [
+        "mother_heart",
+        "giant_needle",
+        "music_box"
+      ]
+    }
+  ],
+  "events": [],
+  "locations": [],
+  "observer_actions": [],
+  "flavor_text": []
+}

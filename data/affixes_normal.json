@@ -1,0 +1,975 @@
+{
+  "meta": {
+    "pack_id": "veil_dice_affixes",
+    "name": "幕外之骰装备词缀包",
+    "version": "0.2.0",
+    "language": "zh-CN",
+    "theme": "gothic_dark_fairy_tale",
+    "author": "prototype"
+  },
+  "equipment_bases": [],
+  "materials": [],
+  "affixes": [
+    {
+      "id": "prefix_keen",
+      "name": "锐利的",
+      "rarity": "common",
+      "power_budget": 1,
+      "description": "经过精细打磨，边缘极其锋利。",
+      "allowed_categories": [
+        "light_weapon",
+        "heavy_weapon"
+      ],
+      "tags": [
+        "sharp",
+        "offense"
+      ],
+      "position": "prefix",
+      "effects": [
+        {
+          "trigger": "passive",
+          "operation": "damage_die_step",
+          "target": "self",
+          "value": 1
+        }
+      ]
+    },
+    {
+      "id": "prefix_sturdy",
+      "name": "坚固的",
+      "rarity": "common",
+      "power_budget": 1,
+      "description": "结构强化，能有效招架外部冲击。",
+      "allowed_categories": [
+        "shield",
+        "heavy_armor",
+        "light_armor"
+      ],
+      "tags": [
+        "defense",
+        "sturdy"
+      ],
+      "position": "prefix",
+      "effects": [
+        {
+          "trigger": "passive",
+          "operation": "guard_mod",
+          "target": "self",
+          "value": 1
+        }
+      ]
+    },
+    {
+      "id": "prefix_heavy",
+      "name": "沉重的",
+      "rarity": "common",
+      "power_budget": 0,
+      "description": "用料扎实额外加重，虽然不易挥舞但招架性能卓越。",
+      "allowed_categories": [
+        "heavy_weapon",
+        "heavy_armor",
+        "shield"
+      ],
+      "tags": [
+        "heavy",
+        "metal"
+      ],
+      "position": "prefix",
+      "effects": [
+        {
+          "trigger": "passive",
+          "operation": "guard_mod",
+          "target": "self",
+          "value": 1
+        },
+        {
+          "trigger": "passive",
+          "operation": "weight_mod",
+          "target": "self",
+          "value": 1
+        }
+      ]
+    },
+    {
+      "id": "prefix_light",
+      "name": "轻巧的",
+      "rarity": "common",
+      "power_budget": 1,
+      "description": "削减多余重量，穿戴和挥舞时更加灵活。",
+      "allowed_categories": [
+        "light_weapon",
+        "garment",
+        "light_armor"
+      ],
+      "tags": [
+        "light",
+        "agility"
+      ],
+      "position": "prefix",
+      "effects": [
+        {
+          "trigger": "passive",
+          "operation": "weight_mod",
+          "target": "self",
+          "value": -1
+        }
+      ]
+    },
+    {
+      "id": "prefix_rusted",
+      "name": "斑驳的",
+      "rarity": "uncommon",
+      "power_budget": 1,
+      "description": "表面带有岁月的锈蚀或剥落纹理，质地反而更加紧实。",
+      "allowed_categories": [
+        "heavy_armor",
+        "shield"
+      ],
+      "tags": [
+        "ancient",
+        "tough"
+      ],
+      "position": "prefix",
+      "effects": [
+        {
+          "trigger": "passive",
+          "operation": "damage_reduction",
+          "target": "self",
+          "value": 1
+        }
+      ]
+    },
+    {
+      "id": "prefix_blessed",
+      "name": "受赐福的",
+      "rarity": "uncommon",
+      "power_budget": 2,
+      "description": "浸润过圣水与祷告，在施放圣洁术式时能带来加成。",
+      "allowed_categories": [
+        "focus",
+        "accessory"
+      ],
+      "tags": [
+        "holy",
+        "magic"
+      ],
+      "position": "prefix",
+      "effects": [
+        {
+          "trigger": "on_skill_use",
+          "operation": "bonus_die",
+          "target": "current_check",
+          "die": "1d4",
+          "condition_tags_any": [
+            "holy"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "prefix_jagged",
+      "name": "锯齿的",
+      "rarity": "uncommon",
+      "power_budget": 2,
+      "description": "边缘呈不规则的锯齿状，牺牲了防御换取极高的撕裂威力。",
+      "allowed_categories": [
+        "light_weapon",
+        "heavy_weapon"
+      ],
+      "tags": [
+        "sharp",
+        "vicious"
+      ],
+      "position": "prefix",
+      "effects": [
+        {
+          "trigger": "passive",
+          "operation": "guard_mod",
+          "target": "self",
+          "value": -1
+        },
+        {
+          "trigger": "passive",
+          "operation": "damage_die_step",
+          "target": "self",
+          "value": 1
+        },
+        {
+          "trigger": "on_hit",
+          "operation": "damage",
+          "target": "enemy",
+          "value": 1,
+          "condition_tags_any": [
+            "sharp"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "prefix_padded",
+      "name": "加衬的",
+      "rarity": "uncommon",
+      "power_budget": 2,
+      "description": "内侧缝入厚实软垫，大幅缓冲受到的直接冲击。",
+      "allowed_categories": [
+        "light_armor",
+        "garment",
+        "heavy_armor"
+      ],
+      "tags": [
+        "defense",
+        "soft"
+      ],
+      "position": "prefix",
+      "effects": [
+        {
+          "trigger": "passive",
+          "operation": "guard_mod",
+          "target": "self",
+          "value": 1
+        },
+        {
+          "trigger": "passive",
+          "operation": "damage_reduction",
+          "target": "self",
+          "value": 1
+        }
+      ]
+    },
+    {
+      "id": "prefix_swift",
+      "name": "疾风的",
+      "rarity": "uncommon",
+      "power_budget": 2,
+      "description": "附着轻盈的风之气息，闪避后获得短暂的战斗优势。",
+      "allowed_categories": [
+        "garment",
+        "accessory",
+        "light_weapon"
+      ],
+      "tags": [
+        "speed",
+        "wind"
+      ],
+      "position": "prefix",
+      "effects": [
+        {
+          "trigger": "passive",
+          "operation": "weight_mod",
+          "target": "self",
+          "value": -1
+        },
+        {
+          "trigger": "on_check_success",
+          "operation": "bonus_die",
+          "target": "current_check",
+          "die": "1d4",
+          "condition_tags_any": [
+            "agility"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "prefix_vampiric",
+      "name": "汲血的",
+      "rarity": "rare",
+      "power_budget": 4,
+      "description": "散发着令人不适的血腥味，命中时可汲取敌人的生机。",
+      "allowed_categories": [
+        "light_weapon",
+        "heavy_weapon",
+        "focus"
+      ],
+      "tags": [
+        "blood",
+        "occult"
+      ],
+      "position": "prefix",
+      "effects": [
+        {
+          "trigger": "passive",
+          "operation": "damage_die_step",
+          "target": "self",
+          "value": 1
+        },
+        {
+          "trigger": "on_hit",
+          "operation": "heal",
+          "target": "self",
+          "value": 1,
+          "condition_tags_any": [
+            "occult"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "prefix_fortified",
+      "name": "堡垒的",
+      "rarity": "rare",
+      "power_budget": 4,
+      "description": "重型防卫技术的集大成者，提供极高的防护与招架能力。",
+      "allowed_categories": [
+        "heavy_armor",
+        "shield"
+      ],
+      "tags": [
+        "defense",
+        "fortress"
+      ],
+      "position": "prefix",
+      "effects": [
+        {
+          "trigger": "passive",
+          "operation": "guard_mod",
+          "target": "self",
+          "value": 2
+        },
+        {
+          "trigger": "passive",
+          "operation": "damage_reduction",
+          "target": "self",
+          "value": 1
+        },
+        {
+          "trigger": "passive",
+          "operation": "weight_mod",
+          "target": "self",
+          "value": 1
+        }
+      ]
+    },
+    {
+      "id": "prefix_runic",
+      "name": "刻符的",
+      "rarity": "rare",
+      "power_budget": 4,
+      "description": "表面刻满了微光的秘法符文，显著提升攻击和施法威力。",
+      "allowed_categories": [
+        "light_weapon",
+        "heavy_weapon",
+        "focus"
+      ],
+      "tags": [
+        "rune",
+        "magic"
+      ],
+      "position": "prefix",
+      "effects": [
+        {
+          "trigger": "passive",
+          "operation": "damage_die_step",
+          "target": "self",
+          "value": 1
+        },
+        {
+          "trigger": "on_skill_use",
+          "operation": "bonus_die",
+          "target": "current_check",
+          "die": "1d4",
+          "condition_tags_any": [
+            "magic"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "prefix_dread",
+      "name": "恐惧的",
+      "rarity": "rare",
+      "power_budget": 5,
+      "description": "裹挟着死亡与绝望的冷意，命中时能震撼敌人的心智。",
+      "allowed_categories": [
+        "heavy_weapon",
+        "focus",
+        "accessory"
+      ],
+      "tags": [
+        "dark",
+        "fear"
+      ],
+      "position": "prefix",
+      "effects": [
+        {
+          "trigger": "passive",
+          "operation": "damage_die_step",
+          "target": "self",
+          "value": 1
+        },
+        {
+          "trigger": "on_hit",
+          "operation": "damage",
+          "target": "enemy",
+          "value": 2,
+          "condition_tags_any": [
+            "dark"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "prefix_celestial",
+      "name": "星穹的",
+      "rarity": "epic",
+      "power_budget": 7,
+      "description": "引动天体轨道的神秘律动，回合开始时为你注满星辉之力。",
+      "allowed_categories": [
+        "focus",
+        "accessory",
+        "garment"
+      ],
+      "tags": [
+        "celestial",
+        "holy"
+      ],
+      "position": "prefix",
+      "effects": [
+        {
+          "trigger": "passive",
+          "operation": "weight_mod",
+          "target": "self",
+          "value": -1
+        },
+        {
+          "trigger": "passive",
+          "operation": "damage_die_step",
+          "target": "self",
+          "value": 1
+        },
+        {
+          "trigger": "turn_start",
+          "operation": "bonus_die",
+          "target": "current_check",
+          "die": "1d6",
+          "condition_tags_any": [
+            "holy"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "prefix_abyssal",
+      "name": "深渊的",
+      "rarity": "epic",
+      "power_budget": 7,
+      "description": "自地底最黑暗的缝隙中淬炼而成，击杀敌人后能反噬敌人的灵魂治疗自身。",
+      "allowed_categories": [
+        "heavy_weapon",
+        "light_weapon",
+        "focus"
+      ],
+      "tags": [
+        "dark",
+        "abyssal"
+      ],
+      "position": "prefix",
+      "effects": [
+        {
+          "trigger": "passive",
+          "operation": "damage_die_step",
+          "target": "self",
+          "value": 2
+        },
+        {
+          "trigger": "on_kill",
+          "operation": "heal",
+          "target": "self",
+          "value": 3,
+          "condition_tags_any": [
+            "dark"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "suffix_of_protection",
+      "name": "庇护之",
+      "rarity": "common",
+      "power_budget": 1,
+      "description": "赋予佩戴者基础的防伤害效果。",
+      "allowed_categories": [
+        "light_armor",
+        "heavy_armor",
+        "garment",
+        "shield"
+      ],
+      "tags": [
+        "defense",
+        "ward"
+      ],
+      "position": "suffix",
+      "effects": [
+        {
+          "trigger": "passive",
+          "operation": "damage_reduction",
+          "target": "self",
+          "value": 1
+        }
+      ]
+    },
+    {
+      "id": "suffix_of_impact",
+      "name": "冲击之",
+      "rarity": "common",
+      "power_budget": 1,
+      "description": "增强武器或攻击媒介的力道与穿透性。",
+      "allowed_categories": [
+        "light_weapon",
+        "heavy_weapon"
+      ],
+      "tags": [
+        "offense",
+        "impact"
+      ],
+      "position": "suffix",
+      "effects": [
+        {
+          "trigger": "passive",
+          "operation": "damage_die_step",
+          "target": "self",
+          "value": 1
+        }
+      ]
+    },
+    {
+      "id": "suffix_of_balance",
+      "name": "平衡之",
+      "rarity": "common",
+      "power_budget": 0,
+      "description": "优化重心分布，略微降低装备的负重感。",
+      "allowed_categories": [
+        "heavy_weapon",
+        "shield",
+        "heavy_armor"
+      ],
+      "tags": [
+        "utility",
+        "balance"
+      ],
+      "position": "suffix",
+      "effects": [
+        {
+          "trigger": "passive",
+          "operation": "weight_mod",
+          "target": "self",
+          "value": -1
+        }
+      ]
+    },
+    {
+      "id": "suffix_of_guarding",
+      "name": "招架之",
+      "rarity": "common",
+      "power_budget": 1,
+      "description": "侧重于格挡与架势维持的结构设计。",
+      "allowed_categories": [
+        "shield",
+        "heavy_weapon",
+        "light_weapon"
+      ],
+      "tags": [
+        "guard",
+        "parry"
+      ],
+      "position": "suffix",
+      "effects": [
+        {
+          "trigger": "passive",
+          "operation": "guard_mod",
+          "target": "self",
+          "value": 1
+        }
+      ]
+    },
+    {
+      "id": "suffix_of_warding",
+      "name": "辟邪之",
+      "rarity": "uncommon",
+      "power_budget": 2,
+      "description": "兼具物理与灵性阻隔，稳定提升综合防御性能。",
+      "allowed_categories": [
+        "shield",
+        "heavy_armor",
+        "accessory"
+      ],
+      "tags": [
+        "ward",
+        "holy"
+      ],
+      "position": "suffix",
+      "effects": [
+        {
+          "trigger": "passive",
+          "operation": "guard_mod",
+          "target": "self",
+          "value": 1
+        },
+        {
+          "trigger": "passive",
+          "operation": "damage_reduction",
+          "target": "self",
+          "value": 1
+        }
+      ]
+    },
+    {
+      "id": "suffix_of_venom",
+      "name": "毒液之",
+      "rarity": "uncommon",
+      "power_budget": 2,
+      "description": "附着剧毒痕迹，命中敌人时附加额外的毒性侵蚀。",
+      "allowed_categories": [
+        "light_weapon",
+        "heavy_weapon",
+        "focus"
+      ],
+      "tags": [
+        "poison",
+        "dot"
+      ],
+      "position": "suffix",
+      "effects": [
+        {
+          "trigger": "on_hit",
+          "operation": "damage",
+          "target": "enemy",
+          "value": 1,
+          "condition_tags_any": [
+            "poison"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "suffix_of_flame",
+      "name": "烈焰之",
+      "rarity": "uncommon",
+      "power_budget": 2,
+      "description": "带有灼热余温，攻击时能撕裂目标并造成燃烧效益。",
+      "allowed_categories": [
+        "light_weapon",
+        "heavy_weapon",
+        "focus"
+      ],
+      "tags": [
+        "fire",
+        "elemental"
+      ],
+      "position": "suffix",
+      "effects": [
+        {
+          "trigger": "passive",
+          "operation": "damage_die_step",
+          "target": "self",
+          "value": 1
+        },
+        {
+          "trigger": "on_hit",
+          "operation": "damage",
+          "target": "enemy",
+          "value": 1,
+          "condition_tags_any": [
+            "fire"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "suffix_of_frost",
+      "name": "寒霜之",
+      "rarity": "uncommon",
+      "power_budget": 2,
+      "description": "凝结着不化的霜雪，受创时能激发冰晶反制与护盾。",
+      "allowed_categories": [
+        "shield",
+        "light_armor",
+        "accessory"
+      ],
+      "tags": [
+        "ice",
+        "defense"
+      ],
+      "position": "suffix",
+      "effects": [
+        {
+          "trigger": "passive",
+          "operation": "guard_mod",
+          "target": "self",
+          "value": 1
+        },
+        {
+          "trigger": "on_damaged",
+          "operation": "bonus_die",
+          "target": "current_check",
+          "die": "1d4",
+          "condition_tags_any": [
+            "ice"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "suffix_of_echoes",
+      "name": "回响之",
+      "rarity": "uncommon",
+      "power_budget": 2,
+      "description": "施法时能引发低沉震荡，强化后续法术表现。",
+      "allowed_categories": [
+        "focus",
+        "accessory"
+      ],
+      "tags": [
+        "sound",
+        "magic"
+      ],
+      "position": "suffix",
+      "effects": [
+        {
+          "trigger": "on_skill_use",
+          "operation": "bonus_die",
+          "target": "current_check",
+          "die": "1d4",
+          "condition_tags_any": [
+            "sound"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "suffix_of_slaughter",
+      "name": "屠戮之",
+      "rarity": "rare",
+      "power_budget": 4,
+      "description": "为了纯粹的杀戮而打造，击杀敌人后激发更为狂暴的攻势。",
+      "allowed_categories": [
+        "heavy_weapon",
+        "light_weapon"
+      ],
+      "tags": [
+        "offense",
+        "ferocity"
+      ],
+      "position": "suffix",
+      "effects": [
+        {
+          "trigger": "passive",
+          "operation": "damage_die_step",
+          "target": "self",
+          "value": 2
+        },
+        {
+          "trigger": "on_kill",
+          "operation": "bonus_die",
+          "target": "current_check",
+          "die": "1d6",
+          "condition_tags_any": [
+            "offense"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "suffix_of_immortality",
+      "name": "不朽之",
+      "rarity": "rare",
+      "power_budget": 5,
+      "description": "蕴含永恒不灭的生机，在回合开始时为你提供持续回复。",
+      "allowed_categories": [
+        "heavy_armor",
+        "garment",
+        "accessory"
+      ],
+      "tags": [
+        "life",
+        "immortal"
+      ],
+      "position": "suffix",
+      "effects": [
+        {
+          "trigger": "passive",
+          "operation": "guard_mod",
+          "target": "self",
+          "value": 2
+        },
+        {
+          "trigger": "passive",
+          "operation": "damage_reduction",
+          "target": "self",
+          "value": 1
+        },
+        {
+          "trigger": "turn_start",
+          "operation": "heal",
+          "target": "self",
+          "value": 1,
+          "condition_tags_any": [
+            "life"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "suffix_of_the_void",
+      "name": "虚空之",
+      "rarity": "rare",
+      "power_budget": 4,
+      "description": "连接着不可见的无底虚空，在攻击时蚕食敌方的灵性并反哺使用者。",
+      "allowed_categories": [
+        "focus",
+        "light_weapon",
+        "accessory"
+      ],
+      "tags": [
+        "void",
+        "occult"
+      ],
+      "position": "suffix",
+      "effects": [
+        {
+          "trigger": "passive",
+          "operation": "weight_mod",
+          "target": "self",
+          "value": -1
+        },
+        {
+          "trigger": "passive",
+          "operation": "damage_die_step",
+          "target": "self",
+          "value": 1
+        },
+        {
+          "trigger": "on_hit",
+          "operation": "heal",
+          "target": "self",
+          "value": 1,
+          "condition_tags_any": [
+            "void"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "suffix_of_shadows",
+      "name": "影子之",
+      "rarity": "rare",
+      "power_budget": 4,
+      "description": "将使用者融于阴影之中，大幅降低存在感并提供闪避增益。",
+      "allowed_categories": [
+        "garment",
+        "light_armor",
+        "accessory"
+      ],
+      "tags": [
+        "shadow",
+        "stealth"
+      ],
+      "position": "suffix",
+      "effects": [
+        {
+          "trigger": "passive",
+          "operation": "weight_mod",
+          "target": "self",
+          "value": -2
+        },
+        {
+          "trigger": "on_check_success",
+          "operation": "bonus_die",
+          "target": "current_check",
+          "die": "1d6",
+          "condition_tags_any": [
+            "stealth"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "suffix_of_bloodshed",
+      "name": "血祭之",
+      "rarity": "epic",
+      "power_budget": 7,
+      "description": "渴望鲜血的残暴力量，命中生命时疯狂汲取生命，击杀时恢复巨额气血。",
+      "allowed_categories": [
+        "heavy_weapon",
+        "light_weapon",
+        "focus"
+      ],
+      "tags": [
+        "blood",
+        "occult"
+      ],
+      "position": "suffix",
+      "effects": [
+        {
+          "trigger": "passive",
+          "operation": "damage_die_step",
+          "target": "self",
+          "value": 2
+        },
+        {
+          "trigger": "on_hit",
+          "operation": "heal",
+          "target": "self",
+          "value": 2,
+          "condition_tags_any": [
+            "blood"
+          ]
+        },
+        {
+          "trigger": "on_kill",
+          "operation": "heal",
+          "target": "self",
+          "value": 2,
+          "condition_tags_any": [
+            "blood"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "suffix_of_the_titans",
+      "name": "泰坦之",
+      "rarity": "epic",
+      "power_budget": 6,
+      "description": "如远古山岳般不可动摇，承受打击时激起巍峨的反制威能。",
+      "allowed_categories": [
+        "heavy_armor",
+        "shield"
+      ],
+      "tags": [
+        "titan",
+        "heavy"
+      ],
+      "position": "suffix",
+      "effects": [
+        {
+          "trigger": "passive",
+          "operation": "guard_mod",
+          "target": "self",
+          "value": 3
+        },
+        {
+          "trigger": "passive",
+          "operation": "damage_reduction",
+          "target": "self",
+          "value": 2
+        },
+        {
+          "trigger": "on_damaged",
+          "operation": "bonus_die",
+          "target": "current_check",
+          "die": "1d6",
+          "condition_tags_any": [
+            "heavy"
+          ]
+        }
+      ]
+    }
+  ],
+  "skills": [],
+  "enemies": [],
+  "events": [],
+  "locations": [],
+  "observer_actions": [],
+  "flavor_text": []
+}

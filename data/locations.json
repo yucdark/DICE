@@ -1,0 +1,552 @@
+{
+  "meta": {
+    "pack_id": "veil_dice_locations_pack_g",
+    "name": "幕外之骰地点与房间包",
+    "version": "0.2.0",
+    "language": "zh-CN",
+    "theme": "gothic_dark_fairy_tale",
+    "author": "prototype"
+  },
+  "equipment_bases": [],
+  "materials": [],
+  "affixes": [],
+  "skills": [],
+  "enemies": [],
+  "events": [],
+  "locations": [
+    {
+      "id": "abandoned_clock_tower_chamber",
+      "name": "废弃钟楼机芯室",
+      "room_type": "exploration",
+      "description": "高塔内部布满数层交叉咬合的巨型黄铜齿轮，顶部悬挂着一根粗大的麻质鸣钟绳。空气中弥漫着冷却机油的味道，断裂的踏板下方是垂直贯穿的空心梯井，可借助摆锤的连杆进行攀爬。",
+      "weight": 60,
+      "danger": 1,
+      "tags": [
+        "indoor",
+        "high_place",
+        "clockwork",
+        "ruin"
+      ],
+      "enemy_tags_any": [
+        "clockwork",
+        "mechanical"
+      ],
+      "event_tags_any": [
+        "clockwork",
+        "high_place"
+      ]
+    },
+    {
+      "id": "flooded_underground_aqueduct",
+      "name": "积水地下渡槽",
+      "room_type": "exploration",
+      "description": "半淹没在浑浊地下水中的砖石通道，墙壁两侧设有生锈的手动铁制水闸阀门。水面下隐约可见被冲刷裸露的泥沙暗槽，通道尽头有一扇被水压顶住的木质泄水闸门。",
+      "weight": 55,
+      "danger": 1,
+      "tags": [
+        "underground",
+        "water",
+        "narrow",
+        "ruin"
+      ],
+      "enemy_tags_any": [
+        "plant",
+        "organic"
+      ],
+      "event_tags_any": [
+        "water",
+        "underground"
+      ]
+    },
+    {
+      "id": "overgrown_glass_greenhouse",
+      "name": "狂乱玻璃温室",
+      "room_type": "exploration",
+      "description": "半塌陷的维多利亚式铁艺温室，破损的玻璃穹顶下垂挂着茂密的绞杀藤蔓。中央摆放着一座带有手动喷雾泵的炼金喷淋装置，石板路两侧排列着可被外力推倒的木质植株架。",
+      "weight": 50,
+      "danger": 2,
+      "tags": [
+        "indoor",
+        "garden",
+        "ruin",
+        "plant"
+      ],
+      "enemy_tags_any": [
+        "plant",
+        "spore"
+      ],
+      "event_tags_any": [
+        "ruin",
+        "indoor"
+      ]
+    },
+    {
+      "id": "crumbling_belfry_balcony",
+      "name": "崩塌钟楼露台",
+      "room_type": "exploration",
+      "description": "突出于城堡外墙的高空石质露台，断裂的拱桥连接着隔壁的宣礼塔。露台边缘立着一台带转轮的手动绞盘升降机，下方是呼啸狂风中的万丈深谷。",
+      "weight": 45,
+      "danger": 2,
+      "tags": [
+        "outdoor",
+        "high_place",
+        "open_area",
+        "ruin"
+      ],
+      "event_tags_any": [
+        "high_place",
+        "outdoor"
+      ]
+    },
+    {
+      "id": "silent_scriptorium_archives",
+      "name": "沉寂抄经室",
+      "room_type": "exploration",
+      "description": "排列着数排高耸木质书架的室内档案库，中央摆放着带有机械配重块的手动图书升降梯。墙角有一扇隐藏在镂空木雕后面的暗门，地板上铺满易碎的干燥纸页。",
+      "weight": 60,
+      "danger": 0,
+      "tags": [
+        "indoor",
+        "religious",
+        "dark"
+      ],
+      "event_tags_any": [
+        "religious",
+        "indoor"
+      ]
+    },
+    {
+      "id": "sunken_catacomb_passage",
+      "name": "下沉墓穴通道",
+      "room_type": "exploration",
+      "description": "深入地底的石砌甬道，墙壁上的油灯槽里残留着可点燃的动物油脂。道路中央有一块塌陷的压感陷阱石板，连接着上方顶棚的落石机关。",
+      "weight": 50,
+      "danger": 1,
+      "tags": [
+        "underground",
+        "dark",
+        "narrow",
+        "ruin"
+      ],
+      "enemy_tags_any": [
+        "undead",
+        "construct"
+      ],
+      "event_tags_any": [
+        "underground",
+        "ruin"
+      ]
+    },
+    {
+      "id": "misty_rose_courtyard",
+      "name": "迷雾蔷薇中庭",
+      "room_type": "exploration",
+      "description": "露天的废弃庭院，四周环绕着柱廊。中央是一座带手摇汲水泵的石造喷泉，密布的带刺蔷薇藤蔓遮挡着通往侧殿的铁栅门，柱廊旁散落着可作为掩体的破损石雕。",
+      "weight": 55,
+      "danger": 1,
+      "tags": [
+        "outdoor",
+        "garden",
+        "open_area",
+        "ruin"
+      ],
+      "event_tags_any": [
+        "outdoor",
+        "anomaly"
+      ]
+    },
+    {
+      "id": "abandoned_blacksmith_forge",
+      "name": "废弃铁匠锻造间",
+      "room_type": "exploration",
+      "description": "位于地下的铁匠工坊，中央设有一座带风箱的手动引火风炉，旁边停放着一辆装满煤屑的手推车。铁砧上方悬挂着可拉动的链条吊钩，墙角有一扇加固的铁皮防火门。",
+      "weight": 40,
+      "danger": 0,
+      "tags": [
+        "indoor",
+        "underground",
+        "fire",
+        "ruin"
+      ],
+      "enemy_tags_any": [
+        "construct",
+        "metal"
+      ],
+      "event_tags_any": [
+        "underground",
+        "ruin"
+      ]
+    },
+    {
+      "id": "rusty_gear_courtyard",
+      "name": "锈蚀齿轮广场",
+      "room_type": "combat",
+      "description": "铺设着金属板的开阔废墟广场，地面散落着卡死的巨型机械构件与可提供掩体的废铁箱。中央有一根带有扳手插槽的转轴机关，可触发周围地表的高压蒸汽喷口。",
+      "weight": 60,
+      "danger": 3,
+      "tags": [
+        "outdoor",
+        "clockwork",
+        "open_area",
+        "ruin"
+      ],
+      "enemy_tags_any": [
+        "clockwork",
+        "construct",
+        "mechanical"
+      ]
+    },
+    {
+      "id": "desecrated_chapel_nave",
+      "name": "被亵渎的侧殿正厅",
+      "room_type": "combat",
+      "description": "高耸的哥特式教堂大厅，两旁陈列着重型木质长椅。彩绘玻璃窗在月光下折射异彩，讲台旁有一根可斩断的吊灯麻绳，能让顶部的重型铁艺吊灯砸向大厅中央。",
+      "weight": 55,
+      "danger": 3,
+      "tags": [
+        "indoor",
+        "religious",
+        "high_place"
+      ],
+      "enemy_tags_any": [
+        "humanoid",
+        "cultist",
+        "undead"
+      ],
+      "entry_effects": [
+        {
+          "trigger": "on_enter_room",
+          "operation": "apply_status",
+          "target": "self",
+          "status": "fear",
+          "stacks": 1,
+          "duration": 1
+        }
+      ]
+    },
+    {
+      "id": "fungal_sewer_intersection",
+      "name": "真菌下水道枢纽",
+      "room_type": "combat",
+      "description": "十字交汇的地下污水管道，空气中弥漫着刺鼻的孢子粉尘。管道上方架设着狭窄的铁网步道，两侧壁面处装有控制闸门的水管转轮，墙壁上布满易燃的干燥真菌膜。",
+      "weight": 50,
+      "danger": 3,
+      "tags": [
+        "underground",
+        "water",
+        "narrow",
+        "dark"
+      ],
+      "enemy_tags_any": [
+        "plant",
+        "spore",
+        "organic"
+      ],
+      "entry_effects": [
+        {
+          "trigger": "on_enter_room",
+          "operation": "apply_status",
+          "target": "self",
+          "status": "poison",
+          "stacks": 1,
+          "duration": 2
+        }
+      ]
+    },
+    {
+      "id": "abandoned_gallows_hill",
+      "name": "荒凉绞刑架高岗",
+      "room_type": "combat",
+      "description": "荒野山顶的开阔地带，中央矗立着一座木质绞刑架，悬挂着可拉动的金属风铃。坡道四周布满残破的石墙障碍物，山顶有一台转向受限的守城投石弩机。",
+      "weight": 45,
+      "danger": 2,
+      "tags": [
+        "outdoor",
+        "high_place",
+        "open_area"
+      ],
+      "enemy_tags_any": [
+        "undead",
+        "bird",
+        "beast"
+      ]
+    },
+    {
+      "id": "shattered_mirror_gallery",
+      "name": "碎镜长廊",
+      "room_type": "combat",
+      "description": "狭长的高楼走廊，两侧墙壁镶嵌着数以百计的破裂镜框，地上散落着可溅射切割的镜面碎片。长廊尽头立着一具带有锁链的手动遮光拉帘，能遮蔽窗外投射的强光。",
+      "weight": 40,
+      "danger": 4,
+      "tags": [
+        "indoor",
+        "narrow",
+        "anomaly"
+      ],
+      "enemy_tags_any": [
+        "glass",
+        "occult",
+        "gothic"
+      ],
+      "entry_effects": [
+        {
+          "trigger": "on_enter_room",
+          "operation": "resource_gain",
+          "target": "world",
+          "resource": "attention",
+          "value": 1
+        }
+      ]
+    },
+    {
+      "id": "solitary_confessional_booth",
+      "name": "孤零告解室",
+      "room_type": "event",
+      "description": "矗立在走廊尽头的古老双人木质告解亭，木门带有可滑动的小窗格栅。内部设有一张带弹簧底座的跪垫与暗藏的储物夹层，隔壁连接着一根通往地下的传声铁管。",
+      "weight": 50,
+      "danger": 1,
+      "tags": [
+        "indoor",
+        "religious",
+        "narrow"
+      ],
+      "event_tags_any": [
+        "religious",
+        "indoor"
+      ]
+    },
+    {
+      "id": "collapsed_stone_bridge",
+      "name": "塌陷石拱桥",
+      "room_type": "event",
+      "description": "横跨地底暗河的断裂石桥，断口处仅由几根湿滑的腐烂木梁连接。桥头立着一座带有绞盘锁链的旧水闸石柱，下方急流中漂浮着卡在礁石间的破损货箱。",
+      "weight": 45,
+      "danger": 2,
+      "tags": [
+        "underground",
+        "water",
+        "high_place",
+        "ruin"
+      ],
+      "event_tags_any": [
+        "water",
+        "high_place"
+      ]
+    },
+    {
+      "id": "ruined_astronomy_turret",
+      "name": "残破占星塔楼",
+      "room_type": "event",
+      "description": "高塔顶层的圆顶观测室，穹顶已经半数坍塌。中央摆放着一台可通过黄铜手轮旋转定位的古老黄道仪，角落里停放着带滑轮的铸铁书架与带锁的观测记录箱。",
+      "weight": 40,
+      "danger": 1,
+      "tags": [
+        "high_place",
+        "clockwork",
+        "anomaly"
+      ],
+      "event_tags_any": [
+        "high_place",
+        "ruin"
+      ]
+    },
+    {
+      "id": "wax_sculptor_vault",
+      "name": "蜡塑师地下地窖",
+      "room_type": "event",
+      "description": "充斥着融化油脂气味的地下工坊，四周排列着未完成的真人大小蜡像。角落里有一座正下方燃着微弱余烬的加热融蜡锅，墙上挂着多把带有刻度的小型皮下解剖刀。",
+      "weight": 35,
+      "danger": 2,
+      "tags": [
+        "underground",
+        "dark",
+        "anomaly"
+      ],
+      "event_tags_any": [
+        "indoor",
+        "anomaly"
+      ],
+      "entry_effects": [
+        {
+          "trigger": "on_enter_room",
+          "operation": "resource_gain",
+          "target": "world",
+          "resource": "attention",
+          "value": 1
+        }
+      ]
+    },
+    {
+      "id": "wanderer_makeshift_camp",
+      "name": "流浪者临时营地",
+      "room_type": "npc",
+      "description": "由破旧车厢与防水帆布搭成的庇护所，中央燃着一堆带铁架的无烟篝火。车厢旁立着一台带踏板的骨制磨刀石，木箱上摆放着称量药物用的天平与带塞试剂瓶。",
+      "weight": 40,
+      "danger": 1,
+      "tags": [
+        "outdoor",
+        "ruin",
+        "fire"
+      ],
+      "event_tags_any": [
+        "outdoor",
+        "ruin"
+      ]
+    },
+    {
+      "id": "blind_hermit_shrine",
+      "name": "失明隐士龛室",
+      "room_type": "npc",
+      "description": "修建在岩壁凹陷处的小型石窟，入口悬挂着遮光的草织帘幕。石龛中央供奉着带凹槽的无脸圣像，地面铺有干燥的香草垫，墙角立着一根带手摇响铃的竹质禅杖。",
+      "weight": 35,
+      "danger": 1,
+      "tags": [
+        "underground",
+        "religious",
+        "dark"
+      ],
+      "event_tags_any": [
+        "religious",
+        "underground"
+      ]
+    },
+    {
+      "id": "clockwork_tinker_booth",
+      "name": "发条修理匠工作摊",
+      "room_type": "npc",
+      "description": "架设在废弃水道旁的木制货摊，摊位上摆满了精密小钳子与微型齿轮盘。后方有一台使用脚踏板驱动的齿轮车床，墙上悬挂着可拉动的警报金属气笛。",
+      "weight": 30,
+      "danger": 1,
+      "tags": [
+        "indoor",
+        "clockwork",
+        "ruin"
+      ],
+      "event_tags_any": [
+        "clockwork",
+        "indoor"
+      ]
+    },
+    {
+      "id": "executioner_armory_hall",
+      "name": "处刑官军械大厅",
+      "room_type": "elite",
+      "description": "开阔的石砌地下大厅，墙上悬挂着巨型铁钳与枷锁。中央摆放着一座可作掩体的重型斩首台，台侧装有连接吊顶铁笼的手动绞盘锁链，四周分布着四个高耸的铸铁火炬台。",
+      "weight": 20,
+      "danger": 4,
+      "tags": [
+        "underground",
+        "dark",
+        "open_area",
+        "ruin"
+      ],
+      "enemy_tags_any": [
+        "construct",
+        "armor",
+        "giant",
+        "elite"
+      ],
+      "entry_effects": [
+        {
+          "trigger": "on_enter_room",
+          "operation": "apply_status",
+          "target": "self",
+          "status": "stagger",
+          "stacks": 1,
+          "duration": 1
+        }
+      ]
+    },
+    {
+      "id": "matriarch_bramble_greenhouse",
+      "name": "圣母荆棘大温室",
+      "room_type": "elite",
+      "description": "庞大的圆形玻璃圆顶建筑，地面被密集的硬化藤蔓与孢子母株挤破。中央有一座带闸阀的手动蒸汽管道喷口，上方悬挂着多块半挂在空中、可斩落的巨型玻璃穹顶框架。",
+      "weight": 20,
+      "danger": 4,
+      "tags": [
+        "indoor",
+        "garden",
+        "plant",
+        "anomaly"
+      ],
+      "enemy_tags_any": [
+        "plant",
+        "corrupted",
+        "mother",
+        "elite"
+      ],
+      "entry_effects": [
+        {
+          "trigger": "on_enter_room",
+          "operation": "apply_status",
+          "target": "self",
+          "status": "mark",
+          "stacks": 1,
+          "duration": 2
+        }
+      ]
+    },
+    {
+      "id": "grand_marionette_royal_stage",
+      "name": "大傀儡皇家剧院",
+      "room_type": "boss",
+      "description": "拥有三层看台的繁复剧院，中央是带有升降木质台板的庞大舞台。半空中交错悬挂着控制傀儡的钢丝缆绳网，舞台两侧立着可拉动的重型幕布绞盘与带反射镜的脚灯。",
+      "weight": 10,
+      "danger": 5,
+      "tags": [
+        "indoor",
+        "high_place",
+        "gothic",
+        "clockwork"
+      ],
+      "enemy_tags_any": [
+        "boss",
+        "puppet",
+        "king",
+        "construct"
+      ],
+      "entry_effects": [
+        {
+          "trigger": "on_enter_room",
+          "operation": "resource_gain",
+          "target": "world",
+          "resource": "attention",
+          "value": 2
+        }
+      ]
+    },
+    {
+      "id": "forgotten_nursery_sanctuary",
+      "name": "遗弃育婴圣所",
+      "room_type": "boss",
+      "description": "高耸而破败的圣所大厅，中央停放着一座巨大的木质摇篮车，周围散落着巨大的瓷制玩偶肢体。大厅四周立着四根带拉绳的手动壁炉烟道阀，顶部悬挂着一座大型发条八音盒。",
+      "weight": 10,
+      "danger": 5,
+      "tags": [
+        "indoor",
+        "religious",
+        "gothic",
+        "anomaly"
+      ],
+      "enemy_tags_any": [
+        "boss",
+        "gothic",
+        "doll",
+        "mother"
+      ],
+      "entry_effects": [
+        {
+          "trigger": "on_enter_room",
+          "operation": "apply_status",
+          "target": "self",
+          "status": "fear",
+          "stacks": 1,
+          "duration": 2
+        }
+      ]
+    }
+  ],
+  "observer_actions": [],
+  "flavor_text": []
+}

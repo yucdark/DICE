@@ -1,0 +1,260 @@
+{
+  "meta": {
+    "pack_id": "veil_dice_flavor_pack_i3",
+    "name": "幕外之骰结算风味文本包",
+    "version": "0.2.0",
+    "language": "zh-CN",
+    "theme": "gothic_dark_fairy_tale",
+    "author": "prototype"
+  },
+  "equipment_bases": [],
+  "materials": [],
+  "affixes": [],
+  "skills": [],
+  "enemies": [],
+  "events": [],
+  "locations": [],
+  "observer_actions": [],
+  "flavor_text": [
+    {
+      "id": "flavor_i3_loot_01",
+      "category": "loot",
+      "text": "从倾覆的金属货箱底格里撬出了一件保存完好的黄铜构件。",
+      "tags": [
+        "clockwork"
+      ]
+    },
+    {
+      "id": "flavor_i3_loot_02",
+      "category": "loot",
+      "text": "擦去石台上的厚厚灰尘，底下露出一枚镶嵌着暗色宝石的徽章。",
+      "tags": [
+        "religious"
+      ]
+    },
+    {
+      "id": "flavor_i3_loot_03",
+      "category": "loot",
+      "text": "从废弃的衣袍内侧口袋中摸出了一小瓶封口严密的炼金药剂。",
+      "tags": [
+        "occult"
+      ]
+    },
+    {
+      "id": "flavor_i3_loot_04",
+      "category": "loot",
+      "text": "撬开生锈的铁锁，木箱深处静静躺着几卷记载着旧日法则的皮纸。",
+      "tags": [
+        "indoor"
+      ]
+    },
+    {
+      "id": "flavor_i3_loot_05",
+      "category": "loot",
+      "text": "斩断缠绕的刺藤后，在花坛凹槽里发现了一柄未曾锈蚀的短刃。",
+      "tags": [
+        "plant"
+      ]
+    },
+    {
+      "id": "flavor_i3_loot_06",
+      "category": "loot",
+      "text": "水潭底部的泥沙中泛着微光，捞出了一块经过精细切割的折光水晶。",
+      "tags": [
+        "water"
+      ]
+    },
+    {
+      "id": "flavor_i3_loot_07",
+      "category": "loot",
+      "text": "从瘫痪的构装体胸腔内拔出了一根尚未耗尽能量的微型轴芯。",
+      "tags": [
+        "clockwork"
+      ]
+    },
+    {
+      "id": "flavor_i3_loot_08",
+      "category": "loot",
+      "text": "掀开祭坛上的破损织锦，隐秘槽位里藏着一串镀银的仪式祷珠。",
+      "tags": [
+        "religious"
+      ]
+    },
+    {
+      "id": "flavor_i3_loot_09",
+      "category": "loot",
+      "text": "拨开废墟碎石，一袋沉甸甸的旧时代金属硬币在掌中发出响声。",
+      "tags": [
+        "ruin"
+      ]
+    },
+    {
+      "id": "flavor_i3_loot_10",
+      "category": "loot",
+      "text": "解开干尸腰间的皮革包裹，里面收纳着几件精巧的撬锁工具。",
+      "tags": [
+        "underground"
+      ]
+    },
+    {
+      "id": "flavor_i3_injury_01",
+      "category": "injury",
+      "text": "飞溅的玻璃碎片扎入小臂，创口渗出细密的血珠，带来阵阵刺痛。",
+      "tags": [
+        "physical"
+      ]
+    },
+    {
+      "id": "flavor_i3_injury_02",
+      "category": "injury",
+      "text": "高温蒸汽喷灼了左侧脸颊，皮肤火辣辣地发烫，呼吸变得艰难。",
+      "tags": [
+        "fire"
+      ]
+    },
+    {
+      "id": "flavor_i3_injury_03",
+      "category": "injury",
+      "text": "毒性孢子顺着呼吸道侵入，肺部传来如刀割般的剧烈灼烧感。",
+      "tags": [
+        "plant"
+      ]
+    },
+    {
+      "id": "flavor_i3_injury_04",
+      "category": "injury",
+      "text": "钝击力透甲胄撕裂了肌肉，每一步挪动都伴随着关节的剧痛。",
+      "tags": [
+        "physical"
+      ]
+    },
+    {
+      "id": "flavor_i3_injury_05",
+      "category": "injury",
+      "text": "精神受到虚空低语的直接冲击，眼前短暂出现重影与刺耳鸣响。",
+      "tags": [
+        "occult"
+      ]
+    },
+    {
+      "id": "flavor_i3_injury_06",
+      "category": "injury",
+      "text": "生锈的铁刺划破腿部，黑色的血迹顺着靴筒缓缓渗下。",
+      "tags": [
+        "ruin"
+      ]
+    },
+    {
+      "id": "flavor_i3_injury_07",
+      "category": "injury",
+      "text": "水下的寒气侵入骨髓，四肢僵硬得几乎无法握紧武器柄手。",
+      "tags": [
+        "water"
+      ]
+    },
+    {
+      "id": "flavor_i3_injury_08",
+      "category": "injury",
+      "text": "重重摔落在碎石堆上，扭伤的脚踝传来令人齿酸的骨骼挤压感。",
+      "tags": [
+        "physical"
+      ]
+    },
+    {
+      "id": "flavor_i3_death_01",
+      "category": "death",
+      "text": "视野迅速被黑血与阴影吞噬，冰冷的地面成为最后的归宿。",
+      "tags": [
+        "dark"
+      ]
+    },
+    {
+      "id": "flavor_i3_death_02",
+      "category": "death",
+      "text": "齿轮咬合的尖锐撕裂声归于寂静，发条停止转动，意识滑入虚无。",
+      "tags": [
+        "clockwork"
+      ]
+    },
+    {
+      "id": "flavor_i3_death_03",
+      "category": "death",
+      "text": "圣所的烛光彻底熄灭，冰冷的躯壳被疯长蔓延的荆棘缓缓覆盖。",
+      "tags": [
+        "plant"
+      ]
+    },
+    {
+      "id": "flavor_i3_death_04",
+      "category": "death",
+      "text": "气力随着伤口的大量失血彻底耗尽，最后听到的只有远处的钟声。",
+      "tags": [
+        "religious"
+      ]
+    },
+    {
+      "id": "flavor_i3_victory_01",
+      "category": "victory",
+      "text": "最后的敌人重重倒下，空旷的大厅内只剩下自己粗重的喘息声。",
+      "tags": [
+        "quiet"
+      ]
+    },
+    {
+      "id": "flavor_i3_victory_02",
+      "category": "victory",
+      "text": "机械的喧嚣戛然而止，断裂的零件散落一地，危机暂时解除。",
+      "tags": [
+        "clockwork"
+      ]
+    },
+    {
+      "id": "flavor_i3_victory_03",
+      "category": "victory",
+      "text": "擦去面颊上的油污与血迹，收刃入鞘，空气里的杀意渐渐消散。",
+      "tags": [
+        "physical"
+      ]
+    },
+    {
+      "id": "flavor_i3_victory_04",
+      "category": "victory",
+      "text": "沉寂重新笼罩了被亵渎的侧殿，微弱的光线穿透烟尘照亮出路。",
+      "tags": [
+        "religious"
+      ]
+    },
+    {
+      "id": "flavor_i3_victory_05",
+      "category": "victory",
+      "text": "狂乱的孢子云雾在气浪冲刷下散去，残破的场地终于回归安宁。",
+      "tags": [
+        "plant"
+      ]
+    },
+    {
+      "id": "flavor_i3_victory_06",
+      "category": "victory",
+      "text": "踩过满地狼藉的碎石与废铁，拖着疲惫的躯体继续向深处迈进。",
+      "tags": [
+        "ruin"
+      ]
+    },
+    {
+      "id": "flavor_i3_victory_07",
+      "category": "victory",
+      "text": "怪物化为灰烬，空气中刺鼻的腥臭味在寒风吹拂下逐渐稀释。",
+      "tags": [
+        "occult"
+      ]
+    },
+    {
+      "id": "flavor_i3_victory_08",
+      "category": "victory",
+      "text": "伏击者全数失去生息，急促的心跳声在死寂的空间里分外清晰。",
+      "tags": [
+        "dark"
+      ]
+    }
+  ]
+}

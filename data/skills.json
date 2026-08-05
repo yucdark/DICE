@@ -1,0 +1,684 @@
+{
+"meta": {
+"pack_id": "veil_dice_skills_pack_d",
+"name": "幕外之骰扩展技能包D",
+"version": "0.2.0",
+"language": "zh-CN",
+"theme": "gothic_dark_fairy_tale",
+"author": "prototype"
+},
+"equipment_bases": [],
+"materials": [],
+"affixes": [],
+"skills": [
+{
+"id": "crushing_blow",
+"name": "重碾重击",
+"kind": "active",
+"action_cost": "main",
+"focus_cost": 1,
+"hp_cost": 0,
+"cooldown": 2,
+"tags": ["might", "heavy", "attack"],
+"description": "凝聚全身力气进行摧枯拉朽的猛击，对敌人造成重创并概率使其失衡。",
+"effects": [
+{
+"trigger": "on_skill_use",
+"operation": "bonus_die",
+"target": "enemy",
+"die": "1d8"
+},
+{
+"trigger": "on_hit",
+"operation": "apply_status",
+"target": "enemy",
+"status": "stagger",
+"stacks": 1,
+"duration": 1,
+"chance": 60
+}
+],
+"upgrades": [
+{
+"id": "crushing_blow_armor_break",
+"name": "破甲摧骨",
+"description": "在使敌人失衡之外进一步破坏护甲，短暂降低目标的防御能力。",
+"effects": [
+{
+"trigger": "on_hit",
+"operation": "guard_mod",
+"target": "enemy",
+"value": -2,
+"duration": 2
+}
+]
+},
+{
+"id": "crushing_blow_reckless",
+"name": "孤注一掷",
+"description": "大幅提升伤害上限，但攻击时若未命中会导致自身失衡。",
+"effects": [
+{
+"trigger": "on_skill_use",
+"operation": "bonus_die",
+"target": "enemy",
+"die": "1d6"
+},
+{
+"trigger": "on_check_fail",
+"operation": "apply_status",
+"target": "self",
+"status": "stagger",
+"stacks": 1,
+"duration": 1
+}
+]
+}
+]
+},
+{
+"id": "shadow_blade",
+"name": "影袭刺击",
+"kind": "active",
+"action_cost": "quick",
+"focus_cost": 1,
+"hp_cost": 0,
+"cooldown": 1,
+"tags": ["finesse", "stealth", "blade"],
+"description": "利用快速的身法刺向敌人要害，若目标已被标记则造成额外出血。",
+"effects": [
+{
+"trigger": "on_hit",
+"operation": "bonus_die",
+"target": "enemy",
+"die": "1d6"
+},
+{
+"trigger": "on_hit",
+"operation": "apply_status",
+"target": "enemy",
+"status": "bleed",
+"stacks": 1,
+"duration": 2,
+"condition_tags_any": ["mark"]
+}
+],
+"upgrades": [
+{
+"id": "shadow_blade_poison",
+"name": "淬毒影刃",
+"description": "刺击附加剧毒，转为持续伤害控制。",
+"effects": [
+{
+"trigger": "on_hit",
+"operation": "apply_status",
+"target": "enemy",
+"status": "poison",
+"stacks": 1,
+"duration": 3
+}
+]
+},
+{
+"id": "shadow_blade_vanish",
+"name": "击退隐匿",
+"description": "命中后直接清除自身受到的标记与不利暴露。",
+"effects": [
+{
+"trigger": "on_hit",
+"operation": "remove_status",
+"target": "self",
+"status": "mark"
+}
+]
+}
+]
+},
+{
+"id": "soul_gaze",
+"name": "灵魂凝视",
+"kind": "active",
+"action_cost": "main",
+"focus_cost": 2,
+"hp_cost": 0,
+"cooldown": 3,
+"tags": ["insight", "occult", "mind"],
+"description": "直视敌人的灵魂裂隙，使其暴露弱点并陷入恐惧，但对无心智单位效果有限。",
+"effects": [
+{
+"trigger": "on_skill_use",
+"operation": "apply_status",
+"target": "enemy",
+"status": "mark",
+"stacks": 1,
+"duration": 2
+},
+{
+"trigger": "on_skill_use",
+"operation": "apply_status",
+"target": "enemy",
+"status": "fear",
+"stacks": 1,
+"duration": 2,
+"chance": 70
+}
+],
+"upgrades": [
+{
+"id": "soul_gaze_break_will",
+"name": "意志瓦解",
+"description": "凝视同时瓦解目标的防备，短暂降低其防御能力，方便物理追击。",
+"effects": [
+{
+"trigger": "on_skill_use",
+"operation": "guard_mod",
+"target": "enemy",
+"value": -3,
+"duration": 2
+}
+]
+},
+{
+"id": "soul_gaze_mind_feed",
+"name": "心智抽吸",
+"description": "若目标成功陷入恐惧，则自身恢复专注点。",
+"effects": [
+{
+"trigger": "on_skill_use",
+"operation": "resource_gain",
+"target": "self",
+"resource": "focus",
+"value": 1,
+"chance": 70
+}
+]
+}
+]
+},
+{
+"id": "iron_prayer",
+"name": "铁血祷告",
+"kind": "active",
+"action_cost": "quick",
+"focus_cost": 1,
+"hp_cost": 2,
+"cooldown": 2,
+"tags": ["will", "holy", "ward"],
+"description": "以少许鲜血为代价吟诵坚定祷词，为自身凝聚临时护佑与护盾。",
+"effects": [
+{
+"trigger": "on_skill_use",
+"operation": "shield",
+"target": "self",
+"value": 6
+},
+{
+"trigger": "on_skill_use",
+"operation": "apply_status",
+"target": "self",
+"status": "ward",
+"stacks": 1,
+"duration": 2
+}
+],
+"upgrades": [
+{
+"id": "iron_prayer_purity",
+"name": "纯洁圣光",
+"description": "施放时顺便净化自身受到的流血影响。",
+"effects": [
+{
+"trigger": "on_skill_use",
+"operation": "remove_status",
+"target": "self",
+"status": "bleed"
+}
+]
+},
+{
+"id": "iron_prayer_martyr",
+"name": "殉道反誓",
+"description": "换取更厚的护盾与防御屏障。",
+"effects": [
+{
+"trigger": "on_skill_use",
+"operation": "shield",
+"target": "self",
+"value": 6
+}
+]
+}
+]
+},
+{
+"id": "whirlwind_slash",
+"name": "狂风斩",
+"kind": "active",
+"action_cost": "main",
+"focus_cost": 1,
+"hp_cost": 0,
+"cooldown": 2,
+"tags": ["might", "finesse", "blade", "cross_attribute"],
+"description": "结合力量与灵巧的迅捷旋风斩击，对敌人造成伤害并尝试打破其架势。",
+"effects": [
+{
+"trigger": "on_skill_use",
+"operation": "bonus_die",
+"target": "enemy",
+"die": "1d6"
+},
+{
+"trigger": "on_hit",
+"operation": "apply_status",
+"target": "enemy",
+"status": "stagger",
+"stacks": 1,
+"duration": 1,
+"chance": 50
+}
+],
+"upgrades": [
+{
+"id": "whirlwind_slash_gash",
+"name": "撕裂风暴",
+"description": "牺牲架势破坏，改为施加撕裂流血效果。",
+"effects": [
+{
+"trigger": "on_hit",
+"operation": "apply_status",
+"target": "enemy",
+"status": "bleed",
+"stacks": 2,
+"duration": 2
+}
+]
+},
+{
+"id": "whirlwind_slash_parry_step",
+"name": "旋风偏斜",
+"description": "斩击后顺势调整身位，获得一层持续到下回合的短暂护佑。",
+"effects": [
+{
+"trigger": "on_hit",
+"operation": "apply_status",
+"target": "self",
+"status": "ward",
+"stacks": 1,
+"duration": 1
+}
+]
+}
+]
+},
+{
+"id": "astral_curse",
+"name": "星芒咒缚",
+"kind": "active",
+"action_cost": "main",
+"focus_cost": 2,
+"hp_cost": 0,
+"cooldown": 3,
+"tags": ["insight", "will", "occult", "cross_attribute"],
+"description": "结合洞察与意志施放诅咒，使目标陷入灼烧与标记。",
+"effects": [
+{
+"trigger": "on_skill_use",
+"operation": "apply_status",
+"target": "enemy",
+"status": "burn",
+"stacks": 1,
+"duration": 2
+},
+{
+"trigger": "on_skill_use",
+"operation": "apply_status",
+"target": "enemy",
+"status": "mark",
+"stacks": 1,
+"duration": 2
+}
+],
+"upgrades": [
+{
+"id": "astral_curse_spreading",
+"name": "蔓延阴火",
+"description": "在原有阴火之外额外施加一层灼烧，强化持续伤害效果。",
+"effects": [
+{
+"trigger": "on_skill_use",
+"operation": "apply_status",
+"target": "enemy",
+"status": "burn",
+"stacks": 1,
+"duration": 2
+}
+]
+},
+{
+"id": "astral_curse_siphon",
+"name": "诅咒虹吸",
+"description": "若诅咒施加成功，从敌人身上汲取生命值。",
+"effects": [
+{
+"trigger": "on_skill_use",
+"operation": "heal",
+"target": "self",
+"value": 3
+}
+]
+}
+]
+},
+{
+"id": "thick_hide",
+"name": "硬化皮质",
+"kind": "passive",
+"action_cost": "none",
+"focus_cost": 0,
+"hp_cost": 0,
+"cooldown": 0,
+"tags": ["might", "defense", "body"],
+"description": "坚韧的肉体能天然抵挡伤害，但过于笨重会略微降低灵巧优势。",
+"effects": [
+{
+"trigger": "passive",
+"operation": "damage_reduction",
+"target": "self",
+"value": 1
+},
+{
+"trigger": "passive",
+"operation": "stat_mod",
+"target": "self",
+"stat": "finesse",
+"value": -1
+}
+],
+"upgrades": [
+{
+"id": "thick_hide_iron_wall",
+"name": "铁壁高耸",
+"description": "进一步提升固定减伤能力，适合对抗多段轻微伤害。",
+"effects": [
+{
+"trigger": "passive",
+"operation": "damage_reduction",
+"target": "self",
+"value": 1
+}
+]
+},
+{
+"id": "thick_hide_spikes",
+"name": "荆棘反骨",
+"description": "受到伤害时有几率对攻击者造成反击伤害。",
+"effects": [
+{
+"trigger": "on_damaged",
+"operation": "counterattack",
+"target": "attacker",
+"value": 2,
+"chance": 50
+}
+]
+}
+]
+},
+{
+"id": "nimble_footwork",
+"name": "灵动步法",
+"kind": "passive",
+"action_cost": "none",
+"focus_cost": 0,
+"hp_cost": 0,
+"cooldown": 0,
+"tags": ["finesse", "movement", "evasion"],
+"description": "轻盈的身法让你在战斗开始时更容易占据主动位置。",
+"effects": [
+{
+"trigger": "on_combat_start",
+"operation": "advantage",
+"target": "current_check",
+"note": "仅作用于先攻检定"
+}
+],
+"upgrades": [
+{
+"id": "nimble_footwork_elusive",
+"name": "难抓难寻",
+"description": "成功完成灵巧或闪避检定后自动获得短暂护佑。",
+"effects": [
+{
+"trigger": "on_check_success",
+"operation": "apply_status",
+"target": "self",
+"status": "ward",
+"stacks": 1,
+"duration": 1,
+"condition_tags_any": ["finesse", "evasion"]
+}
+]
+},
+{
+"id": "nimble_footwork_first_strike",
+"name": "先发制人",
+"description": "战斗开始时抢占视线，随机标记一名敌人以准备首轮集火。",
+"effects": [
+{
+"trigger": "on_combat_start",
+"operation": "apply_status",
+"target": "random_enemy",
+"status": "mark",
+"stacks": 1,
+"duration": 2
+}
+]
+}
+]
+},
+{
+"id": "keen_scout",
+"name": "敏锐斥候",
+"kind": "passive",
+"action_cost": "none",
+"focus_cost": 0,
+"hp_cost": 0,
+"cooldown": 0,
+"tags": ["finesse", "insight", "scout", "cross_attribute"],
+"description": "结合灵巧与洞察，在进入新房间时预先感知危险。",
+"effects": [
+{
+"trigger": "on_enter_room",
+"operation": "reveal",
+"target": "current_room",
+"value": 1
+}
+],
+"upgrades": [
+{
+"id": "keen_scout_ambush",
+"name": "伏击埋伏",
+"description": "进入房间遇到战斗时，自动对随机敌人施加标记。",
+"effects": [
+{
+"trigger": "on_combat_start",
+"operation": "apply_status",
+"target": "random_enemy",
+"status": "mark",
+"stacks": 1,
+"duration": 2
+}
+]
+},
+{
+"id": "keen_scout_prepared",
+"name": "预先备战",
+"description": "揭示房间同时恢复1点专注点，为战斗做准备。",
+"effects": [
+{
+"trigger": "on_enter_room",
+"operation": "resource_gain",
+"target": "self",
+"resource": "focus",
+"value": 1
+}
+]
+}
+]
+},
+{
+"id": "shield_block",
+"name": "招架盾击",
+"kind": "reaction",
+"action_cost": "reaction",
+"focus_cost": 1,
+"hp_cost": 0,
+"cooldown": 1,
+"tags": ["might", "shield", "defense"],
+"description": "受到攻击时用武器或盾牌强行招架，成功后获得一层临时护盾。",
+"effects": [
+{
+"trigger": "on_block",
+"operation": "shield",
+"target": "self",
+"value": 3
+}
+],
+"upgrades": [
+{
+"id": "shield_block_counter",
+"name": "反击盾顶",
+"description": "招架成功时顺势反击攻击者，造成固定物理伤害。",
+"effects": [
+{
+"trigger": "on_block",
+"operation": "counterattack",
+"target": "attacker",
+"value": 3
+}
+]
+},
+{
+"id": "shield_block_unshakable",
+"name": "岿然不动",
+"description": "招架成功时获得护盾，吸收后续伤害。",
+"effects": [
+{
+"trigger": "on_block",
+"operation": "shield",
+"target": "self",
+"value": 5
+}
+]
+}
+]
+},
+{
+"id": "riposte_step",
+"name": "绝境偏转",
+"kind": "reaction",
+"action_cost": "reaction",
+"focus_cost": 1,
+"hp_cost": 0,
+"cooldown": 1,
+"tags": ["finesse", "blade", "parry"],
+"description": "在受到伤害时迅速偏转攻击，使攻击者陷入失衡。",
+"effects": [
+{
+"trigger": "on_damaged",
+"operation": "apply_status",
+"target": "attacker",
+"status": "stagger",
+"stacks": 1,
+"duration": 1
+}
+],
+"upgrades": [
+{
+"id": "riposte_step_bleed",
+"name": "血之偏转",
+"description": "偏转的同时划伤攻击者，施加流血状态。",
+"effects": [
+{
+"trigger": "on_damaged",
+"operation": "apply_status",
+"target": "attacker",
+"status": "bleed",
+"stacks": 1,
+"duration": 2
+}
+]
+},
+{
+"id": "riposte_step_disengage",
+"name": "脱身撤离",
+"description": "受到伤害后获得护佑，防止连续受创。",
+"effects": [
+{
+"trigger": "on_damaged",
+"operation": "apply_status",
+"target": "self",
+"status": "ward",
+"stacks": 1,
+"duration": 1
+}
+]
+}
+]
+},
+{
+"id": "mind_fortress",
+"name": "心智堡垒",
+"kind": "reaction",
+"action_cost": "reaction",
+"focus_cost": 1,
+"hp_cost": 0,
+"cooldown": 2,
+"tags": ["will", "mind", "defense"],
+"description": "当受到攻击或精神冲击时，凭顽强意志抵御恐惧并清除负面状态。",
+"effects": [
+{
+"trigger": "on_damaged",
+"operation": "remove_status",
+"target": "self",
+"status": "fear"
+}
+],
+"upgrades": [
+{
+"id": "mind_fortress_retaliate",
+"name": "意志反噬",
+"description": "成功抵御后反向对攻击者施加恐惧。",
+"effects": [
+{
+"trigger": "on_damaged",
+"operation": "apply_status",
+"target": "attacker",
+"status": "fear",
+"stacks": 1,
+"duration": 1
+}
+]
+},
+{
+"id": "mind_fortress_second_wind",
+"name": "逆境回神",
+"description": "成功抵御后恢复少许生命值，稳住战局。",
+"effects": [
+{
+"trigger": "on_damaged",
+"operation": "heal",
+"target": "self",
+"value": 3
+}
+]
+}
+]
+}
+],
+"enemies": [],
+"events": [],
+"locations": [],
+"observer_actions": [],
+"flavor_text": []
+}
