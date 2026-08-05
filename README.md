@@ -5,7 +5,7 @@
 战斗、战利品、观测者能力与存档。
 
 如果准备把游戏交给另一个 AI 运行，请让它先完整阅读
-[`给AI的游玩与接管说明.md`](AI_PLAY_GUIDE.md)，并优先使用 `ai_cmd.py`。
+[`AI_PLAY_GUIDE.md`](AI_PLAY_GUIDE.md)，并优先使用 `ai_cmd.py`。
 
 如果对方不能正确解压 ZIP，直接发送 `veil_dice_standalone_for_ai.py`。这是一个纯
 UTF-8 单文件版本，已内嵌引擎、全部内容包和 AI 说明；它不依赖 `data/` 目录。
