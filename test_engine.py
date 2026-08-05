@@ -54,9 +54,18 @@ class VeilDiceSmokeTests(unittest.TestCase):
             output = game.cmd(command)
             self.assertIn("《幕外之骰》", output)
             self.assertIn("观测者｜观测点", output)
+            self.assertIn("│ 装备｜", output)
         # 导出串必须保持纯净，才能直接复制导入。
         self.assertTrue(game.cmd("export").startswith("VEIL-DICE-0.1:"))
         self.assertNotIn("观测者｜观测点", game.cmd("export"))
+
+    def test_player_panel_lists_equipped_items(self):
+        game = Game.new(DATA, seed=5)
+        panel = game.panel_text()
+        for slot, label in (("main_hand", "主手"), ("body", "身体")):
+            item = game._item_by_id(game.state["equipped"][slot])
+            self.assertIsNotNone(item)
+            self.assertIn(f"{label} {item['name']}", panel)
 
 
 if __name__ == "__main__":

@@ -1058,43 +1058,17 @@ class Game:
         return self._weighted_choice(matched or rows).get("text", "") if (matched or rows) else ""
 
     def status_text(self) -> str:
-        return self.panel_text()
-
-    def panel_text(self) -> str:
-        """每条命令末尾附带、可以原样展示给玩家的紧凑状态面板。"""
         p = self.state["player"]
         room = self._room()
-        statuses = "、".join(
-            f"{name}×{info.get('stacks', 1)}({info.get('duration', 1)})"
-            for name, info in p.get("statuses", {}).items()
-        ) or "无"
-        phase_names = {
-            "exploration": "探索",
-            "combat_pending": "遭遇待处理",
-            "combat": "战斗",
-        }
-        exits = "、".join(f"{direction}→{target}" for direction, target in room.get("exits", {}).items()) or "无"
+        effects = f"防御{self._player_guard()} 减伤{self._player_dr()}"
         combat = self.state.get("combat")
-        enemy_text = "无"
+        enemy_text = ""
         if combat:
-            living = [f"{e['name']} {e['hp']}/{e['max_hp']}" for e in combat["enemies"] if e["hp"] > 0]
-            enemy_text = "、".join(living) or "已清除"
-        pending = ""
-        if self.state.get("pending_event"):
-            event = self.store.get("events", self.state["pending_event"]) or {}
-            pending = f"｜事件 {event.get('name', self.state['pending_event'])}"
-        end_text = f"｜结局 {self.state['end_state']}" if self.state.get("end_state") else ""
-        return (
-            f"╭─《幕外之骰》· 回合 {self.state['turn']} ─╮\n"
-            f"│ 行者｜HP {p['hp']}/{p['max_hp']}｜专注 {p['focus']}/{p['max_focus']}｜命运 {p['fate']}/{p['fate_cap']}｜护盾 {p.get('shield', 0)}\n"
-            f"│ 属性｜M{self._player_stat('might')} F{self._player_stat('finesse')} I{self._player_stat('insight')} W{self._player_stat('will')}｜防御 {self._player_guard()}｜减伤 {self._player_dr()}\n"
-            f"│ 状态｜{statuses}\n"
-            f"│ 地点｜[{room['index']}] {room['name']}｜{phase_names.get(self.state['phase'], self.state['phase'])}{pending}{end_text}\n"
-            f"│ 敌情｜{enemy_text}\n"
-            f"│ 出口｜{exits}\n"
-            f"│ 观测者｜观测点 {self.state['observer_points']}｜注视度 {self.state['attention']}\n"
-            f"╰────────────────────╯"
-        )
+            enemy_text = " 敌人：" + ", ".join(f"{e['name']} {e['hp']}/{e['max_hp']}" for e in combat["enemies"] if e["hp"] > 0)
+        return (f"{p['name']} · HP {p['hp']}/{p['max_hp']} · 专注 {p['focus']}/{p['max_focus']} · 命运 {p['fate']}/{p['fate_cap']}\n"
+                f"属性 M{self._player_stat('might')} F{self._player_stat('finesse')} I{self._player_stat('insight')} W{self._player_stat('will')} · {effects}\n"
+                f"房间 [{room['index']}] {room['name']} · {self.state['phase']} · 观测点 {self.state['observer_points']} · 注视度 {self.state['attention']}"
+                + enemy_text)
 
     def inventory_text(self, compact: bool = False) -> str:
         lines = [f"背包 {len(self.state['inventory'])} 件："]
@@ -1192,12 +1166,7 @@ class Game:
             result = f"命令执行失败：{exc}"
         if self.dirty and self.save_path:
             self.save()
-        # export 必须保持为可直接复制的纯存档串；退出命令也无需再附面板。
-        if op in {"export", "quit", "exit"}:
-            return result
-        if op == "status":
-            return self.panel_text()
-        return f"{result}\n\n{self.panel_text()}"
+        return result
 
     def _travel(self, direction: str) -> str:
         room = self._room()
@@ -1338,15 +1307,8 @@ def main(argv: list[str] | None = None) -> int:
     parser.add_argument("--save", default=str(Path(__file__).resolve().parent / "save.json"))
     parser.add_argument("--seed", type=int, default=None)
     parser.add_argument("--load", action="store_true")
-    parser.add_argument("--new", action="store_true", help="明确开始新局，不读取已有存档")
-    parser.add_argument("--command", default=None, help="执行单条命令后退出，例如 --command 'look'")
     args = parser.parse_args(argv)
-    should_load = args.load or (Path(args.save).exists() and not args.new)
-    game = boot(args.data_dir, args.save, seed=args.seed, load=should_load)
-    if args.command:
-        print(game.cmd(args.command))
-        game.save(args.save)
-        return 0
+    game = boot(args.data_dir, args.save, seed=args.seed, load=args.load)
     print(game.cmd("status"))
     print("输入 help 查看命令；输入 quit 退出。")
     for line in sys.stdin:
